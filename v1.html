@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>GLOED Pellethaard · V1 Webshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* V1 Webshop: echte winkel (header, menu, BF-balk), koopblok zoals Amara. Houtskool-bruin, gloed-oranje accent, goud voor besparing. */
+:root{
+  --bg:oklch(0.17 0.012 55); --bg2:oklch(0.21 0.014 55); --card:oklch(0.24 0.016 55); --line:oklch(0.32 0.02 55);
+  --ink:oklch(0.96 0.01 70); --mut:oklch(0.78 0.025 65); --ember:oklch(0.72 0.18 50); --ember-d:oklch(0.62 0.19 45);
+  --gold:oklch(0.84 0.12 80); --ok:oklch(0.78 0.13 150); --sale:oklch(0.62 0.2 28);
+  --serif:"Gloock",Georgia,serif; --sans:"Manrope","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.in{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance;font-weight:400}
+h2{font-family:var(--serif);font-size:clamp(30px,3.6vw,46px);line-height:1.08}
+h3{font-family:var(--sans);font-weight:800;font-size:18px;line-height:1.3}
+p{margin:0}
+.mut{color:var(--mut)}
+.z-sticky{z-index:30}
+
+/* demo-balk + header */
+.demo{background:var(--bg2);color:var(--mut);font-size:12px;text-align:center;padding:6px 0}
+header{background:var(--bg);border-bottom:1px solid var(--line)}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;height:76px}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:9px 16px;color:var(--mut);font-size:14px;max-width:300px}
+.logo{font-family:var(--serif);font-size:32px;letter-spacing:.14em;display:flex;align-items:center;gap:10px}
+.logo svg{width:16px;height:26px}
+.icons{display:flex;justify-content:flex-end;gap:18px;align-items:center}
+.icons button{background:none;border:0;color:var(--ink);position:relative;padding:4px}
+.icons svg{width:24px;height:24px}
+.bubble{position:absolute;top:-6px;right:-8px;background:var(--ember);color:#1a0d04;border-radius:99px;font-size:11px;font-weight:800;min-width:18px;height:18px;display:grid;place-items:center}
+.menu{display:flex;justify-content:center;gap:30px;padding:12px 0;font-weight:600;font-size:15px;border-bottom:1px solid var(--line)}
+.menu a{color:var(--mut)}.menu a:hover{color:var(--ink)}
+.menu .act{color:var(--ember)}.menu .bf{color:var(--sale)}
+@media (max-width:820px){.search,.menu{display:none}.hd{grid-template-columns:auto 1fr auto;height:62px}.logo{font-size:26px;justify-self:center}}
+.bfbar{background:oklch(0.12 0.01 55);border-bottom:1px solid var(--line)}
+.bfbar .in{display:flex;align-items:center;justify-content:center;gap:12px;padding-block:11px;font-weight:700;font-size:15px;flex-wrap:wrap;text-align:center}
+.bfbar .tag{background:var(--ember);color:#1a0d04;border-radius:6px;padding:2px 9px;font-weight:800}
+#countdown{display:none;background:var(--gold);color:#271703;border-radius:6px;padding:2px 9px;font-variant-numeric:tabular-nums}
+.crumb{font-size:14px;color:var(--mut);padding-block:18px}
+.crumb a{text-decoration:underline;text-underline-offset:3px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;padding-bottom:56px}
+@media (max-width:920px){.hero{grid-template-columns:minmax(0,1fr);gap:22px}}
+.gal{display:grid;gap:10px;position:relative}
+.stage{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--bg2)}
+.stage img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.stage .sbadge{position:absolute;top:16px;left:16px;border:1.5px solid var(--ink);color:var(--ink);background:rgba(20,14,10,.55);backdrop-filter:blur(4px);border-radius:99px;padding:6px 14px;font-weight:800;font-size:13px}
+.lbl{position:absolute;background:#fff;color:#1b130d;font-weight:700;font-size:13px;padding:6px 12px 6px 10px;border-radius:99px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px}
+.lbl::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ember)}
+@media (max-width:520px){.lbl{font-size:11px;padding:4px 9px 4px 8px}}
+.thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.thumbs button{border:2px solid transparent;border-radius:10px;overflow:hidden;padding:0;background:none;aspect-ratio:1}
+.thumbs button[aria-current="true"]{border-color:var(--ember)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+.buy{display:grid;gap:18px;align-content:start;position:relative}
+.dealpill{width:max-content;max-width:100%;border:1.5px solid var(--ink);border-radius:99px;padding:5px 14px;font-weight:800;font-size:13px}
+.buy h1{font-family:var(--serif);font-size:clamp(34px,4vw,50px);line-height:1.05}
+.buy .intro{font-size:17px;color:var(--mut);max-width:52ch}
+.pricerow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.now{font-weight:800;font-size:40px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.was{color:var(--mut);text-decoration:line-through;font-size:20px}
+.pct{background:var(--sale);color:#fff;font-weight:800;border-radius:6px;padding:3px 9px;font-size:15px}
+.savetxt{color:var(--gold);font-weight:700;font-size:15px;width:100%;margin-top:-6px}
+.lab{font-weight:800;font-size:14px;margin-bottom:8px;display:flex;justify-content:space-between}
+.lab span{color:var(--mut);font-weight:600}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.size{position:relative;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:12px 12px 12px 10px;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;text-align:left}
+.size img{width:52px;height:66px;object-fit:cover;border-radius:8px;background:#fff}
+.size b{display:block;font-size:15px}
+.size small{display:block;color:var(--mut);font-size:13px;line-height:1.35}
+.size .p{font-weight:800;font-size:14px;margin-top:2px}.size .p s{color:var(--mut);font-weight:500;margin-right:4px}
+.size[aria-pressed="true"]{border-color:var(--ember);box-shadow:inset 0 0 0 1px var(--ember)}
+.size .fav{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--ember);color:#1a0d04;font-size:11px;font-weight:800;border-radius:99px;padding:1px 9px}
+.incl{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:6px;font-size:15px}
+.incl b{font-size:15px}
+.incl li{list-style:none;display:flex;gap:10px}
+.incl ul{margin:0;padding:0;display:grid;gap:5px}
+.incl li::before{content:"✓";color:var(--ok);font-weight:800}
+.packs{display:grid;gap:8px}
+.pk{display:grid;grid-template-columns:auto 48px minmax(0,1fr) auto;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card)}
+.pk img{width:48px;height:48px;object-fit:cover;border-radius:8px}
+.pk b{display:block;font-size:15px}
+.pk small{display:block;color:var(--mut);font-size:13px;line-height:1.35}
+.pk .r{text-align:right;font-weight:800;white-space:nowrap}.pk .r s{display:block;color:var(--mut);font-weight:500;font-size:12px}
+.pk .most{color:var(--gold);font-size:12px;font-weight:800;margin-left:6px}
+.pk:has(input:checked){border-color:var(--ember)}
+.pk input{accent-color:var(--ember);width:18px;height:18px;margin:0}
+.addbtn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--ember);color:#1a0d04;border:0;border-radius:14px;padding:18px;font-weight:800;font-size:18px;width:100%;transition:background .15s}
+.addbtn:hover{background:var(--ember-d)}
+.addbtn svg{width:20px;height:20px}
+.duo{border:1.5px dashed var(--mut);border-radius:14px;padding:12px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:center}
+.duo img{width:96px;height:96px;object-fit:cover;border-radius:10px}
+.duo .row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.duo button{background:var(--gold);color:#271703;border:0;border-radius:10px;padding:8px 14px;font-weight:800}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;font-size:13px;color:var(--mut);gap:8px}
+.trust svg{width:22px;height:22px;margin:0 auto 4px;color:var(--ink)}
+
+/* chips */
+.chips{border-block:1px solid var(--line);background:var(--bg)}
+.chips .in{display:flex;gap:8px;overflow-x:auto;padding-block:14px;scrollbar-width:none}
+.chips a{flex:none;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-weight:600;font-size:14px}
+.chips a:hover{border-color:var(--mut)}
+
+section.s{padding-block:clamp(56px,8vw,96px);scroll-margin-top:20px}
+section.tint{background:var(--bg2)}
+.kicker{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+@media (max-width:920px){.split{grid-template-columns:minmax(0,1fr);gap:28px}}
+.pic{position:relative;border-radius:18px;overflow:hidden}
+.pic img{width:100%;height:100%;object-fit:cover}
+.copy{display:grid;gap:18px}
+.copy .lead{font-size:18px;color:var(--mut);max-width:56ch}
+.feats{display:grid;gap:16px;margin-top:6px}
+.feat{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px}
+.feat .ic{width:40px;height:40px;border-radius:10px;background:var(--card);display:grid;place-items:center;color:var(--ember)}
+.feat .ic svg{width:20px;height:20px}
+.feat p{color:var(--mut);font-size:15px}
+
+/* cadeau-blok zoals Amara */
+.frame{border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:920px){.frame{grid-template-columns:minmax(0,1fr)}}
+.reasons{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.reasons li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;font-size:16px}
+.reasons li span{width:28px;height:28px;border-radius:50%;background:var(--ember);color:#1a0d04;font-weight:800;display:grid;place-items:center;font-size:14px}
+
+/* vergelijking */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:15px;vertical-align:top}
+thead th{font-size:14px;background:var(--bg)}
+thead th.us{color:var(--ember)}
+td.us{background:oklch(0.26 0.04 55);font-weight:700}
+.y{color:var(--ok);font-weight:800}.n{color:var(--sale);font-weight:800}
+
+/* stappen */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:920px){.steps{grid-template-columns:minmax(0,1fr)}}
+.step img{aspect-ratio:4/3;object-fit:cover;border-radius:14px;width:100%}
+.step h3{margin-top:14px;display:flex;gap:10px;align-items:center}
+.step h3 span{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--ember);color:var(--ember);display:grid;place-items:center;font-size:14px}
+.step p{color:var(--mut);font-size:15px;margin-top:6px}
+
+/* maten */
+.duoSizes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:720px){.duoSizes{grid-template-columns:minmax(0,1fr)}}
+.sz{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);display:grid}
+.sz img{aspect-ratio:1;object-fit:cover;width:100%;background:#fff}
+.sz .t{padding:20px;display:grid;gap:12px}
+.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;font-size:15px;margin:0}
+.spec dt{color:var(--mut)}.spec dd{margin:0;font-weight:700}
+.btn2{border:1.5px solid var(--ink);background:none;color:var(--ink);border-radius:12px;padding:12px 16px;font-weight:800}
+.btn2:hover{background:var(--ink);color:var(--bg)}
+
+/* pakketten */
+.bundles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:920px){.bundles{grid-template-columns:minmax(0,1fr)}}
+.bd{border:1.5px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;position:relative;background:var(--card)}
+.bd.best{border-color:var(--ember)}
+.bd .rib{position:absolute;top:12px;left:12px;background:var(--ember);color:#1a0d04;font-weight:800;font-size:12px;border-radius:99px;padding:3px 10px}
+.bd img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.bd .t{padding:20px;display:grid;gap:12px;align-content:start}
+.bd ul{margin:0;padding-left:18px;color:var(--mut);font-size:15px;display:grid;gap:3px}
+.bd .pp{font-weight:800;font-size:26px}.bd .pp small{color:var(--gold);font-size:14px;margin-left:6px}
+
+/* sfeer */
+.mos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:220px;gap:10px}
+.mos img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.mos .a{grid-column:span 2;grid-row:span 2}.mos .b{grid-column:span 2}
+@media (max-width:720px){.mos{grid-template-columns:1fr 1fr;grid-auto-rows:170px}}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:820px}
+details{border:1px solid var(--line);border-radius:12px;padding:0 18px}
+summary{list-style:none;cursor:pointer;font-weight:700;padding:16px 0;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--ember);font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{color:var(--mut);padding-bottom:16px}
+
+.final{position:relative;border-radius:22px;overflow:hidden;min-height:460px;display:grid;align-items:end}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,oklch(0.12 0.01 55 / .95) 15%,transparent 70%)}
+.final .t{position:relative;z-index:1;padding:clamp(24px,4vw,48px);display:grid;gap:14px;max-width:620px}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px;padding-block:28px 110px;margin-top:72px}
+
+/* lade */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg2);z-index:61;transform:translateX(100%);transition:transform .3s cubic-bezier(.22,1,.36,1);display:grid;grid-template-rows:auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line);font-weight:800;font-size:18px}
+.dh button{background:none;border:0;color:var(--ink);font-size:28px;line-height:1}
+.db{overflow-y:auto;padding:18px 20px;display:grid;gap:12px;align-content:start}
+.line{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center}
+.line img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+.line small{color:var(--mut);display:block;font-size:13px}
+.line .r{font-weight:800}
+.df{border-top:1px solid var(--line);padding:16px 20px;display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:20px}
+.tot small{display:block;color:var(--gold);font-size:13px;font-weight:700}
+.dnote{font-size:13px;color:var(--mut);text-align:center}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--gold);color:#271703;font-weight:800;padding:10px 16px;border-radius:10px;z-index:70;display:none}
+.mbar{display:none}
+@media (max-width:920px){.mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:oklch(0.14 0.01 55 / .97);border-top:1px solid var(--line);gap:12px;align-items:center;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}.mbar .addbtn{padding:14px;font-size:16px}.mbar div{white-space:nowrap;font-size:13px;color:var(--mut)}.mbar b{display:block;color:var(--ink);font-size:18px}}
+
+/* uitleg */
+.uitlegbtn{position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:55;background:#ffe27a;color:#3a2a00;border:0;border-radius:12px;padding:10px 16px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+@media (min-width:921px){.uitlegbtn{bottom:20px}}
+.pi{position:absolute;z-index:20;display:none;width:220px;background:#ffe27a;color:#3a2a00;font-size:13px;line-height:1.35;padding:10px 12px;border-radius:4px;box-shadow:0 8px 18px rgba(0,0,0,.35);transform:rotate(-1.5deg)}
+.pi b{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.pi::after{content:"";position:absolute;left:18px;bottom:-7px;border:7px solid transparent;border-bottom:0;border-top-color:#ffe27a}
+body.uitleg .pi{display:block}
+.minis{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;font-weight:600;margin-top:-6px}
+.minis span::before{content:"✓";color:var(--ok);font-weight:800;margin-right:6px}
+.yn{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;border:1.5px solid var(--gold);border-radius:14px;padding:12px;background:oklch(0.25 0.03 70 / .4)}
+.yn img{width:72px;height:72px;object-fit:cover;border-radius:10px}
+.yn b{display:block;font-size:15px}.yn small{display:block;color:var(--mut);font-size:13px;margin:2px 0 8px}.yn .gold{color:var(--gold);font-weight:800}
+.ynbtns{display:flex;gap:8px}
+.ynbtns button{flex:1;border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px;font-weight:800;font-size:14px}
+.ynbtns button[aria-pressed="true"]{border-color:var(--ember);background:oklch(0.32 0.08 45)}
+.yn.need{animation:nudge .5s}
+@keyframes nudge{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+/* vuur */
+.bfbar{background:radial-gradient(120% 220% at 50% 120%,oklch(0.55 0.2 40) 0%,oklch(0.3 0.12 35) 45%,oklch(0.14 0.02 45) 100%)}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;left:-10%;top:-10%;width:70%;height:90%;background:radial-gradient(closest-side,oklch(0.62 0.19 45 / .35),transparent);filter:blur(30px);pointer-events:none;z-index:0;animation:flicker 4s ease-in-out infinite alternate}
+.hero>*{position:relative;z-index:1}
+.stage{box-shadow:0 30px 80px -20px oklch(0.6 0.2 45 / .55)}
+.addbtn{background:linear-gradient(180deg,oklch(0.78 0.17 60),oklch(0.66 0.2 42));box-shadow:0 12px 34px -8px oklch(0.65 0.2 42 / .7)}
+.addbtn:hover{background:linear-gradient(180deg,oklch(0.82 0.16 62),oklch(0.7 0.2 45))}
+.now{color:oklch(0.86 0.13 70);text-shadow:0 0 28px oklch(0.7 0.2 45 / .45)}
+.final{box-shadow:0 0 0 1px oklch(0.45 0.12 40),0 40px 120px -30px oklch(0.6 0.2 40 / .6)}
+@keyframes flicker{0%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}100%{opacity:.85;transform:scale(.98)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.hero::before{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 21c-3.9 0-6.5-2.6-6.5-6.2 0-3.4 2.4-5.4 3.6-8.3.5 2 1.6 3 2.7 3.6C12 7.6 12.8 5 14.6 3c.4 3.4 3.9 5.5 3.9 10.2 0 4.4-2.7 7.8-6.5 7.8z"/></symbol>
+  <symbol id="i-hat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 11h18L12 5 3 11zm6 0v4h6v-4M10 15v5h4v-5"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1 12H6L5 8zm4 0V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-7 8c1-3.5 3.8-5 7-5s6 1.5 7 5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm9 2-4-4"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 11h12v9H6zm2 0V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-pellet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 15l4-4m-1 7l4-4m2 2l4-4M9 7l3-3"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 4l16 16M9 3v4m6-4v4M7 7h10v4a5 5 0 0 1-7.5 4.3M12 16v5"/></symbol>
+</svg>
+
+<div class="demo">Preview · merknaam, pakketprijzen en foto's zijn voorstellen</div>
+<header>
+  <div class="in hd">
+    <div class="search"><svg width="18" height="18"><use href="#i-search"/></svg>Zoek in buitenhaarden</div>
+    <a class="logo" href="#top" aria-label="GLOED home"><svg viewBox="0 0 16 26" aria-hidden="true"><path d="M8 25C3.5 25 1 22 1 18c0-4 3-6 4-10 .7 2.4 2 3.3 3 4 0-3 1-6 3-8 .5 4 4 6.4 4 12 0 5-3 9-7 9z" fill="var(--ember)"/></svg>GLOED</a>
+    <div class="icons"><button aria-label="Account"><svg><use href="#i-user"/></svg></button><button id="cartBtn" aria-label="Winkelmand"><svg><use href="#i-bag"/></svg><span class="bubble" id="cartCount">0</span></button></div>
+  </div>
+  <nav class="menu" aria-label="Hoofdmenu"><a class="act" href="#maten">Pellethaarden</a><a href="#tafel">Tafelhaarden</a><a href="#pakketten">Startpakketten</a><a href="#pakketten">Pellets en onderdelen</a><a href="#cadeau">Cadeaus</a><a class="bf" href="#koop">Black Friday</a></nav>
+</header>
+<div class="bfbar" id="top"><div class="in"><span>Black Friday · tot <span class="tag">−€161</span> op de GLOED pellethaard</span><span id="countdown"></span></div></div>
+
+<div class="in crumb"><a href="#top">Home</a> / <a href="#maten">Buitenhaarden</a> / GLOED pellethaard</div>
+
+<main>
+<section class="in hero" id="koop">
+  <div class="gal">
+    <div class="stage">
+      <img id="mainImg" src="img/f51.jpg" alt="GLOED pellethaard brandend op een terras in de schemering">
+      <span class="sbadge" id="sbadge">Black Friday −40%</span>
+      <span class="lbl" style="top:16%;right:5%">Hoed tegen vonken</span>
+      <span class="lbl" style="top:44%;right:5%">Echte vlammen in glas</span>
+      <span class="lbl" style="bottom:26%;left:5%">Vulbak voor pellets</span>
+      <span class="lbl" style="bottom:5%;right:5%" id="lblH">183 cm hoog</span>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+    <div class="pi" style="top:24%;left:-8px"><b>Herkenbaar</b>Labels in de foto: in twee seconden zie je wat je koopt.</div>
+  </div>
+
+  <div class="buy">
+    <span class="dealpill">Black Friday · alleen deze week</span>
+    <h1>GLOED pellethaard</h1>
+    <p class="intro">Echte vlammen in een glazen buis, op houtpellets. Geen stroom, geen gasfles. Zet hem bij de loungeset en blijf ook in het najaar buiten zitten.</p>
+
+    <div class="pricerow"><span class="now" id="pNow">€239</span><span class="was" id="pWas">€400</span><span class="pct" id="pPct">−40%</span><span class="savetxt" id="pSave">Je bespaart €161 met de Black Friday-prijs</span></div>
+    <div class="minis"><span>Snel in elkaar</span><span>Makkelijk aan te steken</span><span>Makkelijk schoon te houden</span></div>
+    <div class="pi" style="top:240px;right:0"><b>Prijs voelt lager</b>Oude prijs en besparing naast elkaar, vlak boven de keuzes.</div>
+
+    <div>
+      <div class="lab">Maat <span id="sizeName">Groot · 183 cm</span></div>
+      <div class="sizes" role="group" aria-label="Maat">
+        <button class="size" id="szG" aria-pressed="true"><span class="fav">Favoriet</span><img src="img/f52.jpg" alt=""><div><b>Groot · 183 cm</b><small>Vaste plek bij de lounge</small><div class="p"><s>€400</s>€239</div></div></button>
+        <button class="size" id="szK" aria-pressed="false"><img src="img/f25.jpg" alt=""><div><b>Klein · 122 cm</b><small>Wieltjes en handgreep</small><div class="p"><s>€350</s>€199</div></div></button>
+      </div>
+    </div>
+
+    <div class="incl"><b>Altijd inbegrepen</b><ul><li>Hoed tegen vonken bovenop de glazen buis</li><li>Glazen vlambuis en vulbak voor houtpellets</li><li>14 dagen bedenktijd</li></ul></div>
+
+    <div>
+      <div class="lab">Pakket <span>meteen kunnen stoken</span></div>
+      <div class="packs" id="packs"></div>
+    </div>
+    <div class="pi" style="bottom:300px;left:-12px"><b>Meer in je mandje</b>Startpakket staat klaar als meest gekozen: je hoeft niks meer los te zoeken.</div>
+
+    <div class="yn" id="yn">
+      <img src="img/f70.jpg" alt="GLOED Tafelhaard op de tuintafel">
+      <div><b>Maak je terras compleet: tafelhaard erbij?</b><small>Klein vuurtje voor midden op tafel. <s>€59</s> <span class="gold">€39 met je haard</span></small>
+        <div class="ynbtns" role="group" aria-label="Tafelhaard erbij"><button id="ynJa" aria-pressed="false">Ja, erbij</button><button id="ynNee" aria-pressed="false">Nee, bedankt</button></div></div>
+    </div>
+    <button class="addbtn" id="addBtn"><svg><use href="#i-bag"/></svg><span id="addTxt">In winkelmand · €268</span></button>
+
+    <div class="duo">
+      <img src="img/f26.jpg" alt="GLOED groot en klein naast elkaar">
+      <div><b>Duo: groot + klein</b><p class="mut" style="font-size:14px">Eén bij de lounge, één die je meerolt naar de tafel.</p><div class="row"><span><b>€419</b> <s class="mut">€438</s></span><button id="duoBtn">Kies de Duo</button></div></div>
+    </div>
+
+    <div class="trust">
+      <div><svg><use href="#i-back"/></svg>14 dagen bedenktijd</div>
+      <div><svg><use href="#i-lock"/></svg>Veilig betalen</div>
+      <div><svg><use href="#i-hat"/></svg>Hoed inbegrepen</div>
+    </div>
+  </div>
+</section>
+
+<nav class="chips" aria-label="Op deze pagina"><div class="in"><a href="#product">De haard</a><a href="#terras">Voor je terras</a><a href="#cadeau">Als cadeau</a><a href="#vergelijk">Vergelijk</a><a href="#zo">Zo werkt het</a><a href="#maten">Maten</a><a href="#pakketten">Pakketten</a><a href="#tafel">Tafelhaard</a><a href="#faq">Vragen</a></div></nav>
+
+<section class="s" id="product">
+  <div class="in split">
+    <div class="pic" style="background:#fff;aspect-ratio:1"><img src="img/f52.jpg" alt="GLOED pellethaard groot, vrijstaand" style="object-fit:contain">
+      <span class="lbl" style="top:6%;left:54%">Hoed tegen vonken</span>
+      <span class="lbl" style="top:34%;left:54%">Glazen vlambuis</span>
+      <span class="lbl" style="top:58%;left:6%">Vulbak</span>
+      <span class="lbl" style="bottom:6%;left:54%">Stalen voet</span>
+    </div>
+    <div class="copy">
+      <span class="kicker">De haard</span>
+      <h2>Een zuil van vuur op je terras</h2>
+      <p class="lead">Je schept houtpellets in de vulbak, steekt ze onderin aan en na een paar minuten draait de vlam omhoog door de glazen buis. Je voelt de warmte in een kring om de haard.</p>
+      <div class="feats">
+        <div class="feat"><span class="ic"><svg><use href="#i-flame"/></svg></span><div><h3>Echte vlammen, van alle kanten te zien</h3><p>Geen lamp of nepvuur. Een hoge vlam in helder glas.</p></div></div>
+        <div class="feat"><span class="ic"><svg><use href="#i-hat"/></svg></span><div><h3>Hoed tegen vonken erbovenop</h3><p>Vonken blijven onder de kap, ook met kussens of planten in de buurt.</p></div></div>
+        <div class="feat"><span class="ic"><svg><use href="#i-plug"/></svg></span><div><h3>Geen stroom, geen gasfles</h3><p>Zet hem waar je zit op een open terras. Geen snoer, geen fles wisselen.</p></div></div>
+        <div class="feat"><span class="ic"><svg><use href="#i-pellet"/></svg></span><div><h3>Op houtpellets uit de bouwmarkt</h3><p>Gewone pellets van 6 mm. Bijvullen kan terwijl hij brandt.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="terras">
+  <div class="in split">
+    <div class="copy">
+      <span class="kicker">Voor je terras</span>
+      <h2>Nog niet naar binnen</h2>
+      <p class="lead">Het is half acht, de zon is weg en het wordt fris. Normaal ga je nu naar binnen. Met de GLOED naast de bank pak je een dekentje, schenk je nog een glas in en blijf je zitten.</p>
+      <p class="lead">En als het terras al mooi is, is dit het stuk dat ontbrak: een plek om omheen te zitten, waar vrienden blijven hangen.</p>
+      <div><button class="btn2" data-scroll="koop">Kies je GLOED</button></div>
+    </div>
+    <div class="pic" style="aspect-ratio:4/5"><img src="img/f43.jpg" alt="Vrienden aan tafel op een terras met de GLOED pellethaard ernaast" loading="lazy">
+      <span class="lbl" style="top:5%;left:5%">Warm in een kring om de haard</span></div>
+  </div>
+</section>
+
+<section class="s" id="cadeau">
+  <div class="in">
+    <div class="frame">
+      <div class="pic" style="aspect-ratio:4/5"><img src="img/f50.jpg" alt="Vrouw met thee bij de GLOED pellethaard op een winteravond" loading="lazy"></div>
+      <div class="copy">
+        <span class="kicker">Als cadeau</span>
+        <h2>Het cadeau waarmee ze de hele winter buiten zitten</h2>
+        <p class="lead">Voor je ouders, je partner of samen met je broers en zussen. Je hoeft er niks van te weten:</p>
+        <ul class="reasons">
+          <li><span>1</span>Kies groot voor een vaste plek, klein als ze hem willen verrijden.</li>
+          <li><span>2</span>Neem het Startpakket: dan kunnen ze dezelfde avond stoken.</li>
+          <li><span>3</span>De hoed tegen vonken zit er al op. Niks extra's nodig.</li>
+        </ul>
+        <div><button class="btn2" data-pack="1">Kies het Startpakket</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="vergelijk">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><span class="kicker">Vergelijk</span><h2>Pellethaard, vuurkorf of gasheater?</h2></div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th class="us">GLOED pellethaard</th><th>Open vuurkorf</th><th>Gas-terrasheater</th></tr></thead>
+        <tbody>
+          <tr><td>Echte vlammen</td><td class="us"><span class="y">✓</span> Hoge vlam in glas</td><td><span class="y">✓</span> Laag in de bak</td><td><span class="n">✕</span> Alleen gloed</td></tr>
+          <tr><td>Rook</td><td class="us">Weinig, vooral bij aansteken</td><td>Veel, in je kleren en bij de buren</td><td>Geen</td></tr>
+          <tr><td>Vonken</td><td class="us">Hoed vangt ze op</td><td>Open vuur</td><td>Geen</td></tr>
+          <tr><td>Brandstof</td><td class="us">Pellets uit de bouwmarkt</td><td>Hout sjouwen en drogen</td><td>Gasfles wisselen</td></tr>
+          <tr><td>Hoe het eruitziet</td><td class="us">Strakke zuil, 122 of 183 cm</td><td>Bak op de grond</td><td>Paddenstoel</td></tr>
+          <tr><td>Black Friday</td><td class="us">Vanaf €199</td><td>-</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="zo">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><span class="kicker">Zo werkt het</span><h2>Vullen, aansteken, genieten</h2></div>
+    <div class="steps">
+      <article class="step"><img src="img/f06.jpg" alt="Houtpellets met een schep in de vulbak doen" loading="lazy"><h3><span>1</span>Vul de bak</h3><p>Schep houtpellets van 6 mm in de vulbak aan de zijkant.</p></article>
+      <article class="step"><img src="img/f07.jpg" alt="Pellets onderin aansteken met een gasbrander" loading="lazy"><h3><span>2</span>Steek onderin aan</h3><p>Met een gasbrander steek je de pellets aan. Na een paar minuten trekt het vuur omhoog.</p></article>
+      <article class="step"><img src="img/f46.jpg" alt="Vlammen draaien omhoog in de glazen buis" loading="lazy"><h3><span>3</span>Geniet van de vlam</h3><p>De vlam draait door de buis. Bijvullen kan terwijl hij brandt.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="maten">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><span class="kicker">Kies je maat</span><h2>Groot of klein?</h2></div>
+    <div class="duoSizes">
+      <article class="sz"><img src="img/f52.jpg" alt="GLOED groot" loading="lazy" style="object-fit:contain"><div class="t"><h3>GLOED Groot · 183 cm</h3><p class="mut">Vaste plek naast de lounge of eettafel. De hoogste vlam.</p><dl class="spec"><dt>Hoogte</dt><dd>183 cm</dd><dt>Voet</dt><dd>Vierkante stalen plaat</dd><dt>Hoed</dt><dd>Inbegrepen</dd><dt>Brandstof</dt><dd>Houtpellets 6 mm</dd></dl><div class="pricerow"><span class="now" style="font-size:30px">€239</span><span class="was">€400</span></div><button class="addbtn" data-pick="groot">Kies Groot</button></div></article>
+      <article class="sz"><img src="img/f25.jpg" alt="GLOED klein" loading="lazy" style="object-fit:contain"><div class="t"><h3>GLOED Klein · 122 cm</h3><p class="mut">Met wieltjes en handgreep. Rol hem waar je zit, ook in een kleine tuin.</p><dl class="spec"><dt>Hoogte</dt><dd>122 cm</dd><dt>Voet</dt><dd>Kruispoot met 2 wieltjes</dd><dt>Hoed</dt><dd>Inbegrepen</dd><dt>Brandstof</dt><dd>Houtpellets 6 mm</dd></dl><div class="pricerow"><span class="now" style="font-size:30px">€199</span><span class="was">€350</span></div><button class="addbtn" data-pick="klein">Kies Klein</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="pakketten">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><span class="kicker">Pakketten</span><h2>Vanavond al stoken</h2><p class="lead">Alles wat je nodig hebt in één keer, voordeliger dan los.</p></div>
+    <div class="bundles">
+      <article class="bd"><img src="img/f44.jpg" alt="Alleen de haard" loading="lazy"><div class="t"><h3>Alleen de haard</h3><ul><li>GLOED groot of klein</li><li>Hoed tegen vonken</li></ul><div class="pp" data-pp="0">€239</div><button class="btn2" data-pack="0">Kies</button></div></article>
+      <article class="bd best"><span class="rib">Meest gekozen</span><img src="img/f73.jpg" alt="Startpakket met pellets, schep, gasbrander en borstel" loading="lazy"><div class="t"><h3>Startpakket</h3><ul><li>GLOED + hoed</li><li>15 kg houtpellets</li><li>Vulschep en gasbrander</li><li>Schoonmaakborstel voor het glas</li></ul><div class="pp" data-pp="1">€268<small>bespaar €19</small></div><button class="addbtn" data-pack="1">Kies Startpakket</button></div></article>
+      <article class="bd"><img src="img/f74.jpg" alt="Reserve glazen buis, brandkamer en hoed" loading="lazy"><div class="t"><h3>Compleet pakket</h3><ul><li>Alles uit het Startpakket</li><li>Reserve glazen buis en brandkamer</li><li>Hittebestendige vloermat</li><li>Beschermhoes</li></ul><div class="pp" data-pp="2">€338<small>bespaar €71</small></div><button class="btn2" data-pack="2">Kies Compleet</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="tafel">
+  <div class="in split">
+    <div class="pic" style="aspect-ratio:4/5"><img src="img/f70.jpg" alt="Kleine pellet-tafelhaard midden op de tuintafel" loading="lazy"><span class="lbl" style="top:5%;left:5%">Op dezelfde pellets</span></div>
+    <div class="copy">
+      <span class="kicker">Erbij</span>
+      <h2>GLOED Tafelhaard</h2>
+      <p class="lead">Een klein vuurtje midden op de tuintafel. Mooi naast de grote haard, of als los cadeau.</p>
+      <div class="pricerow"><span class="now" style="font-size:30px">€39</span><span class="was">€59</span></div>
+      <div><button class="addbtn" id="addTable" style="width:auto;padding:14px 22px">Tafelhaard toevoegen</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="sfeer">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><h2>Van loungehoek tot stadstuin</h2></div>
+    <div class="mos">
+      <img class="a" src="img/f49.jpg" alt="" loading="lazy">
+      <img src="img/f47.jpg" alt="" loading="lazy">
+      <img src="img/f61.jpg" alt="" loading="lazy">
+      <img class="b" src="img/f67.jpg" alt="" loading="lazy">
+      <img src="img/f48.jpg" alt="" loading="lazy">
+      <img src="img/f42.jpg" alt="" loading="lazy">
+      <img class="b" src="img/f45.jpg" alt="" loading="lazy" style="object-position:50% 40%">
+    </div>
+  </div>
+</section>
+
+<section class="s tint" id="faq">
+  <div class="in" style="display:grid;gap:28px">
+    <div class="copy"><span class="kicker">Vragen</span><h2>Wat mensen vragen</h2></div>
+    <div class="faq">
+      <details><summary>Mag hij onder mijn overkapping?</summary><p>Alleen onder een open overkapping, waar minstens een kwart open is en er ruimte boven en rondom is. Onder een dicht dak of op een balkon raden we hem af.</p></details>
+      <details><summary>Rookt hij?</summary><p>Bij aansteken en bijvullen komt er wat rook. Brandt hij eenmaal goed, dan is het veel minder dan bij een open vuurkorf. Gebruik droge pellets van 6 mm.</p></details>
+      <details><summary>Hoe warm wordt het?</summary><p>Je voelt de warmte in een kring om de haard. Zet hem dus vlak bij je zitplek. Een heel terras verwarmen doe je er niet mee.</p></details>
+      <details><summary>Welke pellets gebruik ik?</summary><p>Gewone houtpellets van 6 mm uit de bouwmarkt. In het Startpakket zit een zak van 15 kg.</p></details>
+      <details><summary>Is het in elkaar zetten lastig?</summary><p>Nee. Voet, vulbak, glazen buis en hoed op elkaar. Reken op een kwartier.</p></details>
+      <details><summary>Kan ik hem binnen gebruiken?</summary><p>Nee, de GLOED is alleen voor buiten.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="in" style="margin-top:72px">
+  <div class="final"><img src="img/f26.jpg" alt="" loading="lazy">
+    <div class="t"><span class="kicker">Black Friday</span><h2>Nog één avond buiten</h2><p class="lead">GLOED Groot €239 in plaats van €400. GLOED Klein €199 in plaats van €350. Hoed tegen vonken altijd inbegrepen.</p><div><button class="addbtn" data-scroll="koop" style="width:auto;padding:16px 26px">Kies je GLOED</button></div></div>
+  </div>
+</div>
+</main>
+<footer><div class="in">GLOED · preview V1 Webshop · niet live</div></footer>
+
+<div class="mbar"><div>Black Friday<b id="mbPrice">€239</b></div><button class="addbtn" data-scroll="koop">Kies je GLOED</button></div>
+<button class="uitlegbtn" id="uitleg" aria-pressed="false">Uitleg</button>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Winkelmand" aria-hidden="true">
+  <div class="dh">Winkelmand<button id="closeD" aria-label="Sluiten">×</button></div>
+  <div class="db" id="lines"></div>
+  <div class="df"><div class="tot"><span>Totaal<small id="dSave"></small></span><span id="dTot">€0</span></div><button class="addbtn" id="checkout">Afrekenen</button><div class="dnote">14 dagen bedenktijd · veilig betalen</div></div>
+</aside>
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  const DEADLINE=null; // bv. "2026-11-30T23:59:00", alleen na goedkeuring
+  const SIZES={
+    groot:{name:"GLOED Groot",sub:"183 cm",price:239,was:400,img:"f52",pics:["f51","f52","f05","f46","f04","f07"]},
+    klein:{name:"GLOED Klein",sub:"122 cm",price:199,was:350,img:"f65",pics:["f61","f25","f27","f31","f26","f68"]}
+  };
+  const PACKS=[
+    {name:"Alleen de haard",desc:"Met hoed tegen vonken",add:0,val:0,img:"f44"},
+    {name:"Startpakket",desc:"15 kg pellets, vulschep, gasbrander, borstel",add:29,val:48,img:"f73",most:true},
+    {name:"Compleet pakket",desc:"Start + reserve glas en brandkamer, hittemat, hoes",add:99,val:170,img:"f74"}
+  ];
+  const EXTRA={tafel:{name:"GLOED Tafelhaard",price:39,was:59,img:"f70"}};
+  const st={size:"groot",pack:1,cart:[]};
+  const eur=n=>"€"+(Number.isInteger(n)?n:n.toFixed(2).replace(".",","));
+  const $=s=>document.querySelector(s);
+
+  function renderThumbs(){
+    const s=SIZES[st.size],th=$("#thumbs");th.innerHTML="";
+    s.pics.forEach((p,i)=>{const b=document.createElement("button");b.setAttribute("aria-label","Foto "+(i+1));b.setAttribute("aria-current",i===0);b.innerHTML=`<img src="img/${p}.jpg" alt="">`;b.onclick=()=>{$("#mainImg").src=`img/${p}.jpg`;th.querySelectorAll("button").forEach(x=>x.setAttribute("aria-current","false"));b.setAttribute("aria-current","true")};th.appendChild(b)});
+    $("#mainImg").src=`img/${s.pics[0]}.jpg`;
+  }
+  function renderPacks(){
+    const s=SIZES[st.size];
+    $("#packs").innerHTML=PACKS.map((p,i)=>`<label class="pk"><input type="radio" name="pk" value="${i}" ${st.pack===i?"checked":""}><img src="img/${p.img}.jpg" alt=""><div><b>${p.name}${p.most?'<span class="most">meest gekozen</span>':''}</b><small>${p.desc}</small></div><div class="r">${eur(s.price+p.add)}<s>${eur(s.was+p.val)}</s></div></label>`).join("");
+    $("#packs").querySelectorAll("input").forEach(i=>i.onchange=()=>{st.pack=+i.value;update()});
+  }
+  function update(){
+    const s=SIZES[st.size],p=PACKS[st.pack];
+    $("#pNow").textContent=eur(s.price);$("#pWas").textContent=eur(s.was);
+    const pct=Math.round((1-s.price/s.was)*100);$("#pPct").textContent="−"+pct+"%";$("#sbadge").textContent="Black Friday −"+pct+"%";
+    $("#pSave").textContent="Je bespaart "+eur(s.was-s.price)+" met de Black Friday-prijs";
+    $("#sizeName").textContent=(st.size==="groot"?"Groot":"Klein")+" · "+s.sub;$("#lblH").textContent=s.sub+" hoog";
+    $("#addTxt").textContent="In winkelmand · "+eur(s.price+p.add);$("#mbPrice").textContent=eur(s.price);
+    document.querySelectorAll("[data-pp]").forEach(el=>{el.firstChild.nodeValue=eur(s.price+PACKS[+el.dataset.pp].add)});
+  }
+  function setSize(sz){st.size=sz;$("#szG").setAttribute("aria-pressed",sz==="groot");$("#szK").setAttribute("aria-pressed",sz==="klein");renderThumbs();renderPacks();update()}
+  $("#szG").onclick=()=>setSize("groot");$("#szK").onclick=()=>setSize("klein");
+  document.querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>{setSize(b.dataset.pick);go("koop")});
+  document.querySelectorAll("[data-pack]").forEach(b=>b.onclick=()=>{st.pack=+b.dataset.pack;renderPacks();update();go("koop")});
+  document.querySelectorAll("[data-scroll]").forEach(b=>b.onclick=()=>go(b.dataset.scroll));
+  function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+
+  function add(item){st.cart.push(item);$("#cartCount").textContent=st.cart.length;openD()}
+  st.yn=null;
+  const setYN=v=>{st.yn=v;$("#ynJa").setAttribute("aria-pressed",v===true);$("#ynNee").setAttribute("aria-pressed",v===false)};
+  $("#ynJa").onclick=()=>setYN(true);$("#ynNee").onclick=()=>setYN(false);
+  $("#addBtn").onclick=()=>{
+    if(st.yn===null){const y=$("#yn");y.classList.remove("need");void y.offsetWidth;y.classList.add("need");return}
+    const s=SIZES[st.size],p=PACKS[st.pack];
+    st.cart.push({name:s.name+" · "+s.sub,sub:p.name,price:s.price+p.add,was:s.was+p.val,img:p.add?p.img:s.pics[0]});
+    if(st.yn)st.cart.push({name:EXTRA.tafel.name,sub:"Combideal met je haard",price:39,was:59,img:"f70"});
+    $("#cartCount").textContent=st.cart.length;openD()};
+  $("#duoBtn").onclick=()=>add({name:"Duo: GLOED Groot + Klein",sub:"Met 2 hoeden tegen vonken",price:419,was:750,img:"f26"});
+  $("#addTable").onclick=()=>add({name:EXTRA.tafel.name,sub:"Black Friday",price:39,was:59,img:"f70"});
+  function openD(){
+    const L=$("#lines");
+    if(!st.cart.length){L.innerHTML='<p class="mut">Je winkelmand is nog leeg.</p>'}
+    else L.innerHTML=st.cart.map(c=>`<div class="line"><img src="img/${c.img}.jpg" alt=""><div><b>${c.name}</b><small>${c.sub}</small></div><div class="r">${eur(c.price)}</div></div>`).join("")+(st.cart.some(c=>c.name.includes("Tafel"))?"":`<div class="duo" style="grid-template-columns:64px minmax(0,1fr)"><img src="img/f70.jpg" alt="" style="width:64px;height:64px"><div><b>Vaak erbij: GLOED Tafelhaard</b><div class="row"><span><b>€39</b> <s class="mut">€59</s></span><button id="dTable">Erbij</button></div></div></div>`);
+    const t=st.cart.reduce((a,c)=>a+c.price,0),w=st.cart.reduce((a,c)=>a+c.was,0);
+    $("#dTot").textContent=eur(t);$("#dSave").textContent=w>t?"Je bespaart "+eur(w-t):"";
+    const dt=$("#dTable");if(dt)dt.onclick=()=>{st.cart.push({name:EXTRA.tafel.name,sub:"Black Friday",price:39,was:59,img:"f70"});$("#cartCount").textContent=st.cart.length;openD()};
+    $("#drawer").classList.add("open");$("#scrim").classList.add("open");$("#drawer").setAttribute("aria-hidden","false");
+  }
+  function closeD(){$("#drawer").classList.remove("open");$("#scrim").classList.remove("open");$("#drawer").setAttribute("aria-hidden","true")}
+  $("#cartBtn").onclick=openD;$("#closeD").onclick=closeD;$("#scrim").onclick=closeD;
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeD()});
+  $("#checkout").onclick=()=>{const el=$("#toast");el.textContent="Preview: in de live winkel ga je nu naar afrekenen.";el.style.display="block";setTimeout(()=>el.style.display="none",2600)};
+
+  if(DEADLINE){const cd=$("#countdown");cd.style.display="inline";const end=new Date(DEADLINE).getTime();const tick=()=>{const d=Math.max(0,end-Date.now());cd.textContent=Math.floor(d/864e5)+"d "+String(Math.floor(d%864e5/36e5)).padStart(2,"0")+"u "+String(Math.floor(d%36e5/6e4)).padStart(2,"0")+"m"};tick();setInterval(tick,30000)}
+  $("#uitleg").onclick=function(){const on=document.body.classList.toggle("uitleg");this.setAttribute("aria-pressed",on);this.textContent=on?"Uitleg uit":"Uitleg"};
+  setSize("groot");
+})();
+</script>
+</body>
+</html>

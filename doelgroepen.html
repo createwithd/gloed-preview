@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pellethaard doelgroepen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: smalle leeskolom, bronnen, scorecard, groene kaarten, rode kaarten, argumentenblok */
+:root{
+  --bg:#ffffff; --fg:#1d1f1e; --muted:#5d6461; --line:#e3e6e4; --soft:#f6f7f6;
+  --g-border:#1F8A5B; --g-fill:#F1FAF5; --g-row:#E6F5EC; --g-text:#156b45;
+  --r-border:#C43D3D; --r-fill:#FDF3F3; --r-row:#FBE9E9; --r-text:#a12f2f;
+  --hook:#fff7ea; --hook-line:#ecd3a3;
+  --display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141615; --fg:#ecefed; --muted:#a3aaa6; --line:#2c302e; --soft:#1c1f1d;
+  --g-fill:#14261d; --g-row:#183022; --g-text:#6fd3a0; --r-fill:#2a1616; --r-row:#331b1b; --r-text:#f09a9a;
+  --hook:#2a2417; --hook-line:#6b5528; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141615; --fg:#ecefed; --muted:#a3aaa6; --line:#2c302e; --soft:#1c1f1d;
+  --g-fill:#14261d; --g-row:#183022; --g-text:#6fd3a0; --r-fill:#2a1616; --r-row:#331b1b; --r-text:#f09a9a;
+  --hook:#2a2417; --hook-line:#6b5528; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:920px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:30px;line-height:1.15}
+h2{font-size:21px}
+.lead{color:var(--muted);max-width:65ch;margin:6px 0 0}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin-top:12px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--soft)}
+tr.g td{background:var(--g-row)} tr.r td{background:var(--r-row)}
+td.n{text-align:center} td.tot{font-weight:700;text-align:center}
+.cards{display:grid;gap:18px}
+.card{border:2px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:14px}
+.card.g{border-color:var(--g-border);background:var(--g-fill)}
+.card.r{border-color:var(--r-border);background:var(--r-fill)}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+.num{font-family:var(--display);font-weight:700;font-size:15px;color:var(--muted)}
+.top h3{font-size:20px}
+.pill{font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid currentColor}
+.g .pill{color:var(--g-text)} .r .pill{color:var(--r-text)}
+.score{margin-left:auto;font-family:var(--display);font-weight:700;font-size:18px}
+.g .score{color:var(--g-text)} .r .score{color:var(--r-text)}
+.zin{margin:0;font-size:16px}
+.hook{background:var(--hook);border:1px solid var(--hook-line);padding:12px 16px;border-radius:8px;font-family:var(--display);font-size:19px;font-weight:500}
+dl{display:grid;grid-template-columns:130px 1fr;gap:6px 14px;margin:0}
+dt{font-weight:600;font-size:13px;color:var(--muted);padding-top:1px}
+dd{margin:0;min-width:0}
+.waarom{border-top:1px dashed var(--r-border);padding-top:10px;color:var(--r-text);font-size:14px}
+.tag{font-size:11px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--soft);border:1px solid var(--line);white-space:nowrap}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--muted)}
+.note b{color:var(--fg)}
+.note ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}
+@media (max-width:560px){dl{grid-template-columns:1fr}dt{padding-top:6px}.score{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Ter goedkeuring · 25 november 2026 · versie 2</div>
+    <h1>Wie koopt een pellethaard met glazen buis?</h1>
+    <p class="lead">Doelgroepen voor de salespagina van de pellethaard: groot 183 cm en klein 158 cm, altijd met hoed. Groen is mijn voorstel om op te bouwen, rood laten we liggen, met de reden erbij.</p>
+  </header>
+
+  <section class="note">
+    <b>Waar dit op steunt (niet alleen reviews):</b>
+    <ul>
+      <li><b>Tuinverwarming.com orderdata en merkboek:</b> ongeveer 2.800 klanten in dezelfde markt (terrasverwarming, elektrisch). Ongeveer de helft van de orders komt van overkapping-eigenaren. 69% besteedt €100 tot €250. 440 zakelijke klanten, waarvan 23 horeca en 38 veranda- en tuinbedrijven.</li>
+      <li><b>Zoekvraag in Nederland (Ahrefs, per maand):</b> terrasverwarmer 4.800, pelletkachel buiten 1.100, pellet terrasverwarmer 300, terrasverwarmer pellets 300, rookloze vuurkorf 200, pellethaard 150, flamesa 150, vuurkorf rookvrij 100, terrasverwarmer overkapping 70, terrasverwarmer balkon 0.</li>
+      <li><b>Regels en logica:</b> een pellethaard is een open vuur. Onder een dichte overkapping of op een balkon mag dat niet of geeft het gedoe. Hij hoort op een open terras of onder een open overkapping (Flamesa zegt: minstens 25% open en 40 cm vrij).</li>
+      <li><b>62 Flamesa-reviews en forums (Radar, Klusidee):</b> alleen gebruikt als controle, niet als basis.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scorecard</h2>
+    <p class="lead">Elk punt 1 tot 5: hoe groot de groep is, of het product echt bij hun situatie past, of we ze makkelijk bereiken, en hoeveel bewijs er is.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>#</th><th>Doelgroep</th><th>Grootte</th><th>Past product</th><th>Bereik</th><th>Bewijs</th><th>Totaal /20</th></tr></thead>
+        <tbody>
+          <tr class="g"><td>1</td><td>Tuinbezitter met open terras</td><td class="n">5</td><td class="n">5</td><td class="n">5</td><td class="n">4</td><td class="tot">19</td></tr>
+          <tr class="g"><td>2</td><td>Sfeermaker die het terras compleet wil maken</td><td class="n">4</td><td class="n">5</td><td class="n">5</td><td class="n">4</td><td class="tot">18</td></tr>
+          <tr class="g"><td>3</td><td>Slimme koper die vergelijkt</td><td class="n">4</td><td class="n">4</td><td class="n">4</td><td class="n">4</td><td class="tot">16</td></tr>
+          <tr class="g"><td>4</td><td>Vuurkorfgebruiker die iets netters wil</td><td class="n">3</td><td class="n">4</td><td class="n">4</td><td class="n">3</td><td class="tot">14</td></tr>
+          <tr class="g"><td>5</td><td>Cadeaukoper</td><td class="n">3</td><td class="n">4</td><td class="n">4</td><td class="n">3</td><td class="tot">14</td></tr>
+          <tr class="r"><td>6</td><td>Eigenaar van een dichte overkapping of veranda</td><td class="n">5</td><td class="n">1</td><td class="n">4</td><td class="n">3</td><td class="tot">13</td></tr>
+          <tr class="r"><td>7</td><td>Horeca, B&amp;B en vakantiepark</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td class="n">3</td><td class="tot">10</td></tr>
+          <tr class="r"><td>8</td><td>Tuinaanlegger en verandabouwer</td><td class="n">2</td><td class="n">3</td><td class="n">2</td><td class="n">2</td><td class="tot">9</td></tr>
+          <tr class="r"><td>9</td><td>Appartement met balkon</td><td class="n">3</td><td class="n">1</td><td class="n">3</td><td class="n">0</td><td class="tot">7</td></tr>
+          <tr class="r"><td>10</td><td>Kampeerder en camperaar</td><td class="n">2</td><td class="n">1</td><td class="n">2</td><td class="n">0</td><td class="tot">5</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cards">
+    <h2>Voorstel: hierop bouwen</h2>
+
+    <article class="card g">
+      <div class="top"><span class="num">1</span><h3>Tuinbezitter met open terras</h3><span class="pill">Sterk bewijs</span><span class="score">19/20</span></div>
+      <p class="zin">Huiseigenaar met een terras in de tuin, zonder dak of onder een open overkapping, die in voor- en najaar langer buiten wil zitten.</p>
+      <div class="hook">"Nog niet naar binnen. Echte vlammen en warmte op je eigen terras."</div>
+      <dl>
+        <dt>Wie</dt><dd>Stel of gezin, 35 tot 65 jaar, koophuis met tuin. Zit 's avonds graag buiten met een borrel. Geeft €100 tot €300 uit aan iets voor de tuin.</dd>
+        <dt>Waarom nu</dt><dd>De avonden worden koud. Ze hebben net een loungeset of nieuw terras en willen dat langer gebruiken.</dd>
+        <dt>Bang voor</dt><dd>Dat hij niet warm genoeg is, rook naar de buren, vonken op een houten vlonder.</dd>
+        <dt>Wil eigenlijk</dt><dd>Dat de avond buiten gewoon doorgaat, met een kampvuurgevoel zonder het gedoe.</dd>
+        <dt>Belofte</dt><dd>Een staande haard met echte vlammen in een glazen buis, hoed tegen vonken erbij, zonder stroom of gasfles.</dd>
+        <dt>Kanaal</dt><dd>Google (pelletkachel buiten, pellet terrasverwarmer) en Meta met video van de vlam in het donker.</dd>
+        <dt>Bewijs</dt><dd>Grootste zoekterm in deze niche: pelletkachel buiten, 1.100 per maand. Bij Tuinverwarming is "langer buiten zitten" de kern van de grootste groepen. 35 van 62 Flamesa-reviews noemen terras of tuin.</dd>
+      </dl>
+    </article>
+
+    <article class="card g">
+      <div class="top"><span class="num">2</span><h3>Sfeermaker die het terras compleet wil maken</h3><span class="pill">Sterk bewijs</span><span class="score">18/20</span></div>
+      <p class="zin">Stel met een verzorgde tuin dat design net zo belangrijk vindt als warmte, en een mooi ding voor bij de loungeset wil.</p>
+      <div class="hook">"Het mooiste vuur van de straat staat op jouw terras."</div>
+      <dl>
+        <dt>Wie</dt><dd>Stel van 30 tot 60 jaar, verzorgd terras, kijkt op Instagram en Pinterest. Beslist samen.</dd>
+        <dt>Waarom nu</dt><dd>Terras is af en mist nog één ding: een plek om omheen te zitten.</dd>
+        <dt>Bang voor</dt><dd>Dat het er goedkoop of lelijk uitziet, of dat het 's avonds anders oogt dan op de foto.</dd>
+        <dt>Wil eigenlijk</dt><dd>Een terras waar vrienden graag blijven hangen.</dd>
+        <dt>Belofte</dt><dd>Een strakke zwarte zuil met een hoge vlam in glas. Overdag een designobject, 's avonds het middelpunt.</dd>
+        <dt>Kanaal</dt><dd>Meta en Instagram, vooral video in het donker. Retargeting werkt hier het best.</dd>
+        <dt>Bewijs</dt><dd>Tuinverwarming merkboek: sfeerzoeker en ontwerp-bewuste besteden €200 tot €400 en worden via beeld overtuigd, niet via zoekvraag. Design en vlammenspel bij ongeveer 1 op 5 Flamesa-reviews.</dd>
+      </dl>
+    </article>
+
+    <article class="card g">
+      <div class="top"><span class="num">3</span><h3>Slimme koper die vergelijkt</h3><span class="pill">Redelijk bewijs</span><span class="score">16/20</span></div>
+      <p class="zin">Heeft Flamesa of een vergelijkbare haard al gezien, vindt €250 tot €420 veel, en zoekt dezelfde soort haard voor minder.</p>
+      <div class="hook">"Zelfde soort haard, hoed erbij, en geld over voor pellets."</div>
+      <dl>
+        <dt>Wie</dt><dd>Prijsbewuste huiseigenaar die wil vertellen dat hij een goede deal heeft. Vergelijkt op Bol, Google Shopping en merk-sites.</dd>
+        <dt>Waarom nu</dt><dd>Black Friday en acties, en hij ziet de advertenties van Flamesa al.</dd>
+        <dt>Bang voor</dt><dd>Te veel betalen, of juist goedkope troep kopen.</dd>
+        <dt>Wil eigenlijk</dt><dd>De mooie haard, zonder de hoofdprijs.</dd>
+        <dt>Belofte</dt><dd>Dezelfde soort haard met hoed standaard erbij (bij Flamesa los €69,95), voor een lagere prijs.</dd>
+        <dt>Kanaal</dt><dd>Google Shopping en zoekopdrachten als pellet terrasverwarmer. Meta-retargeting.</dd>
+        <dt>Bewijs</dt><dd>150 zoekopdrachten per maand op "flamesa". In Google Shopping staat dezelfde haard bij 5 winkels naast elkaar voor €229 tot €260. Tuinverwarming: voordeelkoper is een van de drie hoofdgroepen.</dd>
+      </dl>
+    </article>
+
+    <article class="card g">
+      <div class="top"><span class="num">4</span><h3>Vuurkorfgebruiker die iets netters wil</h3><span class="pill">Hypothese</span><span class="score">14/20</span></div>
+      <p class="zin">Heeft een vuurkorf of vuurschaal, maar baalt van rook in de kleren, hout sjouwen en klagende buren.</p>
+      <div class="hook">"Vuurkorf in de schuur? Dit vuur steek je wel weer aan."</div>
+      <dl>
+        <dt>Wie</dt><dd>Tuinbezitter van 30 tot 60 jaar die zijn vuurkorf steeds minder gebruikt.</dd>
+        <dt>Waarom nu</dt><dd>Begin van het stookseizoen, gedoe met de buren.</dd>
+        <dt>Bang voor</dt><dd>Dat dit net zo rookt, dat pellets duur of lastig zijn.</dd>
+        <dt>Wil eigenlijk</dt><dd>Een vuur dat netter brandt en geen werk is.</dd>
+        <dt>Belofte</dt><dd>Brandt op houtkorrels in een gesloten buis, met minder rook dan een open vuurkorf. Niet "rookvrij" beloven: bij aansteken en bijvullen komt er wat rook.</dd>
+        <dt>Kanaal</dt><dd>Google (rookloze vuurkorf, vuurkorf rookvrij: samen 300 per maand). Meta-video naast een rokende vuurkorf.</dd>
+        <dt>Bewijs</dt><dd>Zoekvolume op rookloze vuurkorf. Forums over stookoverlast. Nog geen kopersdata, daarom hypothese: eerst testen met 1 adset.</dd>
+      </dl>
+    </article>
+
+    <article class="card g">
+      <div class="top"><span class="num">5</span><h3>Cadeaukoper</h3><span class="pill">Redelijk bewijs</span><span class="score">14/20</span></div>
+      <p class="zin">Zoekt een groot cadeau voor ouders of partner rond Sinterklaas, kerst, Vaderdag of een verjaardag.</p>
+      <div class="hook">"Het cadeau waarmee ze ook in het najaar buiten blijven."</div>
+      <dl>
+        <dt>Wie</dt><dd>Volwassen kinderen die samen iets geven, of een partner die iets voor de tuin koopt.</dd>
+        <dt>Waarom nu</dt><dd>Feestdagen en verjaardagen.</dd>
+        <dt>Bang voor</dt><dd>Niet op tijd geleverd, lastig in elkaar te zetten, dat ze het niet durven aan te steken.</dd>
+        <dt>Wil eigenlijk</dt><dd>Een cadeau dat indruk maakt en echt gebruikt wordt.</dd>
+        <dt>Belofte</dt><dd>Snel opgezet, duidelijke uitleg hoe je hem aansteekt.</dd>
+        <dt>Kanaal</dt><dd>Meta in de weken voor de feestdagen.</dd>
+        <dt>Bewijs</dt><dd>Tuinverwarming merkboek heeft de cadeaukoper als vast profiel. 4 van 62 Flamesa-reviews noemen een cadeau.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section class="cards">
+    <h2>Laten liggen</h2>
+
+    <article class="card r">
+      <div class="top"><span class="num">6</span><h3>Eigenaar van een dichte overkapping of veranda</h3><span class="pill">Groot, maar past niet</span><span class="score">13/20</span></div>
+      <p class="zin">Heeft een overkapping met dak en vaak zijwanden en wil daar warmte.</p>
+      <div class="hook">"Ook in oktober onder je overkapping."</div>
+      <dl>
+        <dt>Wie</dt><dd>Huiseigenaar 35 tot 65 met een nieuwe veranda. Bij Tuinverwarming ongeveer de helft van alle orders.</dd>
+        <dt>Waarom nu</dt><dd>Veranda net af.</dd>
+        <dt>Bang voor</dt><dd>Of het past en veilig is.</dd>
+        <dt>Wil eigenlijk</dt><dd>Warmte precies waar hij zit.</dd>
+        <dt>Belofte</dt><dd>Sfeer onder de overkapping.</dd>
+        <dt>Kanaal</dt><dd>Google (terrasverwarmer overkapping).</dd>
+        <dt>Bewijs</dt><dd>Sterk: Tuinverwarming orderdata.</dd>
+      </dl>
+      <div class="waarom"><b>Waarom rood:</b> een open vuur hoort niet onder een dicht dak. Rook blijft hangen en het dak wordt heet. Deze groep kiest terecht een elektrische wandheater. Op de pagina alleen noemen in de FAQ: "onder een open overkapping kan, met ruimte eromheen".</div>
+    </article>
+
+    <article class="card r">
+      <div class="top"><span class="num">7</span><h3>Horeca, B&amp;B en vakantiepark</h3><span class="pill">Later</span><span class="score">10/20</span></div>
+      <p class="zin">Ondernemer die gasten langer buiten wil houden.</p>
+      <div class="hook">"Gasten die langer blijven zitten."</div>
+      <dl>
+        <dt>Wie</dt><dd>Café, B&amp;B, vakantiepark. Koopt meerdere tegelijk.</dd>
+        <dt>Waarom nu</dt><dd>Plant zijn seizoen in mei tot augustus.</dd>
+        <dt>Bang voor</dt><dd>Veiligheid met gasten, gemeenteregels, bijvullen elke 2 uur.</dd>
+        <dt>Wil eigenlijk</dt><dd>Meer omzet buiten het zomerseizoen.</dd>
+        <dt>Belofte</dt><dd>Sfeer zonder vaste aansluiting.</dd>
+        <dt>Kanaal</dt><dd>Direct contact, telefoon, LinkedIn.</dd>
+        <dt>Bewijs</dt><dd>Tuinverwarming: 23 horecaklanten met de hoogste orderwaarde.</dd>
+      </dl>
+      <div class="waarom"><b>Waarom rood:</b> ander verkoopverhaal (zakelijk, u-vorm, offertes) en buiten het seizoen. Later als apart zakelijk aanbod.</div>
+    </article>
+
+    <article class="card r">
+      <div class="top"><span class="num">8</span><h3>Tuinaanlegger en verandabouwer</h3><span class="pill">Later</span><span class="score">9/20</span></div>
+      <p class="zin">Bedrijf dat tuinen of terrassen oplevert en er een haard bij kan verkopen.</p>
+      <div class="hook">"Lever je tuin op met een vuur erbij."</div>
+      <dl>
+        <dt>Wie</dt><dd>Hovenier of tuinbouwer.</dd>
+        <dt>Waarom nu</dt><dd>Offertes in voorjaar en zomer.</dd>
+        <dt>Bang voor</dt><dd>Leveringszekerheid.</dd>
+        <dt>Wil eigenlijk</dt><dd>Extra omzet per klus.</dd>
+        <dt>Belofte</dt><dd>Vaste inkoopprijs en voorraad.</dd>
+        <dt>Kanaal</dt><dd>Direct benaderen.</dd>
+        <dt>Bewijs</dt><dd>Tuinverwarming: 38 veranda- en tuinbedrijven als klant.</dd>
+      </dl>
+      <div class="waarom"><b>Waarom rood:</b> wordt pas interessant met vaste voorraad in Nederland. Geen salespagina-doelgroep.</div>
+    </article>
+
+    <article class="card r">
+      <div class="top"><span class="num">9</span><h3>Appartement met balkon</h3><span class="pill">Past niet</span><span class="score">7/20</span></div>
+      <p class="zin">Woont in een flat en wil warmte op het balkon.</p>
+      <div class="hook">"Ook op je balkon een echt vuur."</div>
+      <dl>
+        <dt>Wie</dt><dd>Stel in een appartement.</dd>
+        <dt>Waarom nu</dt><dd>Balkon langer gebruiken.</dd>
+        <dt>Bang voor</dt><dd>Bovenburen, VvE-regels.</dd>
+        <dt>Wil eigenlijk</dt><dd>Kleine, veilige warmte.</dd>
+        <dt>Belofte</dt><dd>Compact vuur.</dd>
+        <dt>Kanaal</dt><dd>Meta.</dd>
+        <dt>Bewijs</dt><dd>Zoekvolume terrasverwarmer balkon: 0.</dd>
+      </dl>
+      <div class="waarom"><b>Waarom rood:</b> open vuur van 158 of 183 cm op een balkon geeft gedoe met buren en VvE. Hoog risico op klachten.</div>
+    </article>
+
+    <article class="card r">
+      <div class="top"><span class="num">10</span><h3>Kampeerder en camperaar</h3><span class="pill">Past niet</span><span class="score">5/20</span></div>
+      <p class="zin">Wil warmte bij de tent of camper.</p>
+      <div class="hook">"Kampvuurgevoel op elke camping."</div>
+      <dl>
+        <dt>Wie</dt><dd>Kampeerder met auto of camper.</dd>
+        <dt>Waarom nu</dt><dd>Kamperen in voor- of najaar.</dd>
+        <dt>Bang voor</dt><dd>Gewicht, glasbreuk, campingregels.</dd>
+        <dt>Wil eigenlijk</dt><dd>Iets kleins en lichts.</dd>
+        <dt>Belofte</dt><dd>Mobiel vuur.</dd>
+        <dt>Kanaal</dt><dd>Meta, kampeerforums.</dd>
+        <dt>Bewijs</dt><dd>Geen.</dd>
+      </dl>
+      <div class="waarom"><b>Waarom rood:</b> 11 tot 16 kg met een glazen buis neem je niet mee, en veel campings verbieden open vuur.</div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Argumenten voor de salespagina</h2>
+    <p class="lead">Dit zijn geen doelgroepen maar redenen, bezwaren en vergelijkingen. Ze komen terug als blokken op de pagina.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Argument</th><th>Soort</th><th>Helpt bij</th><th>Blok op de pagina</th></tr></thead>
+        <tbody>
+          <tr><td>Echte vlammen in een glazen buis van 158 of 183 cm</td><td><span class="tag">USP</span></td><td>1, 2, 5</td><td>Hero met video in het donker</td></tr>
+          <tr><td>Hoed tegen vonken zit er altijd bij (bij Flamesa los €69,95)</td><td><span class="tag">USP</span></td><td>1, 3</td><td>Vergelijkingsblok</td></tr>
+          <tr><td>Twee maten: klein 158 cm, groot 183 cm</td><td><span class="tag">USP</span></td><td>1, 2, 5</td><td>Kies je maat</td></tr>
+          <tr><td>Geen stroom, geen gasfles, geen houtblokken</td><td><span class="tag">USP</span></td><td>1, 4</td><td>Hoe werkt het</td></tr>
+          <tr><td>Geeft hij genoeg warmte?</td><td><span class="tag">Bezwaar</span></td><td>1</td><td>Eerlijk: warm in een kring om de haard, geen heel terras</td></tr>
+          <tr><td>Rook bij aansteken en bijvullen</td><td><span class="tag">Bezwaar</span></td><td>1, 4</td><td>FAQ, nooit "rookvrij"</td></tr>
+          <tr><td>Vonken op een houten vlonder</td><td><span class="tag">Bezwaar</span></td><td>1</td><td>Hoed plus tip: zet hem op tegels of een hittemat</td></tr>
+          <tr><td>Mag het onder mijn overkapping?</td><td><span class="tag">Bezwaar</span></td><td>1, 6</td><td>FAQ: alleen een open overkapping, met ruimte eromheen</td></tr>
+          <tr><td>Wat kost een avond stoken?</td><td><span class="tag">Bezwaar</span></td><td>1, 3</td><td>Rekenvoorbeeld pellets per avond (prijs nog op te zoeken)</td></tr>
+          <tr><td>Pellethaard vs. vuurkorf vs. gas vs. elektrisch</td><td><span class="tag">Vergelijking</span></td><td>3, 4</td><td>Vergelijkingstabel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="note">
+    <b>Nog nodig voor de salespagina:</b> merknaam en verkoopprijs, brandduur en vermogen van de JN07 en JN-02 (bij de leverancier vragen), en of er voorraad in Nederland komt. Ik verzin geen aanbod zoals gratis verzending of levertijd zolang dat niet bevestigd is.
+  </section>
+</div>
+</body>
+</html>
