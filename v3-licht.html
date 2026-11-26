@@ -681,7 +681,7 @@ footer{background:var(--night-2)}
   </div>
 </section>
 
-<nav class="chips" aria-label="Op deze pagina"><div class="in"><a class="k" href="#koop">Kopen</a><a href="#verhaal">De vlam</a><a href="#maten">Grand of Mini</a><a href="#zowerkt">Zo werkt het</a><a href="#vergelijk">Vergelijk</a><a href="#tafel">Tafelhaard</a><a href="#cadeau">Cadeau</a><a href="#faq">Vragen</a></div></nav>
+<nav class="chips" aria-label="Op deze pagina"><div class="in"><a class="k" href="#koop">Kopen</a><a href="#verhaal">De vlam</a><a href="#maten">Grand of Mini</a><a href="#zowerkt">Zo werkt het</a><a href="#vergelijk">Vergelijk</a><a href="#tafel">Tafelhaard</a><a href="#faq">Vragen</a></div></nav>
 
 <!-- HERO -->
 
@@ -815,25 +815,6 @@ footer{background:var(--night-2)}
 </section>
 
 <!-- FAQ -->
-<section class="sec gift" id="cadeau" aria-labelledby="giftT">
-  <div class="in giftgrid">
-    <div class="giftpic"><img src="img/c_cadeau1.jpg" alt="Twee wollen plaids, een kaartje en een zak pellets op tafel, met de Flametower brandend op de achtergrond" loading="lazy">
-      <span class="pin l" style="--x:40%;--y:64%"><i></i><span>Jouw tekst op het kaartje</span></span>
-      <span class="pin t" style="--x:78%;--y:48%"><i></i><span>Eerste zak pellets</span></span>
-    </div>
-    <div class="gifttxt">
-      <h2 id="giftT">Geef de eerste warme avond cadeau</h2>
-      <p class="lead">Een haard is mooi, maar de eerste avond ermee is het echte cadeau. Met het Flametower Cadeaupakket kunnen ze dezelfde avond al stoken en lekker onder een plaid kruipen.</p>
-      <ul class="giftlist">
-        <li><b>Twee warme wollen plaids</b><span>Voor op de loungebank, ook als het echt koud wordt.</span></li>
-        <li><b>Eerste zak houtpellets</b><span>Uitpakken, vullen, aansteken. Geen ritje naar de bouwmarkt.</span></li>
-        <li><b>Kaartje met jouw tekst</b><span>Wij schrijven jouw boodschap op het kaartje en stoppen het in de doos.</span></li>
-      </ul>
-      <div class="giftbuy"><div><span class="mut">Cadeaupakket bij je Flametower</span><b>+ €29</b></div><button type="button" class="cta" id="addGift">Maak er een cadeau van</button></div>
-    </div>
-  </div>
-</section>
-
 <section class="sec" id="faq">
   <div class="in faqw">
     <div class="head" style="margin:0"><h2>Wat mensen vragen</h2><p class="lead">Staat je vraag er niet bij? Mail of bel de klantenservice.</p></div>
@@ -903,7 +884,7 @@ footer{background:var(--night-2)}
       ["f05","De hoed bovenop de Flametower",[L("Vonken blijven onder de kap",46,25)]],
       ["s_g5","Flametower Grand op het terras: nog niet naar binnen",[]],
       ["s_g4","Vergelijking Flametower, vuurkorf en gasheater",[]],
-      ["f68","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l")]]
+      ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l")]]
     ]},
     klein:{key:"klein",name:"Flametower Mini",full:"Flametower Mini · 122 cm",price:199,was:350,img:"f25",pics:[
       ["f61","Flametower Mini brandt in een stadstuin",[L("Hoed tegen vonken",58,4,"l"),L("360° warmte rondom",60,45,"l"),L("Rol hem mee op wieltjes",70,92,"l")]],
@@ -912,7 +893,7 @@ footer{background:var(--night-2)}
       ["f31","Wieltjes van de Flametower Mini",[L("Verplaatsen zonder tillen",58,82,"l")]],
       ["s_g3","Zo werkt het: vullen, aansteken, genieten",[]],
       ["f27","Flametower Mini brandt op een terras",[]],
-      ["f68","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l")]]
+      ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l")]]
     ]}
   };
 
@@ -926,7 +907,6 @@ footer{background:var(--night-2)}
     {id:"glas",name:"Reserve glazen buis",desc:"Voor als het glas breekt",price:49.95,img:"u_glas"},
     {id:"kamer",name:"Reserve brandkamer",desc:"Vervangt de brandpot onderin",price:24.95,img:"u_brandkamer"}
   ];
-  EXTRAS.push({id:"cadeau",name:"Flametower Cadeaupakket",desc:"2 plaids, zak pellets, kaartje met jouw tekst",price:29,img:"c_cadeau2"});
   EXTRAS.push({id:"tafel",name:"Flametower Tafelhaard",desc:"Klein vuur voor op tafel",price:39,was:59,img:"t_tafel1"});
   const DUO={price:210,was:400}; // 2x Grand €449 in plaats van €478 (voorstel)
   const state={size:"groot",pic:0,pack:0,extras:new Set(),haard:false,duo:false};
@@ -1023,8 +1003,7 @@ footer{background:var(--night-2)}
   const setYN=v=>{state.yn=v;$("#ynJa").setAttribute("aria-pressed",v===true);$("#ynNee").setAttribute("aria-pressed",v===false);if(v)state.extras.add("tafel");else state.extras.delete("tafel");update()};
   $("#ynJa").addEventListener("click",()=>setYN(true));$("#ynNee").addEventListener("click",()=>setYN(false));
   $("#addCart").addEventListener("click",()=>{if(state.yn===null){const y=$("#yn");y.classList.remove("need");void y.offsetWidth;y.classList.add("need");y.scrollIntoView({block:"center",behavior:"smooth"});return}state.haard=true;update();openDrawer()});
-  $("#addGift").addEventListener("click",()=>{state.extras.add("cadeau");update();toast("Cadeaupakket toegevoegd");$("#koop").scrollIntoView({behavior:"smooth"})});
-  $("#addTable").addEventListener("click",()=>{setYN(true);state.haard=state.haard||false;update();openDrawer()});
+    $("#addTable").addEventListener("click",()=>{setYN(true);state.haard=state.haard||false;update();openDrawer()});
   $("#cartBtn").addEventListener("click",openDrawer);
   $("#closeD").addEventListener("click",closeDrawer);
   $("#scrim").addEventListener("click",closeDrawer);
