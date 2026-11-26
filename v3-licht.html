@@ -876,7 +876,7 @@ footer{background:var(--night-2)}
 
 <footer><div class="in"><span>Flametower · preview Black Friday-salespagina (werknaam, versie 3 licht)</span><span>14 dagen bedenktijd · veilig betalen · alleen voor buiten</span></div></footer>
 
-<div class="mbar rel" id="mbar"><div class="p">Black Friday<b id="mbPrice">€239</b></div><button class="cta" type="button" id="mbAdd">In winkelmand</button>
+<div class="mbar rel" id="mbar"><div class="p">Totaal<b id="mbPrice">€239</b></div><button class="cta" type="button" id="mbAdd">In winkelmand</button>
   
 </div>
 
@@ -981,7 +981,7 @@ footer{background:var(--night-2)}
     $("#pName").textContent=s.full;
     $("#pNow").textContent=eur(s.price);$("#pWas").textContent=eur(s.was);$("#pSave").textContent="Je bespaart "+eur(s.was-s.price);
     $("#mainBadge").innerHTML="Black Friday<small>−"+eur(s.was-s.price)+"</small>";
-    $("#mbPrice").textContent=eur(s.price);
+    $("#mbPrice").textContent=eur(t);
     $("#szG").setAttribute("aria-pressed",state.size==="groot");$("#szK").setAttribute("aria-pressed",state.size==="klein");
     $("#sumTot").textContent=eur(t);$("#sumSave").innerHTML=was>t?"· je bespaart <b>"+eur(was-t)+"</b>":"";
     $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";}const si=$("#sfeerImg");if(si){const g=state.size==="groot";si.src=g?"img/f41.jpg":"img/f61.jpg";si.alt=g?"Flametower Grand brandt op een terras naast de loungestoel":"Flametower Mini brandt in een kleine stadstuin"}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
