@@ -291,10 +291,10 @@ section{scroll-margin-top:80px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0;counter-reset:st}
 .steps li{display:grid;gap:14px;align-content:start}
 .steps .pic{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
-.steps .pic img{width:100%;height:100%;object-fit:cover}
+.steps .pic img,.steps .pic video{width:100%;height:100%;object-fit:cover;display:block}
 .steps .pic::before{counter-increment:st;content:counter(st);position:absolute;z-index:2;left:14px;bottom:10px;font-family:var(--display);font-weight:900;font-size:84px;line-height:1;color:var(--fg);text-shadow:0 4px 24px oklch(0.1 0.02 50 / .7)}
 .steps p{color:var(--mut);font-size:16px}
-@media (max-width:860px){.steps{grid-template-columns:1fr;gap:34px}.steps .pic{aspect-ratio:4/3}}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:34px}.steps .pic{aspect-ratio:4/5}}
 
 /* vergelijking */
 .cmp{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
@@ -594,6 +594,7 @@ footer{background:var(--night-2)}
 @media (max-width:900px){.sfeer2{grid-template-columns:minmax(0,1fr);gap:24px}}
 
 #mainVid{width:100%;height:100%;object-fit:cover;display:block}
+[hidden]{display:none!important}
 .thumbs .play{position:absolute;inset:0;margin:auto;width:28px;height:28px;border-radius:50%;background:rgba(20,14,10,.72);box-shadow:0 0 0 2px rgba(255,255,255,.85)}
 .thumbs .play::after{content:"";position:absolute;left:11px;top:8px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
 </style>
@@ -765,9 +766,9 @@ footer{background:var(--night-2)}
   <div class="in">
     <div class="head"><h2>Vullen, aansteken, buiten blijven</h2><p class="lead">Geen ingewikkelde handleiding. In een paar minuten heb je een hoge vlam.</p></div>
     <ol class="steps">
-      <li><div class="pic"><img src="img/f142.jpg" alt="Houtpellets met een schep in de vulbak doen" loading="lazy"></div><h3>Vul de bak</h3><p>Schep houtpellets van 6 mm in de vulbak aan de zijkant. Die koop je bij elke bouwmarkt.</p></li>
-      <li><div class="pic"><img src="img/f07.jpg" alt="Pellets onderin aansteken met een gasbrander" loading="lazy"></div><h3>Steek onderin aan</h3><p>Met een gasbrander steek je de pellets onderin aan. Bij het aansteken komt wat rook vrij, daarna trekt het vuur omhoog.</p></li>
-      <li><div class="pic"><img src="img/f04.jpg" alt="Hoge vlam in de glazen buis" loading="lazy"></div><h3>Blijf zitten</h3><p>De vlam draait door de glazen buis. Bijvullen kan terwijl hij brandt.</p></li>
+      <li><div class="pic"><video src="clips/c16.mp4" poster="clips/c16.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Houtpellets met een schep in de vulbak doen"></video></div><h3>Vul de bak</h3><p>Schep houtpellets van 6 mm in de vulbak aan de zijkant. Die koop je bij elke bouwmarkt.</p></li>
+      <li><div class="pic"><video src="clips/c08.mp4" poster="clips/c08.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Pellets onderin aansteken met een gasbrander"></video></div><h3>Steek onderin aan</h3><p>Met een gasbrander steek je de pellets onderin aan. Bij het aansteken komt wat rook vrij, daarna trekt het vuur omhoog.</p></li>
+      <li><div class="pic"><video src="clips/c22.mp4" poster="clips/c22.jpg" muted loop playsinline autoplay preload="metadata" aria-label="Hoge vlam in de glazen buis"></video></div><h3>Blijf zitten</h3><p>De vlam draait door de glazen buis. Bijvullen kan terwijl hij brandt.</p></li>
     </ol>
   </div>
 </section>
@@ -949,7 +950,7 @@ footer{background:var(--night-2)}
   /* ===== galerij ===== */
   function showPic(i){
     const s=SIZES[state.size],p=s.pics[i];state.pic=i;const pn=$("#picNr");if(pn)pn.textContent=(state.size==="groot"?"G":"M")+(i+1);
-    const img=$("#mainImg"),vid=$("#mainVid"),isV=p[0].startsWith("v:");if(isV){const c=p[0].slice(2);vid.poster=`clips/${c}.jpg`;vid.src=`clips/${c}.mp4`;vid.hidden=false;img.hidden=true;vid.play().catch(()=>{})}else{vid.pause();vid.removeAttribute("src");vid.hidden=true;img.hidden=false;img.src=`img/${p[0]}.jpg`;img.alt=p[1]}
+    const img=$("#mainImg"),vid=$("#mainVid"),isV=p[0].startsWith("v:");if(isV){const c=p[0].slice(2);vid.poster=`clips/${c}.jpg`;vid.src=`clips/${c}.mp4`;vid.hidden=false;img.hidden=true;vid.controls=false;vid.play().catch(()=>{vid.controls=true})}else{vid.pause();vid.removeAttribute("src");vid.hidden=true;img.hidden=false;img.src=`img/${p[0]}.jpg`;img.alt=p[1]}
     $("#labels").innerHTML=p[2].map(l=>`<span class="pin ${l.side}" style="--x:${l.x}%;--y:${l.y}%"><i></i><span>${l.t}</span></span>`).join("");requestAnimationFrame(()=>fixPins($("#mainPic")));
     $("#thumbs").querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-current",j===i));
   }
@@ -1060,6 +1061,9 @@ footer{background:var(--night-2)}
     io.observe(hero);
   }
 })();
+
+document.getElementById("mainVid").addEventListener("click",function(){this.paused?this.play().catch(()=>{this.controls=true}):this.pause()});
+document.querySelectorAll(".steps video").forEach(v=>{v.play().catch(()=>{});v.addEventListener("click",()=>v.paused?v.play():v.pause())});
 </script>
 </body>
 </html>
