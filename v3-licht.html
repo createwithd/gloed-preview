@@ -542,6 +542,14 @@ footer{background:var(--night-2)}
 .rev{position:relative;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--night-2);display:grid;gap:8px}
 .rev h3{margin:0;font-size:18px}.rev p{margin:0;color:var(--mut);font-size:15px}.rev small{color:var(--mut)}
 .vb{position:absolute;top:12px;right:12px;background:var(--note);color:var(--note-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
+
+/* verhaalblokken in gewone webshop-verhouding (zoals het vergelijkingsblok) */
+.ch{max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) var(--gut);grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);min-height:0!important;align-items:center}
+.ch .pic{border-radius:18px;min-height:0;max-width:480px;width:100%;justify-self:center}
+.ch .pic::after{display:none}
+.ch .txt,.ch.flip .txt{padding:0;background:none}
+.ch .txt p{font-size:17.5px}
+@media (max-width:900px){.ch{grid-template-columns:minmax(0,1fr);gap:24px}.ch .txt{padding:0}}
 </style>
 </head>
 <body>
@@ -656,7 +664,7 @@ footer{background:var(--night-2)}
     </div>
   </div>
 
-  <div class="ch"><div class="pic fix45"><img src="img/f01.jpg" alt="GLOED brandt naast de loungebank" loading="lazy"><span class="pin r" style="--x:51%;--y:35%"><i></i><span>Het plekje waar iedereen blijft hangen</span></span></div><div class="txt rel">
+  <div class="ch"><div class="pic fix45"><img src="img/f01.jpg" alt="GLOED brandt naast de loungebank" loading="lazy"><span class="pin l" style="--x:51%;--y:35%"><i></i><span>Hier blijft iedereen hangen</span></span></div><div class="txt rel">
         <h2>Het terras waar iedereen blijft hangen</h2>
         <p>Loungeset staat, lampjes hangen. Wat nog mist is een plek om omheen te zitten. Met de GLOED aan schuift iedereen een stukje dichterbij en gaat er nog een fles open.</p>
       </div></div>
