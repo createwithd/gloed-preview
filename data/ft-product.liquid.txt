@@ -1093,7 +1093,7 @@ footer{background:var(--night-2)}
   state.yn=null;
   const setYN=v=>{state.yn=v;$("#ynJa").setAttribute("aria-pressed",v===true);$("#ynNee").setAttribute("aria-pressed",v===false);if(v)state.extras.add("tafel");else state.extras.delete("tafel");update()};
   $("#ynJa").addEventListener("click",()=>setYN(true));$("#ynNee").addEventListener("click",()=>setYN(false));
-  $("#addCart").addEventListener("click",async()=>{const b=$("#addCart");b.disabled=true;b.textContent="Even geduld...";const items=[{id:VID[state.size==="groot"?"grand":"mini"],quantity:1}];state.extras.forEach(k=>{if(VID[k])items.push({id:VID[k],quantity:1})});try{await fetch("/cart/add.js",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({items})})}catch(e){}location.href="/cart"});
+  $("#addCart").addEventListener("click",()=>{state.haard=true;update();openDrawer()});
   $("#mbAdd").addEventListener("click",()=>$("#addCart").click());
     $("#addTable").addEventListener("click",()=>{setYN(true);state.haard=state.haard||false;update();openDrawer()});
   $("#cartBtn").addEventListener("click",e=>{e.preventDefault();openDrawer()});
