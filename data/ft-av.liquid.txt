@@ -1,0 +1,97 @@
+{%- capture A -%}{{ 'logo-icon.png' | asset_url | split: 'logo-icon.png' | first }}{%- endcapture -%}
+<section class="in pagehead" style="padding-bottom:0"><div class="crumb2"><a href="/">Home</a> / Algemene voorwaarden</div></section><section class="in prose"><h1>Algemene voorwaarden</h1>
+<p><em>Laatst bijgewerkt: 26 november 2026</em></p>
+
+<p>Deze algemene voorwaarden gelden voor alle bestellingen bij Flametower. We hebben ze zo duidelijk mogelijk geschreven. Heb je toch een vraag? Neem dan gerust contact met ons op.</p>
+
+<h2>1. Wie zijn wij</h2>
+<p>Flametower is een handelsnaam van Voortman Schilderwerken.</p>
+<ul>
+  <li>Adres: Hanzeweg 45G, 7418 AV Deventer</li>
+  <li>Telefoon: 0570 448955</li>
+  <li>WhatsApp: 06 40 96 08 67</li>
+  <li>E-mail: info@flame-tower.nl</li>
+  <li>KvK-nummer: 74660381</li>
+</ul>
+<p>Op werkdagen zijn we bereikbaar van maandag tot en met vrijdag, 9.00 tot 17.00 uur.</p>
+
+<h2>2. Begrippen</h2>
+<ul>
+  <li><strong>Wij / Flametower:</strong> Voortman Schilderwerken, handelend onder de naam Flametower.</li>
+  <li><strong>Jij / de klant:</strong> de persoon die een bestelling plaatst. Deze voorwaarden zijn vooral geschreven voor consumenten: mensen die niet bestellen voor hun bedrijf of beroep.</li>
+  <li><strong>Product:</strong> een pellet-terrashaard, onderdeel of accessoire dat je bij ons koopt.</li>
+  <li><strong>Bedenktijd:</strong> de termijn van 14 dagen waarin je de koop zonder opgave van reden kunt annuleren (herroepingsrecht).</li>
+</ul>
+
+<h2>3. Wanneer gelden deze voorwaarden</h2>
+<p>Deze voorwaarden gelden voor elk aanbod van Flametower en voor elke overeenkomst die je met ons sluit via onze webshop, per e-mail, telefoon of WhatsApp.</p>
+<p>Voordat je bestelt, kun je deze voorwaarden op onze website lezen en opslaan. Na je bestelling sturen we ze ook mee met de orderbevestiging, of we sturen je een link waar je ze kunt bekijken en downloaden.</p>
+<p>Woon je in België? Dan gelden deze voorwaarden ook. De dwingende regels die het Belgische consumentenrecht je geeft, blijven altijd voor je gelden.</p>
+
+<h2>4. Het aanbod</h2>
+<p>We beschrijven onze producten zo volledig en eerlijk mogelijk. Foto's en afmetingen geven een goed beeld, maar kleine verschillen in kleur of afwerking zijn mogelijk, bijvoorbeeld door de instellingen van je scherm.</p>
+<p>Een duidelijke vergissing of fout in het aanbod, zoals een verkeerde prijs, bindt ons niet. Merken we zo'n fout na je bestelling, dan nemen we contact met je op. Je mag de bestelling dan kosteloos annuleren.</p>
+
+<h2>5. Je bestelling en de overeenkomst</h2>
+<p>De overeenkomst komt tot stand op het moment dat je je bestelling afrondt en de betaling hebt gestart. Je ontvangt direct daarna een orderbevestiging per e-mail.</p>
+<p>Is een product toch niet leverbaar? Dan laten we je dat zo snel mogelijk weten. Je krijgt dan het betaalde bedrag binnen 14 dagen terug.</p>
+
+<h2>6. Prijzen</h2>
+<p>Alle prijzen in de webshop zijn in euro's en inclusief btw. Eventuele verzendkosten zie je apart staan voordat je je bestelling afrondt.</p>
+<p>Verzendkosten: €12,99 naar Nederland en België. Vanaf €350 bezorgen we gratis.</p>
+<p>De prijs die je ziet op het moment van bestellen, is de prijs die je betaalt.</p>
+
+<h2>7. Betalen</h2>
+<p>Je betaalt via de betaalmethoden die in de kassa worden getoond: iDEAL/Wero, Bancontact, creditcard (Visa, Mastercard, American Express), Maestro, PayPal, Klarna, Apple Pay en Google Pay. De betaling wordt veilig afgehandeld door onze betaalprovider.</p>
+<p>We verzenden je bestelling nadat de betaling is ontvangen.</p>
+
+<h2>8. Levering</h2>
+<p>We leveren in Nederland en België. We leveren op het adres dat je bij je bestelling opgeeft.</p>
+<p>Levertijd: 1 tot 3 werkdagen. Lukt het ons niet om op tijd te leveren, dan laten we je dat weten. We leveren uiterlijk binnen 30 dagen, tenzij we samen iets anders afspreken. Lukt dat niet, dan mag je de bestelling kosteloos annuleren en krijg je je geld binnen 14 dagen terug.</p>
+<p>Het product is voor ons risico tot het moment dat het bij jou (of iemand die je hebt aangewezen) is afgeleverd.</p>
+
+<h2>9. Schade bij levering</h2>
+<p>Controleer je pakket bij ontvangst. Zie je schade aan de verpakking of het product? Meld dat dan graag binnen 48 uur na levering via info@flame-tower.nl of WhatsApp (06 40 96 08 67) en stuur duidelijke foto's mee van de verpakking en de schade.</p>
+<p>Zo kunnen we de schade snel met de vervoerder regelen en een oplossing voor je zoeken. Meld je later, dan blijven je wettelijke rechten bestaan, maar wordt het voor ons lastiger om de oorzaak vast te stellen.</p>
+
+<h2>10. Bedenktijd en retourneren</h2>
+<p>Je hebt 14 dagen bedenktijd na ontvangst van je bestelling. Binnen die tijd kun je de koop zonder opgave van reden annuleren.</p>
+<p>Hoe dit werkt, welke kosten erbij horen en het modelformulier voor herroeping lees je op onze pagina <a href="/pages/retourneren">Retourneren</a>.</p>
+
+<h2>11. Garantie en conformiteit</h2>
+<p>Je hebt altijd recht op een product dat doet wat je ervan mag verwachten. Dat is de wettelijke garantie (conformiteit). Is er een gebrek, dan zorgen we voor herstel, vervanging of een andere passende oplossing.</p>
+<p>Een pellet-terrashaard is alleen bedoeld voor gebruik buiten. Wat wel en niet onder de garantie valt, lees je op onze pagina <a href="/pages/garantie">Garantie</a>.</p>
+
+<h2>12. Veilig gebruik</h2>
+<p>Lees de handleiding goed voordat je de haard voor het eerst gebruikt. Gebruik de haard:</p>
+<ul>
+  <li>alleen buiten, nooit binnen en nooit onder een dichte overkapping;</li>
+  <li>alleen met houtpellets van 6 mm;</li>
+  <li>op een stevige, vlakke en brandveilige ondergrond, op veilige afstand van brandbare materialen;</li>
+  <li>nooit zonder toezicht, en buiten bereik van kinderen en huisdieren.</li>
+</ul>
+<p>Houd je ook aan de lokale regels voor open vuur en eventuele stookverboden.</p>
+
+<h2>13. Aansprakelijkheid</h2>
+<p>We zijn niet aansprakelijk voor schade die ontstaat doordat het product niet volgens de handleiding of deze voorwaarden is gebruikt, bijvoorbeeld bij gebruik binnen, onder een dichte overkapping of met verkeerde brandstof.</p>
+<p>Deze beperking geldt niet als de schade het gevolg is van opzet of bewuste roekeloosheid van onze kant, en doet niets af aan je wettelijke rechten als consument, zoals de productaansprakelijkheid.</p>
+
+<h2>14. Eigendom</h2>
+<p>Het product blijft van ons totdat je het volledig hebt betaald.</p>
+
+<h2>15. Klachten</h2>
+<p>Ben je ergens niet tevreden over? Laat het ons weten. Meld een klacht binnen bekwame tijd nadat je het probleem hebt ontdekt, het liefst zo snel mogelijk. Een melding binnen twee maanden na ontdekking is in ieder geval op tijd.</p>
+<p>Stuur je klacht naar info@flame-tower.nl en beschrijf zo duidelijk mogelijk wat er aan de hand is. Foto's of een video helpen ons enorm.</p>
+<p>We bevestigen je klacht binnen 2 werkdagen en geven binnen 14 dagen een inhoudelijke reactie. Hebben we meer tijd nodig, dan laten we je dat binnen die 14 dagen weten en zeggen we wanneer je een antwoord kunt verwachten.</p>
+
+<h2>16. Geschillen</h2>
+<p>Komen we er samen niet uit, dan kun je je geschil voorleggen aan de bevoegde rechter.</p>
+<p>Het Europese ODR-platform (<a href="https://ec.europa.eu/consumers/odr" rel="noopener">https://ec.europa.eu/consumers/odr</a>) was bedoeld voor online geschillen tussen consumenten en webwinkels in de EU. De Europese Commissie heeft dit platform op 20 juli 2025 gesloten; je kunt er geen nieuwe klachten meer indienen.</p>
+<p>Je kunt een geschil altijd ook voorleggen aan de bevoegde rechter.</p>
+
+<h2>17. Toepasselijk recht</h2>
+<p>Op elke overeenkomst met Flametower is Nederlands recht van toepassing. Woon je in een ander land, zoals België? Dan houd je altijd de bescherming van de dwingende regels van het recht van je eigen land.</p>
+
+<h2>18. Wijzigingen</h2>
+<p>We kunnen deze voorwaarden aanpassen. Voor jouw bestelling gelden de voorwaarden die van kracht waren op het moment dat je bestelde.</p>
+</section>
