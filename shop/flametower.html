@@ -593,6 +593,10 @@ footer{background:var(--night-2)}
 .sfeerlist span{opacity:.8;font-size:15.5px}
 @media (max-width:900px){.sfeer2{grid-template-columns:minmax(0,1fr);gap:24px}}
 
+#mainVid{width:100%;height:100%;object-fit:cover;display:block}
+.thumbs .play{position:absolute;inset:0;margin:auto;width:28px;height:28px;border-radius:50%;background:rgba(20,14,10,.72);box-shadow:0 0 0 2px rgba(255,255,255,.85)}
+.thumbs .play::after{content:"";position:absolute;left:11px;top:8px;border-left:9px solid #fff;border-top:6px solid transparent;border-bottom:6px solid transparent}
+
 /* ===== webshop-onderdelen ===== */
 .menu a.on{color:var(--fg);font-weight:700}
 .ft{background:oklch(0.19 0.016 48);color:oklch(0.9 0.012 75);padding:64px 0 120px;margin-top:0;border-top:0}
@@ -710,7 +714,7 @@ footer{background:var(--night-2)}
     <div class="grid">
       <div class="gal rel">
         <div class="main" id="mainPic">
-          <img id="mainImg" src="../img/f51.jpg" alt="Flametower pellethaard">
+          <img id="mainImg" src="../img/f51.jpg" alt="Flametower pellethaard"><video id="mainVid" muted loop playsinline autoplay preload="none" hidden></video>
           <div class="badge" id="mainBadge">Black Friday<small>−€161</small></div>
           <div id="labels"></div>
         </div>
@@ -998,19 +1002,36 @@ footer{background:var(--night-2)}
   const SIZES={
     groot:{key:"groot",name:"Flametower Grand",full:"Flametower Grand · 183 cm",price:239,was:400,img:"f52",pics:[
       ["f51","Vrouw naast de Flametower Grand op een terras in de avond",[L("Hoed tegen vonken",53,4),L("360° warmte rondom",55,25),L("Makkelijk bij te vullen",42,45,"l"),L("Uniek design · 183 cm",53,92)]],
+      ["v:c13","Flametower Grand brandt tegen een bakstenen muur (video)",[]],
       ["s_g1","Echt vuur, 360° warmte: de voordelen van de Flametower",[]],
       ["s_g2","Specificaties van de Flametower Grand",[]],
+      ["v:c22","Vlam draait omhoog in de glazen buis (video)",[]],
       ["s_g7","Uniek design: een eyecatcher in je tuin",[]],
       ["f05","De hoed bovenop de Flametower",[L("Vonken blijven onder de kap",46,25)]],
+      ["v:c08","Aansteken met een gasbrander (video)",[]],
+      ["v:c06","Klep van de vulbak openen (video)",[]],
+      ["v:c07","Pellets in de vulbak gieten (video)",[]],
+      ["v:c16","Pellets scheppen in de vulbak (video)",[]],
+      ["v:c17","Vlam bij de brandkamer (video)",[]],
       ["s_g5","Flametower Grand op het terras: nog niet naar binnen",[]],
+      ["v:c14","Hoed en vlam van dichtbij (video)",[]],
+      ["v:c09","Flametower Grand overdag bij de loungestoelen (video)",[]],
       ["s_g4","Vergelijking Flametower, vuurkorf en gasheater",[]],
       ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l"),L("Grand · staand model",31,93,"t")]]
     ]},
     klein:{key:"klein",name:"Flametower Mini",full:"Flametower Mini · 122 cm",price:199,was:350,img:"f25",pics:[
       ["f61","Flametower Mini brandt in een stadstuin",[L("Hoed tegen vonken",58,4,"l"),L("360° warmte rondom",60,45,"l"),L("Rol hem mee op wieltjes",70,92,"l")]],
+      ["v:c20","Flametower Mini op de veranda bij de loungeset (video)",[]],
       ["s_m2","Rol hem waar je zit: wieltjes, handgreep, echte vlammen",[]],
       ["s_m1","Specificaties van de Flametower Mini",[]],
+      ["v:c24","Flametower Mini onder de pergola (video)",[]],
       ["f31","Wieltjes van de Flametower Mini",[L("Verplaatsen zonder tillen",58,82,"l")]],
+      ["v:c22","Vlam draait omhoog in de glazen buis (video)",[]],
+      ["v:c08","Aansteken met een gasbrander (video)",[]],
+      ["v:c06","Klep van de vulbak openen (video)",[]],
+      ["v:c07","Pellets in de vulbak gieten (video)",[]],
+      ["v:c16","Pellets scheppen in de vulbak (video)",[]],
+      ["v:c17","Vlam bij de brandkamer (video)",[]],
       ["s_g3","Zo werkt het: vullen, aansteken, genieten",[]],
       ["f27","Flametower Mini brandt op een terras",[]],
       ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l"),L("Grand · staand model",31,93,"t")]]
@@ -1036,13 +1057,13 @@ footer{background:var(--night-2)}
   /* ===== galerij ===== */
   function showPic(i){
     const s=SIZES[state.size],p=s.pics[i];state.pic=i;const pn=$("#picNr");if(pn)pn.textContent=(state.size==="groot"?"G":"M")+(i+1);
-    const img=$("#mainImg");img.src=`../img/${p[0]}.jpg`;img.alt=p[1];
+    const img=$("#mainImg"),vid=$("#mainVid"),isV=p[0].startsWith("v:");if(isV){const c=p[0].slice(2);vid.poster=`../clips/${c}.jpg`;vid.src=`../clips/${c}.mp4`;vid.hidden=false;img.hidden=true;vid.play().catch(()=>{})}else{vid.pause();vid.removeAttribute("src");vid.hidden=true;img.hidden=false;img.src=`../img/${p[0]}.jpg`;img.alt=p[1]}
     $("#labels").innerHTML=p[2].map(l=>`<span class="pin ${l.side}" style="--x:${l.x}%;--y:${l.y}%"><i></i><span>${l.t}</span></span>`).join("");requestAnimationFrame(()=>fixPins($("#mainPic")));
     $("#thumbs").querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-current",j===i));
   }
   function renderThumbs(){
     const s=SIZES[state.size];
-    $("#thumbs").innerHTML=s.pics.map((p,i)=>`<button type="button" aria-label="Foto ${i+1}: ${p[1]}" data-i="${i}" style="position:relative"><img src="../img/${p[0]}.jpg" alt=""></button>`).join("");
+    $("#thumbs").innerHTML=s.pics.map((p,i)=>`<button type="button" aria-label="Foto ${i+1}: ${p[1]}" data-i="${i}" style="position:relative"><img src="${p[0].startsWith("v:")?`../clips/${p[0].slice(2)}.jpg`:`../img/${p[0]}.jpg`}" alt="">${p[0].startsWith("v:")?'<span class="play" aria-hidden="true"></span>':""}</button>`).join("");
     $("#thumbs").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>showPic(+b.dataset.i)));
     showPic(0);
   }
