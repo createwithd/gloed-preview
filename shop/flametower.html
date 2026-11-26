@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Flametower Grand en Mini · Flametower</title>
+<link rel="icon" href="../img/logo-icon.png">
+<link rel="icon" href="data:,">
+<meta name="description" content="Flametower pellethaard Black Friday: Grand €239 in plaats van €400, Mini €199 in plaats van €350.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="preload" as="image" href="../img/f41.jpg" media="(min-width:761px)">
+<link rel="preload" as="image" href="../img/f51.jpg" media="(max-width:760px)">
+<style>
+/* V3-licht "Campagne" (lichte basis).: warme nacht, foto's dragen het verhaal. Gloed-oranje = actie, goud = besparing. */
+:root{
+  --night:oklch(0.17 0.014 48);      /* diep houtskoolbruin, geen zwart */
+  --night-2:oklch(0.205 0.018 48);
+  --ember-bg:oklch(0.25 0.035 45);
+  --line:oklch(0.33 0.025 50);
+  --fg:oklch(0.96 0.012 75);
+  --mut:oklch(0.80 0.025 70);
+  --ember:oklch(0.72 0.185 48);
+  --ember-hi:oklch(0.80 0.15 58);
+  --ember-ink:oklch(0.22 0.06 45);
+  --gold:oklch(0.86 0.11 85);
+  --gold-ink:oklch(0.27 0.05 70);
+  --ok:oklch(0.80 0.13 150);
+  --no:oklch(0.72 0.12 25);
+  --red:oklch(0.55 0.2 32);
+  --fire:linear-gradient(100deg,oklch(0.50 0.19 30),oklch(0.66 0.2 42) 45%,oklch(0.78 0.16 62));
+  --note:oklch(0.95 0.13 102);
+  --note-ink:oklch(0.30 0.06 90);
+  --display:"Big Shoulders Display","Arial Narrow",system-ui,sans-serif;
+  --body:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --ease:cubic-bezier(.16,1,.3,1);
+  --z-header:40;--z-mbar:50;--z-uitleg:55;--z-scrim:60;--z-drawer:61;--z-toast:70;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit;font-size:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.in{max-width:1240px;margin:0 auto;padding-inline:var(--gut)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;font-weight:800;line-height:.98;letter-spacing:.005em}
+h2{font-size:clamp(40px,5.4vw,72px);text-transform:uppercase}
+h3{font-size:26px;text-transform:uppercase;line-height:1.05}
+p{margin:0;text-wrap:pretty}
+.lead{color:var(--mut);max-width:58ch;font-size:18px;line-height:1.65}
+.rel{position:relative}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* knoppen */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,var(--ember-hi),var(--ember) 55%,oklch(0.64 0.2 38));color:var(--ember-ink);border:0;border-radius:12px;padding:17px 26px;font-weight:800;font-size:18px;cursor:pointer;text-decoration:none;box-shadow:0 12px 34px -8px oklch(0.72 0.185 48 / .55);transition:background .2s,transform .2s var(--ease)}
+.cta:hover{filter:brightness(1.07);box-shadow:0 14px 44px -6px oklch(0.72 0.185 48 / .75)}
+.cta:active{transform:translateY(1px)}
+.cta.full{width:100%}
+.ghost{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid oklch(0.96 0.012 75 / .35);color:var(--fg);border-radius:12px;padding:15px 22px;font-weight:700;cursor:pointer;text-decoration:none}
+.ghost:hover{border-color:var(--fg)}
+
+/* labels in de foto */
+.lbl{position:absolute;z-index:2;background:oklch(0.99 0 0 / .95);color:oklch(0.22 0.02 50);font-weight:700;font-size:13.5px;line-height:1.2;padding:7px 12px 7px 10px;border-radius:99px;box-shadow:0 6px 20px oklch(0.1 0.02 50 / .45);white-space:nowrap;display:inline-flex;align-items:center;gap:7px;pointer-events:none}
+.lbl::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px oklch(0.72 0.185 48 / .25);flex:none}
+@media (max-width:560px){.lbl{font-size:12px;padding:5px 9px 5px 8px}}
+
+/* ===== BF-balk + header ===== */
+.bf{background:var(--fire);color:oklch(0.16 0.04 40);font-weight:700;font-size:14.5px;text-align:center;padding:9px var(--gut);line-height:1.3}
+.bf b{font-weight:900;font-family:var(--display);font-size:17px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
+#countdown{display:none;margin-left:8px;font-variant-numeric:tabular-nums}
+@media (max-width:620px){.bf .x{display:none}}
+header{position:sticky;top:0;z-index:var(--z-header);background:oklch(0.17 0.014 48 / .94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid oklch(0.33 0.025 50 / .7)}
+.hd{display:flex;align-items:center;gap:28px;height:66px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--display);font-weight:900;font-size:30px;letter-spacing:.14em}
+.logo svg{flex:none}
+nav.menu{display:flex;gap:24px;font-weight:600;font-size:15px}
+nav.menu a{text-decoration:none;color:var(--mut)}
+nav.menu a:hover,nav.menu a.bfl{color:var(--fg)}
+nav.menu a.bfl{color:var(--ember-hi)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:8px 14px;color:var(--mut);font-size:14px;width:220px}
+.search input{background:none;border:0;color:var(--fg);font:inherit;width:100%;outline:none}
+.search input::placeholder{color:var(--mut)}
+.iconbtn{display:none;background:none;border:1px solid var(--line);border-radius:99px;width:42px;height:42px;place-items:center;cursor:pointer}
+.cartbtn{position:relative;background:none;border:1px solid var(--line);border-radius:99px;height:42px;padding:0 14px 0 12px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;cursor:pointer}
+.cartbtn .n{background:var(--ember);color:var(--ember-ink);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;font-weight:800;padding:0 6px}
+@media (max-width:1020px){nav.menu{display:none}}
+@media (max-width:700px){.search{display:none}.iconbtn{display:grid}.cartbtn .t{display:none}.hd{gap:12px;height:60px}.logo{font-size:26px}}
+
+/* ===== HERO: nachtfoto + ontsteking ===== */
+.hero{position:relative;min-height:min(100svh,900px);display:grid;align-items:end;overflow:hidden;isolation:isolate;background:var(--night)}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%}
+.hero picture img{object-fit:cover;object-position:52% 40%}
+.hero .shade{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(90deg,oklch(0.15 0.014 48 / .92) 0%,oklch(0.15 0.014 48 / .62) 32%,oklch(0.15 0.014 48 / 0) 58%),
+  linear-gradient(0deg,oklch(0.17 0.014 48) 0%,oklch(0.17 0.014 48 / 0) 30%)}
+.hero .glow{position:absolute;z-index:1;left:var(--gx,53%);top:var(--gy,32%);width:62vmax;height:62vmax;translate:-50% -50%;border-radius:50%;background:radial-gradient(closest-side,oklch(0.80 0.17 60 / .42),oklch(0.66 0.2 40 / .2) 40%,oklch(0.5 0.19 30 / .08) 60%,transparent 72%);mix-blend-mode:screen;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:45%;z-index:1;background:radial-gradient(ellipse 70% 100% at 50% 120%,oklch(0.55 0.2 35 / .35),transparent 70%);mix-blend-mode:screen;pointer-events:none}
+.hero .copy{position:relative;z-index:2;padding-block:72px 64px;display:grid;gap:22px;max-width:640px}
+.hero .hh{font-size:clamp(60px,9vw,96px);text-transform:uppercase;line-height:.9;letter-spacing:.01em}
+.hero .hh span{display:block}
+.hero .hh .o{color:var(--ember-hi);text-shadow:0 0 38px oklch(0.72 0.185 48 / .55),0 0 90px oklch(0.6 0.2 35 / .45)}
+.hero .sub{font-size:19px;color:var(--fg);max-width:44ch;line-height:1.55}
+.hprice{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.hprice .tag{background:var(--gold);color:var(--gold-ink);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:5px 9px}
+.hprice .now{font-family:var(--display);font-weight:900;font-size:64px;line-height:1;text-shadow:0 0 40px oklch(0.72 0.185 48 / .5)}
+.hprice s{color:var(--mut);font-size:22px}
+.hprice .sv{color:var(--gold);font-weight:800;font-size:18px}
+.hero .also{font-size:15px;color:var(--mut)}
+.hero .also b{color:var(--fg)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.hero .lbl.h1l{top:22%;left:57%}
+@media (max-width:760px){
+  .hero{min-height:100svh}
+  .hero picture img{object-position:48% 30%}
+  .hero .shade{background:linear-gradient(0deg,oklch(0.15 0.014 48) 0%,oklch(0.15 0.014 48 / .88) 38%,oklch(0.15 0.014 48 / 0) 66%)}
+  .hero .glow{--gx:48%;--gy:30%;width:110vmin;height:110vmin}
+  .hero .copy{padding-block:200px 48px;gap:12px}
+  .hero .hh span:nth-child(2),.hero .hh span:nth-child(3){display:inline}
+  .hero .also{font-size:14px;margin-top:-6px}
+  .hero .hh{font-size:clamp(52px,15vw,72px)}
+  .hero .sub{font-size:16.5px;line-height:1.5}
+  .hprice .now{font-size:48px}
+  .hprice .sv{font-size:16px}
+  .hero .acts .cta{flex:1}
+  .hero .lbl.h1l{top:16%;left:auto;right:6%}
+}
+
+/* Paginalaad-animatie: de galerijfoto "ontsteekt" (gloed achter de foto). De campagnefoto verderop ontsteekt bij het in beeld komen.
+   Zonder animatie (reduced motion, geen JS) staat alles er gewoon. */
+@media (prefers-reduced-motion:no-preference){
+  .main img.first{animation:ignite 2.2s var(--ease) both}
+  .main{animation:mainglow 2.4s .3s var(--ease) both}
+  .main .lbl,.main .badge{animation:fadeup .8s var(--ease) both;animation-delay:1.1s}
+  .hero.play picture img{animation:ignite 2.6s var(--ease) both}
+  .hero.play .glow{animation:glowin 2.2s .35s var(--ease) both,breathe 4.8s 2.6s ease-in-out infinite alternate}
+  .hero.armed picture img{filter:brightness(.18) saturate(.3)}
+  .hero.armed .glow{opacity:0}
+}
+@keyframes mainglow{from{box-shadow:0 40px 120px -30px oklch(0.62 0.2 38 / 0),0 0 0 1px oklch(0.72 0.185 48 / 0)}}
+@keyframes ignite{from{filter:brightness(.18) saturate(.3);transform:scale(1.08)}45%{filter:brightness(.55) saturate(.8)}to{filter:none;transform:none}}
+@keyframes glowin{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+@keyframes breathe{from{opacity:1}to{opacity:.62}}
+@keyframes rise{from{opacity:0;transform:translateY(.45em)}to{opacity:1;transform:none}}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* chips */
+.chips{border-bottom:1px solid var(--line)}
+.chips .in{display:flex;gap:8px;overflow-x:auto;padding-block:14px;scrollbar-width:none}
+.chips .in::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid var(--line);border-radius:99px;padding:8px 15px;color:var(--mut)}
+.chips a:hover{color:var(--fg);border-color:var(--mut)}
+.chips a.k{background:var(--ember);border-color:var(--ember);color:var(--ember-ink);font-weight:800}
+
+section{scroll-margin-top:80px}
+
+/* ===== VERHAAL ===== */
+.ch{display:grid;grid-template-columns:1fr 1fr;min-height:min(92vh,860px)}
+.ch .pic{position:relative;overflow:hidden;min-height:420px}
+.ch .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch .txt{display:grid;align-content:center;gap:22px;padding:72px clamp(24px,6vw,96px);background:radial-gradient(ellipse 80% 70% at 100% 55%,oklch(0.55 0.19 38 / .30),oklch(0.40 0.12 35 / .12) 45%,transparent 75%)}
+.ch.flip .txt{background:radial-gradient(ellipse 80% 70% at 0% 50%,oklch(0.55 0.19 38 / .30),oklch(0.40 0.12 35 / .12) 45%,transparent 75%)}
+.ch .pic::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 45% 55% at var(--fx,62%) var(--fy,50%),oklch(0.75 0.18 50 / .28),transparent 70%);mix-blend-mode:screen;pointer-events:none}
+.ch .txt p{color:var(--mut);font-size:19px;max-width:46ch}
+.ch .txt p b{color:var(--fg);font-weight:600}
+.ch.flip .pic{order:2}
+.ch .big{font-family:var(--display);font-weight:900;font-size:clamp(72px,10vw,140px);line-height:.85;color:var(--ember);text-transform:uppercase;text-shadow:0 0 50px oklch(0.66 0.2 40 / .55)}
+.ch-wide{position:relative;min-height:min(100vh,900px);display:grid;align-items:end;overflow:hidden}
+.ch-wide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.ch-wide::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 40% 60% at 92% 45%,oklch(0.72 0.18 50 / .22),transparent 70%),linear-gradient(0deg,oklch(0.15 0.014 48 / .95) 0%,oklch(0.22 0.05 40 / .55) 34%,transparent 62%)}
+.ch-wide .in{position:relative;z-index:2;width:100%;padding-block:64px}
+.ch-wide .box{max-width:620px;display:grid;gap:18px}
+.ch-wide p{color:var(--fg);font-size:19px;max-width:48ch;opacity:.92}
+@media (max-width:860px){
+  .ch{grid-template-columns:1fr;min-height:0}
+  .ch .pic{aspect-ratio:4/5;min-height:0}
+  .ch .pic,.ch.flip .pic{order:-1}
+  .ch .txt{padding:40px var(--gut) 56px}
+  .ch .txt p,.ch-wide p{font-size:17px}
+  .ch-wide{min-height:0;aspect-ratio:auto}
+  .ch-wide>img{position:relative;height:auto;aspect-ratio:4/5}
+  .ch-wide::after{display:none}
+  .ch-wide .in{padding-block:36px 56px;margin-top:-90px}
+  .ch-wide .box{background:var(--night);border-radius:16px 16px 0 0;padding:26px 0 0}
+}
+
+/* ===== KOOPBLOK ===== */
+.koop{position:relative;padding-block:22px 80px;background:radial-gradient(ellipse 50% 55% at 25% 55%,oklch(0.50 0.17 38 / .30),transparent 70%),radial-gradient(ellipse 60% 40% at 80% 100%,oklch(0.45 0.15 30 / .18),transparent 70%),var(--night-2)}
+.hero::before,.sec.alt::before,.final::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;z-index:3;background:linear-gradient(90deg,transparent,oklch(0.6 0.2 35),oklch(0.8 0.16 60),oklch(0.6 0.2 35),transparent);box-shadow:0 0 18px oklch(0.72 0.185 48 / .8)}
+.koop .grid{display:grid;grid-template-columns:1.08fr 1fr;gap:56px;align-items:start}
+.koop .grid>*{min-width:0}
+.koop .intro{margin-bottom:40px;display:grid;gap:12px}
+.gal{display:grid;gap:10px}
+.main{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:var(--night);box-shadow:0 40px 120px -30px oklch(0.62 0.2 38 / .55),0 0 0 1px oklch(0.72 0.185 48 / .25)}
+.main img{width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+.badge{position:absolute;z-index:3;top:16px;left:16px;background:var(--fire);box-shadow:0 8px 26px oklch(0.6 0.2 35 / .55);color:var(--ember-ink);border-radius:10px;padding:8px 12px 7px;font-family:var(--display);font-weight:900;font-size:17px;line-height:1;text-transform:uppercase;text-align:center;letter-spacing:.03em}
+.badge small{display:block;font-family:var(--body);font-size:13px;font-weight:800;letter-spacing:0;margin-top:3px;text-transform:none}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.thumbs button{padding:0;border:2px solid transparent;border-radius:10px;overflow:hidden;background:var(--night);cursor:pointer;aspect-ratio:1}
+.thumbs button[aria-current="true"]{border-color:var(--ember)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+
+.buy{display:grid;gap:22px}
+.buy h1.t{font-size:clamp(40px,4vw,52px);text-transform:uppercase}
+.crumb{font-size:13.5px;color:var(--mut);margin-bottom:18px}
+.crumb span{color:var(--fg)}
+.buy .s{color:var(--mut);font-size:16.5px}
+.q{font-weight:800;font-size:16px;margin-bottom:10px;display:flex;justify-content:space-between;gap:10px}
+.q span{color:var(--mut);font-weight:500;font-size:14px}
+.sizes{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.size{position:relative;text-align:left;background:var(--night);border:2px solid var(--line);border-radius:16px;padding:12px;cursor:pointer;display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:center}
+.size img{width:62px;height:78px;object-fit:cover;border-radius:9px;background:#fff}
+.size b{display:block;font-size:17px;line-height:1.2}
+.size small{display:block;color:var(--mut);font-size:13.5px;line-height:1.35;margin:2px 0 4px}
+.size .pr{font-weight:800}
+.size .pr s{color:var(--mut);font-weight:500;font-size:14px;margin-left:4px}
+.size .fav{position:absolute;top:-10px;right:10px;background:var(--gold);color:var(--gold-ink);font-size:11.5px;font-weight:800;border-radius:99px;padding:2px 9px}
+.size[aria-pressed="true"]{border-color:var(--ember);background:radial-gradient(ellipse at 30% 100%,oklch(0.5 0.17 38 / .45),transparent 70%),var(--ember-bg);box-shadow:0 0 28px -6px oklch(0.72 0.185 48 / .6)}
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 14px}
+.price .now{font-family:var(--display);font-weight:900;font-size:62px;line-height:1}
+.price s{color:var(--mut);font-size:22px}
+.save{background:var(--gold);color:var(--gold-ink);font-weight:800;border-radius:8px;padding:5px 11px;font-size:15.5px}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:auto 56px 1fr auto;gap:12px;align-items:center;background:var(--night);border:2px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer}
+.opt img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.opt b{display:block;font-size:15.5px;line-height:1.25}
+.opt b em{font-style:normal;color:var(--gold);font-size:12.5px;font-weight:800;margin-left:4px;white-space:nowrap}
+.opt small{display:block;color:var(--mut);font-size:13.5px;line-height:1.35}
+.opt .r{text-align:right;font-weight:800;white-space:nowrap;font-size:15.5px}
+.opt .r s{display:block;color:var(--mut);font-weight:500;font-size:13px}
+.opt input{accent-color:var(--ember);width:20px;height:20px;margin:0}
+.opt:has(input:checked){border-color:var(--ember);background:var(--ember-bg)}
+.opt.sm{grid-template-columns:auto 44px 1fr auto;padding:8px 12px}
+.opt.sm img{width:44px;height:44px}
+.sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+.sum .l{color:var(--mut);font-size:15px}
+.sum .l b{color:var(--gold)}
+.sum .v{font-family:var(--display);font-weight:900;font-size:40px;line-height:1}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;font-size:13.5px;color:var(--mut);line-height:1.35}
+.trust div{border:1px solid var(--line);border-radius:12px;padding:11px 6px}
+.trust b{display:block;color:var(--fg);font-size:15px}
+@media (max-width:960px){.koop .grid{grid-template-columns:1fr;gap:28px}}
+@media (max-width:560px){
+  .koop{padding-block:16px 56px}
+  .sizes{gap:8px}
+  .size{grid-template-columns:1fr;padding:10px;gap:8px;text-align:left}
+  .size img{width:100%;height:120px;object-fit:contain}
+  .price .now{font-size:52px}
+  .opt{grid-template-columns:auto 48px 1fr;row-gap:4px}
+  .opt img{width:48px;height:48px}
+  .opt .r{grid-column:3;text-align:left}
+  .opt .r s{display:inline;margin-left:6px}
+  .opt.sm{grid-template-columns:auto 40px 1fr}
+  .opt.sm img{width:40px;height:40px}
+  .thumbs{gap:6px}
+  .buy h1.t{font-size:40px}
+}
+
+/* ===== Overige secties ===== */
+.sec{padding-block:104px}
+.sec{position:relative}
+.sec.alt{background:radial-gradient(ellipse 70% 50% at 50% 0%,oklch(0.42 0.13 38 / .22),transparent 70%),var(--night-2)}
+.head{display:grid;gap:14px;margin-bottom:44px;max-width:760px}
+@media (max-width:700px){.sec{padding-block:68px}.head{margin-bottom:30px}}
+
+/* groot vs klein */
+.gvk{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+.gvk>*{min-width:0}
+.gvk .pic{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.gvk .pic img{width:100%;height:100%;object-fit:cover}
+.gvk .cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.gvk .col{padding:24px;display:grid;gap:12px;align-content:start}
+.gvk .col+.col{border-left:1px solid var(--line)}
+.gvk .col.fav{background:var(--ember-bg)}
+.gvk .col p{color:var(--mut);font-size:15.5px}
+.spec{display:grid;gap:6px;font-size:15px;margin:0}
+.spec div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.spec dt{color:var(--mut)}.spec dd{margin:0;font-weight:600;text-align:right}
+.gvk .pp{font-family:var(--display);font-weight:900;font-size:40px;line-height:1}
+.gvk .pp s{font-family:var(--body);font-weight:500;font-size:17px;color:var(--mut);margin-left:6px}
+.gvk .ghost{justify-content:center}
+@media (max-width:960px){.gvk{grid-template-columns:1fr;gap:28px}}
+@media (max-width:560px){.gvk .cols{grid-template-columns:1fr}.gvk .col+.col{border-left:0;border-top:1px solid var(--line)}}
+
+/* zo werkt het */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0;counter-reset:st}
+.steps li{display:grid;gap:14px;align-content:start}
+.steps .pic{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5}
+.steps .pic img{width:100%;height:100%;object-fit:cover}
+.steps .pic::before{counter-increment:st;content:counter(st);position:absolute;z-index:2;left:14px;bottom:10px;font-family:var(--display);font-weight:900;font-size:84px;line-height:1;color:var(--fg);text-shadow:0 4px 24px oklch(0.1 0.02 50 / .7)}
+.steps p{color:var(--mut);font-size:16px}
+@media (max-width:860px){.steps{grid-template-columns:1fr;gap:34px}.steps .pic{aspect-ratio:4/3}}
+
+/* vergelijking */
+.cmp{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:start}
+.cmp>*{min-width:0}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:600px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:15.5px;vertical-align:top;line-height:1.4}
+tr:last-child td{border-bottom:0}
+thead th{font-family:var(--display);font-size:20px;text-transform:uppercase;font-weight:800;letter-spacing:.02em;background:var(--night)}
+thead th.us{color:var(--ember-hi)}
+tbody th{font-weight:600;color:var(--mut)}
+td.us{background:oklch(0.72 0.185 48 / .1);font-weight:600}
+.y{color:var(--ok);font-weight:800}.n{color:var(--no);font-weight:800}
+.cmp .pic{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.cmp .pic img{width:100%;height:100%;object-fit:cover}
+@media (max-width:960px){.cmp{grid-template-columns:1fr}.cmp .pic{aspect-ratio:16/11}}
+
+/* pakketten */
+.packs{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:18px;align-items:stretch}
+.pack{background:var(--night);border:2px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;position:relative}
+.pack.best{border-color:var(--ember);background:radial-gradient(ellipse at 50% 100%,oklch(0.5 0.17 38 / .4),transparent 70%),var(--ember-bg);box-shadow:0 30px 80px -30px oklch(0.62 0.2 38 / .6)}
+.pack .rib{position:absolute;z-index:2;top:14px;left:14px;background:var(--gold);color:var(--gold-ink);font-weight:800;font-size:13px;border-radius:99px;padding:4px 11px}
+.pack>img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.pack .t{padding:22px;display:grid;gap:12px;align-content:start}
+.pack ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:15px;color:var(--mut)}
+.pack li::before{content:"+";color:var(--ember);font-weight:800;margin-right:8px}
+.pack .pp{font-family:var(--display);font-weight:900;font-size:40px;line-height:1;margin-top:4px}
+.pack .pp small{display:block;font-family:var(--body);font-size:14px;font-weight:700;color:var(--gold);margin-top:6px}
+.pack .ghost,.pack .cta{justify-content:center;width:100%}
+@media (max-width:960px){.packs{grid-template-columns:1fr}}
+
+/* tafelhaard */
+.tafel{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center}
+.tafel>*{min-width:0}
+.tafel .pics{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+.tafel .pics div{position:relative;border-radius:18px;overflow:hidden}
+.tafel .pics img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.tafel .pics div:last-child{align-self:end}
+.tafel .txt{display:grid;gap:20px;align-content:start}
+@media (max-width:960px){.tafel{grid-template-columns:1fr;gap:28px}}
+
+/* sfeer */
+.strip{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:10px}
+.strip div{position:relative;border-radius:16px;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover}
+.strip .a{grid-row:span 2}
+.strip .a img{aspect-ratio:auto;min-height:100%;object-position:74% 50%}
+.strip .b img,.strip .c img,.strip .d img,.strip .e img{aspect-ratio:4/5}
+.strip .lbl{left:12px;bottom:12px}
+@media (max-width:760px){.strip{grid-template-columns:1fr 1fr}.strip .a{grid-column:span 2;grid-row:auto}.strip .a img{aspect-ratio:16/10}}
+
+/* faq */
+.faqw{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start}
+.faqw>*{min-width:0}
+.faq{display:grid;gap:0;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:17.5px;padding:20px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ember);font-size:26px;line-height:.8;font-weight:500}
+details[open] summary::after{content:"−"}
+details p{padding:0 0 22px;color:var(--mut);max-width:62ch}
+@media (max-width:860px){.faqw{grid-template-columns:1fr;gap:24px}}
+
+/* slot */
+.final{position:relative;min-height:min(90vh,820px);display:grid;align-items:center;overflow:hidden}
+.final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.final::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 30% 70% at 88% 40%,oklch(0.75 0.18 50 / .25),transparent 70%),linear-gradient(90deg,oklch(0.15 0.014 48 / .94),oklch(0.2 0.04 40 / .6) 45%,oklch(0.15 0.014 48 / .1))}
+.final .in{position:relative;z-index:2;width:100%}
+.final .box{max-width:600px;display:grid;gap:22px;padding-block:80px}
+.final .rows{display:grid;gap:8px;font-size:18px}
+.final .rows div{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;border-bottom:1px solid oklch(0.96 0.012 75 / .18);padding-bottom:8px}
+.final .rows b{font-family:var(--display);font-size:30px;font-weight:900;color:var(--ember-hi);text-shadow:0 0 30px oklch(0.72 0.185 48 / .5)}
+.final .rows s{color:var(--mut)}
+.final .rows .sv{color:var(--gold);font-weight:700;margin-left:auto}
+@media (max-width:760px){.final::after{background:linear-gradient(0deg,oklch(0.15 0.014 48 / .96) 30%,oklch(0.15 0.014 48 / .55) 70%,oklch(0.15 0.014 48 / .2))}.final{align-items:end}.final .rows .sv{margin-left:0}}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:14px;padding:30px 0 120px}
+footer .in{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* ===== Lade ===== */
+.scrim{position:fixed;inset:0;background:oklch(0.1 0.01 48 / .62);z-index:var(--z-scrim);opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(470px,100%);background:var(--night-2);border-left:1px solid var(--line);z-index:var(--z-drawer);transform:translateX(100%);visibility:hidden;transition:transform .35s var(--ease),visibility 0s .35s;display:grid;grid-template-rows:auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.open{transform:none;visibility:visible;transition:transform .35s var(--ease),visibility 0s}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:30px}
+.dh button{background:none;border:1px solid var(--line);border-radius:99px;width:40px;height:40px;font-size:22px;cursor:pointer;line-height:1}
+.db{overflow-y:auto;padding:18px 20px;display:grid;gap:18px;align-content:start}
+.dsub{font-weight:800;font-size:15px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.line img{width:64px;height:64px;object-fit:cover;border-radius:10px;background:#fff}
+.line b{display:block;font-size:15.5px;line-height:1.25}
+.line small{display:block;color:var(--mut);font-size:13.5px;line-height:1.35}
+.line .r{text-align:right;font-weight:800;white-space:nowrap}
+.line .r s{display:block;color:var(--mut);font-weight:500;font-size:13px}
+.line .x{background:none;border:0;color:var(--mut);font-size:13px;text-decoration:underline;cursor:pointer;padding:2px 0;margin-top:2px}
+.empty{color:var(--mut);display:grid;gap:12px}
+.add{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.add img{width:52px;height:52px;object-fit:cover;border-radius:8px}
+.add b{display:block;font-size:14.5px;line-height:1.25}
+.add small{color:var(--mut);font-size:13px}
+.add small s{margin-left:4px}
+.add button{background:var(--ember-bg);border:1px solid var(--ember);border-radius:10px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap;font-size:14px}
+.df{border-top:1px solid var(--line);padding:16px 20px;display:grid;gap:10px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.tot b{font-family:var(--display);font-size:36px;font-weight:900;line-height:1}
+.tot .sv{color:var(--gold);font-weight:700;font-size:14.5px}
+.note{font-size:13.5px;color:var(--mut);text-align:center}
+#toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--gold);color:var(--gold-ink);font-weight:800;padding:11px 16px;border-radius:10px;z-index:var(--z-toast);display:none;width:max-content;max-width:calc(100% - 32px);text-align:center}
+
+/* mobiele balk */
+.mbar{display:none}
+@media (max-width:960px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:var(--z-mbar);background:oklch(0.17 0.014 48 / .97);border-top:1px solid var(--line);padding:10px var(--gut) calc(10px + env(safe-area-inset-bottom,0px));gap:14px;align-items:center}
+  .mbar .p{font-size:13px;color:var(--mut);line-height:1.2;white-space:nowrap}
+  .mbar .p b{display:block;font-family:var(--display);font-weight:900;font-size:26px;color:var(--fg)}
+  .mbar .p s{font-size:13px}
+  .mbar .cta{flex:1;padding:14px 16px;font-size:17px}
+}
+
+/* ===== Uitleg-post-its ===== */
+.uitlegbtn{position:fixed;left:max(14px,env(safe-area-inset-left,0px));bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:var(--z-uitleg);background:var(--note);color:var(--note-ink);border:0;border-radius:10px;padding:10px 16px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px oklch(0.1 0.02 50 / .5);transform:rotate(-2deg)}
+@media (min-width:961px){.uitlegbtn{bottom:22px}}
+@media (max-width:960px){.uitlegbtn{padding:7px 12px;font-size:14px}}
+.pi{position:absolute;z-index:20;display:none;width:230px;max-width:calc(100% - 24px);background:var(--note);color:var(--note-ink);font-size:13.5px;line-height:1.38;padding:10px 12px;border-radius:4px;box-shadow:0 8px 18px oklch(0.1 0.02 50 / .45);transform:rotate(-1.5deg);pointer-events:none;font-family:var(--body)}
+.pi b{display:block;font-size:14.5px;margin-bottom:2px}
+body.uitleg .pi{display:block}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* ===================== LICHTE VARIANT =====================
+   Steengrijze basis met houtskooltekst; de campagneblokken (hero, verhaal, zo werkt het, pakketten, sfeer, slot)
+   blijven donker en vurig als contrast. */
+:root{
+  --night:oklch(0.945 0.009 58);      /* warm steengrijs */
+  --night-2:oklch(0.975 0.005 60);    /* gebroken wit vlak */
+  --ember-bg:oklch(0.95 0.045 58);
+  --line:oklch(0.85 0.014 55);
+  --fg:oklch(0.22 0.016 48);          /* houtskool */
+  --mut:oklch(0.44 0.02 50);
+  --ember-hi:oklch(0.56 0.19 40);     /* tekst-oranje dat leesbaar is op licht */
+  --ok:oklch(0.50 0.13 150);
+  --no:oklch(0.55 0.17 27);
+  color-scheme:light;
+}
+.hero,#verhaal,.sec.alt,.final{
+  --night:oklch(0.17 0.014 48);--night-2:oklch(0.205 0.018 48);--ember-bg:oklch(0.25 0.035 45);
+  --line:oklch(0.33 0.025 50);--fg:oklch(0.96 0.012 75);--mut:oklch(0.80 0.025 70);
+  --ember-hi:oklch(0.80 0.15 58);--ok:oklch(0.80 0.13 150);--no:oklch(0.72 0.12 25);
+  color:var(--fg);color-scheme:dark;
+}
+#verhaal,.sec.alt{background-color:oklch(0.17 0.014 48)}
+.sec.alt{background:radial-gradient(ellipse 70% 55% at 50% 0%,oklch(0.45 0.15 38 / .35),transparent 70%),radial-gradient(ellipse 60% 40% at 50% 100%,oklch(0.40 0.14 32 / .25),transparent 70%),oklch(0.17 0.014 48)}
+header{background:oklch(0.975 0.005 60 / .94);border-bottom-color:var(--line)}
+.koop{background:radial-gradient(ellipse 45% 50% at 25% 50%,oklch(0.80 0.12 55 / .35),transparent 70%),radial-gradient(ellipse 50% 35% at 85% 100%,oklch(0.82 0.09 45 / .25),transparent 70%),var(--night)}
+.main{box-shadow:0 40px 110px -35px oklch(0.6 0.2 38 / .55),0 0 0 1px oklch(0.72 0.185 48 / .3)}
+.size,.opt{background:var(--night-2)}
+.size[aria-pressed="true"]{background:radial-gradient(ellipse at 30% 100%,oklch(0.88 0.09 55 / .7),transparent 70%),var(--ember-bg);box-shadow:0 10px 30px -10px oklch(0.72 0.185 48 / .55)}
+.opt .r s,.size .pr s,.price s{color:var(--mut)}
+.price .now,.gvk .pp{color:var(--fg)}
+.trust div{background:var(--night-2)}
+.gvk .cols{background:var(--night-2)}
+.gvk .col.fav{background:radial-gradient(ellipse at 50% 100%,oklch(0.86 0.1 55 / .55),transparent 70%),var(--ember-bg)}
+.tbl{background:var(--night-2)}
+thead th{background:var(--night)}
+td.us{background:oklch(0.72 0.185 48 / .12)}
+.chips{background:var(--night-2)}
+.drawer{background:var(--night-2)}
+.add button{background:var(--ember-bg)}
+#sfeer .lbl,.strip .lbl{color:oklch(0.22 0.02 50)}
+.mbar{background:oklch(0.975 0.005 60 / .97)!important}
+footer{background:var(--night-2)}
+.ghost{border-color:oklch(0.22 0.016 48 / .3)}
+.hero .ghost,.final .ghost,.sec.alt .ghost,#verhaal .ghost{border-color:oklch(0.96 0.012 75 / .35)}
+.cartbtn .n,.chips a.k{color:var(--ember-ink)}
+.koop .opt b em,.koop .sum .l b,.tot .sv,.gvk .pp small{color:oklch(0.52 0.15 45)}
+.drawer{--gold:oklch(0.52 0.15 45)}
+
+/* pins: bolletje precies op het onderdeel, label ernaast */
+.pin{position:absolute;left:var(--x);top:var(--y);z-index:3;pointer-events:none;width:0;height:0}
+.pin>i{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px #fff,0 0 0 7px oklch(0.72 0.185 48 / .35),0 4px 10px rgba(0,0,0,.4)}
+.pin>span{position:absolute;top:0;transform:translateY(-50%);background:#fff;color:oklch(0.22 0.02 50);font-weight:700;font-size:13.5px;line-height:1.2;padding:7px 12px;border-radius:99px;white-space:nowrap;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.pin>span::before{content:"";position:absolute;top:50%;width:14px;height:2px;background:#fff;margin-top:-1px}
+.pin.r>span{left:24px}.pin.r>span::before{right:100%}
+.pin.l>span{right:24px}.pin.l>span::before{left:100%}
+.pin.t>span{left:0;top:auto;bottom:24px;transform:translateX(-50%)}.pin.t>span::before{left:50%;top:100%;width:2px;height:14px;margin:0 0 0 -1px}
+@media (max-width:560px){.pin>span{font-size:11.5px;padding:5px 9px}.pin.r>span{left:20px}.pin.l>span{right:20px}.pin>span::before{width:10px}}
+.fix45{position:relative;aspect-ratio:4/5!important;min-height:0!important;height:auto!important;align-self:start}
+.fix45>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.main .pin{animation:fadeup .8s var(--ease) both;animation-delay:1.1s}
+
+.why{border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:8px;background:var(--night-2)}
+.why b{font-size:16px}
+.why ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.why li{display:grid;grid-template-columns:20px 1fr;gap:8px;font-size:15px;line-height:1.4}
+.why li::before{content:"✓";color:oklch(0.55 0.15 150);font-weight:900}
+.yn{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center;border:1.5px solid var(--gold);border-radius:14px;padding:12px;background:var(--night-2)}
+.yn img{width:72px;height:72px;object-fit:cover;border-radius:10px}
+.yn b{display:block;font-size:15.5px}.yn small{display:block;color:var(--mut);font-size:13.5px;margin:2px 0 8px}.yn .gold{color:var(--ember-hi);font-weight:800}
+.ynbtns{display:flex;gap:8px}
+.ynbtns button{flex:1;border:1.5px solid var(--line);background:var(--night);color:var(--fg);border-radius:10px;padding:9px;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit}
+.ynbtns button[aria-pressed="true"]{border-color:var(--ember);background:var(--ember-bg)}
+.yn.need{animation:nudge .45s;border-color:var(--ember)}
+@keyframes nudge{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.trust2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.trust2>div{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--mut);line-height:1.35}
+.trust2 svg{width:22px;height:22px;flex:none;color:var(--fg)}
+.trust2 b{display:block;color:var(--fg);font-size:14px}
+.pay{display:flex;flex-wrap:wrap;gap:8px}
+.pay .pm svg{display:block;width:46px;height:32px;border-radius:5px;box-shadow:0 0 0 1px var(--line)}
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;font-weight:800;font-size:16px;padding:16px 0;display:flex;justify-content:space-between}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:22px;line-height:1}
+.acc details[open] summary::after{content:"−"}
+.acc .body{padding:0 0 16px;color:var(--mut);font-size:15px}
+.acc .body p{margin:0 0 8px}.acc .body ul{margin:0;padding-left:18px}
+.acc dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}.acc dt{font-weight:700;color:var(--fg)}.acc dd{margin:0}
+@media (max-width:560px){.trust2{grid-template-columns:1fr}}
+.tafel .pics.one{display:block;max-width:460px}
+.tafel .pics.one .fix45{border-radius:18px;overflow:hidden}
+.slot .box{max-width:620px;display:grid;gap:16px}
+
+.bfdeal{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:var(--fire);color:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 14px 36px -14px oklch(0.6 0.2 38 / .7)}
+.bfdeal .t{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:.05em;font-size:22px;line-height:1}
+.bfdeal>b{background:#fff;color:oklch(0.45 0.19 32);font-family:var(--display);font-weight:900;font-size:24px;line-height:1;border-radius:8px;padding:4px 10px}
+.bfdeal .d{font-size:14.5px;font-weight:600;width:100%}.bfdeal .d b{font-weight:900}.bfdeal .d s{opacity:.85}
+.gift{background:oklch(0.2 0.02 48);color:oklch(0.96 0.012 75)}
+.gift .lead,.gift .mut{color:oklch(0.82 0.025 70)}
+.giftgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center}
+.giftpic{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.giftpic img{width:100%;height:100%;object-fit:cover}
+.gifttxt{display:grid;gap:18px}
+.gifttxt h2{color:#fff}
+.giftlist{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid oklch(0.35 0.03 50)}
+.giftlist li{display:grid;gap:2px;padding:14px 0 14px 34px;border-bottom:1px solid oklch(0.35 0.03 50);position:relative}
+.giftlist li::before{content:"";position:absolute;left:4px;top:19px;width:14px;height:14px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px oklch(0.72 0.185 48 / .25)}
+.giftlist b{color:#fff}.giftlist span{color:oklch(0.82 0.025 70);font-size:15px}
+.giftbuy{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between}
+.giftbuy b{display:block;font-family:var(--display);font-size:34px;color:#fff;line-height:1}
+@media (max-width:900px){.giftgrid{grid-template-columns:minmax(0,1fr);gap:24px}}
+.revhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+.score{display:grid;justify-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 22px;background:var(--night-2)}
+.score b{font-family:var(--display);font-size:44px;line-height:1}.score small{color:var(--mut)}
+.stars{color:oklch(0.78 0.16 75);letter-spacing:2px}
+.revgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{position:relative;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--night-2);display:grid;gap:8px}
+.rev h3{margin:0;font-size:18px}.rev p{margin:0;color:var(--mut);font-size:15px}.rev small{color:var(--mut)}
+.vb{position:absolute;top:12px;right:12px;background:var(--note);color:var(--note-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
+
+/* verhaalblokken in gewone webshop-verhouding (zoals het vergelijkingsblok) */
+.ch{max-width:1240px;margin:0 auto;padding:clamp(48px,7vw,88px) var(--gut);grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);min-height:0!important;align-items:center}
+.ch .pic{border-radius:18px;min-height:0;max-width:480px;width:100%;justify-self:center}
+.ch .pic::after{display:none}
+.ch .txt,.ch.flip .txt{padding:0;background:none}
+.ch .txt p{font-size:17.5px}
+@media (max-width:900px){.ch{grid-template-columns:minmax(0,1fr);gap:24px}.ch .txt{padding:0}}
+
+@media (max-width:560px){.pin>span{white-space:normal;width:max-content;max-width:42vw;line-height:1.25}}
+
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .wm{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-weight:900;font-size:34px;line-height:1;letter-spacing:.01em;color:#1d1611}
+.logo .wm b{color:#e8600f;font-weight:900}
+@media (max-width:560px){.logo .wm{font-size:28px}.logo img{height:36px!important}}
+
+.rating{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:15px}
+.rating .tp{background:#00b67a;color:#fff;letter-spacing:3px;padding:1px 6px;border-radius:3px;font-size:14px}
+.rating .sep{color:var(--mut)}
+.rating .vbt{background:var(--note);color:var(--note-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
+.bfdeal{padding:10px 16px}
+
+.thumbs .nr{position:absolute;left:4px;top:4px;background:rgba(20,14,10,.85);color:#fff;font-size:11px;font-weight:800;border-radius:5px;padding:1px 5px;line-height:1.4}
+.picnr{position:absolute;right:12px;bottom:12px;z-index:4;background:rgba(20,14,10,.85);color:#fff;font-weight:800;font-size:14px;border-radius:8px;padding:3px 9px}
+.thumbs{grid-template-columns:repeat(8,minmax(0,1fr))!important}
+@media (max-width:560px){.thumbs{grid-template-columns:repeat(6,minmax(0,1fr))!important}}
+
+.pay{display:flex;flex-wrap:nowrap;gap:6px;align-items:center}
+.pay .pm{width:38px;height:24px;flex:none;display:block;border-radius:3px;box-shadow:none}
+@media (max-width:420px){.pay{gap:4px}.pay .pm{width:31px;height:20px}}
+
+/* uitlijning Grand/Mini: rijen gelijk via subgrid */
+.gvk .cols{grid-template-rows:auto auto auto auto auto}
+.gvk .col{grid-row:span 5;grid-template-rows:subgrid;align-content:stretch}
+.gvk .col .cta,.gvk .col .ghost{width:100%;justify-content:center;padding:15px 22px;font-size:17px;border-radius:12px}
+.gvk .col .ghost{border:1.5px solid var(--fg);color:var(--fg)}
+/* rustige, effen knop */
+.cta{background:#E2600F!important;color:#fff!important;box-shadow:0 6px 16px -8px rgba(160,60,0,.55)!important;filter:none!important}
+.cta:hover{background:#C9520A!important;box-shadow:0 8px 20px -8px rgba(160,60,0,.6)!important}
+.uitlegbtn,.pi{display:none!important}
+
+.sfeer2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.sfeer2 .pic{border-radius:18px;overflow:hidden;max-width:520px;width:100%;justify-self:center}
+.sfeer2 .txt{display:grid;gap:20px}
+.sfeerlist{list-style:none;margin:0;padding:0;border-top:1px solid oklch(0.35 0.03 50)}
+.sfeerlist li{display:grid;gap:2px;padding:14px 0 14px 30px;border-bottom:1px solid oklch(0.35 0.03 50);position:relative}
+.sfeerlist li::before{content:"";position:absolute;left:2px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px oklch(0.72 0.185 48 / .25)}
+.sfeerlist span{opacity:.8;font-size:15.5px}
+@media (max-width:900px){.sfeer2{grid-template-columns:minmax(0,1fr);gap:24px}}
+
+/* ===== webshop-onderdelen ===== */
+.menu a.on{color:var(--fg);font-weight:700}
+.ft{background:oklch(0.19 0.016 48);color:oklch(0.9 0.012 75);padding:64px 0 120px;margin-top:0;border-top:0}
+.ft .in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px}
+.ft h3{font-family:var(--display);font-weight:900;font-size:22px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 14px;color:#fff}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ft a{color:oklch(0.86 0.02 70);text-decoration:none}.ft a:hover{color:#fff;text-decoration:underline}
+.ft .brand p{color:oklch(0.8 0.02 70);font-size:15px;max-width:34ch;margin:12px 0 0}
+.ft .brand .wm{color:#fff}
+.ft .bottom{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center;border-top:1px solid oklch(0.32 0.025 50);padding-top:22px;font-size:14px;color:oklch(0.74 0.02 70)}
+.ft .pay .pm{box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+@media (max-width:900px){.ft .in{grid-template-columns:1fr 1fr}.ft .brand{grid-column:1/-1}}
+@media (max-width:520px){.ft .in{grid-template-columns:1fr}}
+.pagehead{padding:48px 0 8px}
+.pagehead h1{font-family:var(--display);font-weight:900;font-size:clamp(40px,6vw,72px);line-height:.95;text-transform:uppercase;margin:6px 0 12px}
+.crumb2{font-size:14px;color:var(--mut)}.crumb2 a{color:inherit}
+/* home */
+.hhero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;padding-block:44px 64px}
+.hhero .pic{border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-width:560px;width:100%;justify-self:center;position:relative}
+.hhero .pic img{width:100%;height:100%;object-fit:cover}
+.hhero h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(44px,6.4vw,84px);line-height:.92;margin:0}
+.hhero h1 em{font-style:normal;color:var(--ember-hi)}
+.hhero .lead{margin:0}
+.hhero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.bfchip{display:inline-flex;align-items:center;gap:10px;background:var(--fire);color:#fff;border-radius:12px;padding:8px 14px;font-family:var(--display);font-weight:900;font-size:20px;text-transform:uppercase;width:max-content}
+.bfchip b{background:#fff;color:oklch(0.45 0.19 32);border-radius:7px;padding:2px 8px}
+.usps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.usps div{display:flex;gap:12px;align-items:center;background:var(--night-2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-weight:700;font-size:15px}
+.usps svg{width:30px;height:30px;flex:none;color:var(--ember-hi)}
+@media (max-width:900px){.hhero{grid-template-columns:minmax(0,1fr)}.usps{grid-template-columns:1fr 1fr}}
+/* productkaarten */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.grid3{grid-template-columns:minmax(0,1fr)}}
+.pcard{background:var(--night-2);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;text-decoration:none;color:inherit;transition:transform .2s var(--ease),box-shadow .2s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 20px 40px -24px rgba(60,30,10,.45)}
+.pcard .im{position:relative;aspect-ratio:1;background:#fff}
+.pcard .im img{width:100%;height:100%;object-fit:cover}
+.pcard .tag{position:absolute;top:12px;left:12px;background:var(--fire);color:#fff;font-weight:800;font-size:13px;border-radius:8px;padding:4px 10px}
+.pcard .t{padding:18px 20px 22px;display:grid;gap:8px;align-content:start}
+.pcard h3{font-family:var(--display);font-weight:900;font-size:26px;text-transform:uppercase;margin:0;line-height:1}
+.pcard p{margin:0;color:var(--mut);font-size:15px}
+.pcard .pr{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.pcard .pr b{font-family:var(--display);font-size:34px;font-weight:900}.pcard .pr s{color:var(--mut)}
+.pcard .go{margin-top:8px;font-weight:800;color:var(--ember-hi)}
+/* tekstpagina's */
+.prose{max-width:760px;padding-bottom:40px}
+.prose h1{font-family:var(--display);font-weight:900;font-size:clamp(38px,5vw,60px);text-transform:uppercase;line-height:.95;margin:8px 0 18px}
+.prose h2{font-family:var(--display);font-weight:800;font-size:28px;text-transform:uppercase;margin:34px 0 10px;letter-spacing:.01em}
+.prose h3{font-size:19px;margin:22px 0 8px}
+.prose p,.prose li{font-size:16.5px;line-height:1.7;color:oklch(0.32 0.02 50)}
+.prose ul,.prose ol{padding-left:22px}
+.prose a{color:var(--ember-hi)}
+/* klantenservice / contact */
+.kcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:8px 0 40px}
+.kcards a,.kcards div{display:grid;gap:6px;background:var(--night-2);border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;color:inherit}
+.kcards b{font-size:18px}.kcards span{color:var(--mut);font-size:15px}
+.kcards svg{width:28px;height:28px;color:var(--ember-hi)}
+@media (max-width:800px){.kcards{grid-template-columns:1fr}}
+.faqcat{margin-top:34px}
+.faqcat h2{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:30px;margin:0 0 12px}
+.cform{display:grid;gap:14px;background:var(--night-2);border:1px solid var(--line);border-radius:18px;padding:22px}
+.cform label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.cform input,.cform textarea,.cform select{font:inherit;font-weight:400;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--fg)}
+.cform textarea{min-height:130px}
+.contactgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;align-items:start;padding-bottom:64px}
+@media (max-width:900px){.contactgrid{grid-template-columns:minmax(0,1fr)}}
+.addr{font-style:normal;line-height:1.7}
+/* nieuw slotblok productpagina */
+.slot2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,56px);align-items:center}
+.slot2 .pic{border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-width:480px;width:100%;justify-self:center}
+.slot2 .pic img{width:100%;height:100%;object-fit:cover}
+.slot2 .rows{display:grid;gap:12px}
+.slot2 .row{display:grid;grid-template-columns:minmax(0,1fr) 150px 130px;gap:14px;align-items:center;background:rgba(255,255,255,.05);border:1px solid oklch(0.35 0.03 50);border-radius:14px;padding:14px 16px}
+.slot2 .row b{font-family:var(--display);font-size:24px;text-transform:uppercase;color:#fff}
+.slot2 .row .p{font-family:var(--display);font-size:30px;font-weight:900;color:#fff}.slot2 .row s{color:oklch(0.75 0.02 70);font-size:15px;margin-left:6px}
+.slot2 .row .cta{padding:11px 16px;font-size:15px;width:100%;justify-content:center}
+@media (max-width:900px){.slot2{grid-template-columns:minmax(0,1fr)}.slot2 .row{grid-template-columns:1fr auto}.slot2 .row .cta{grid-column:1/-1}}
+
+.final{background:oklch(0.19 0.016 48);padding-block:80px;color:#fff}.final h2{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="bf" id="top"><b>Black Friday</b>Tot €161 korting op de Flametower<span class="x"> · hoed tegen vonken altijd inbegrepen</span><span id="countdown"></span></div>
+<header>
+  <div class="in hd">
+    <a class="logo" href="index.html" aria-label="Flametower home"><img src="../img/logo-icon.png" alt="" width="40" height="42" style="height:42px;width:auto;display:block"><span class="wm"><b>FLAME</b>TOWER</span></a>
+    <nav class="menu" aria-label="Hoofdmenu"><a href="collectie.html">Collectie</a><a href="flametower.html" class="on">Grand</a><a href="flametower.html?model=mini">Mini</a><a href="tafelhaard.html">Tafelhaard</a><a href="klantenservice.html">Klantenservice</a><a href="contact.html">Contact</a></nav>
+    <div class="tools">
+      <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Zoeken</span><input type="search" placeholder="Zoek in de winkel"></label>
+      <a class="cartbtn" id="cartBtn" href="flametower.html" aria-label="Winkelmand"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="t">Winkelmand</span><span class="n" id="cartCount">0</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- KOOPBLOK -->
+<section class="koop" id="koop" aria-labelledby="pName">
+  <div class="in">
+    <div class="crumb">Home / Buitenhaarden / <span>Flametower pellethaard</span></div>
+    <div class="grid">
+      <div class="gal rel">
+        <div class="main" id="mainPic">
+          <img id="mainImg" src="../img/f51.jpg" alt="Flametower pellethaard">
+          <div class="badge" id="mainBadge">Black Friday<small>−€161</small></div>
+          <div id="labels"></div>
+        </div>
+        <div class="thumbs" id="thumbs" role="group" aria-label="Foto's"></div>
+        
+      </div>
+
+      <div class="buy">
+        <div style="display:grid;gap:8px">
+          <h1 class="t" id="pName">Flametower Grand</h1>
+          <div class="rating"><span class="tp">★★★★★</span><b>4,9/5</b> Uitstekend <span class="sep">|</span> <b>10.000+</b> klanten</div>
+          <p class="s">Staande pellethaard met echte vlammen in een glazen buis en een hoed tegen vonken. Voor je terras, loungehoek, tuin of open veranda: gezellig langer buiten op koele avonden.</p>
+        </div>
+
+        <div>
+          <div class="q">Kies je maat</div>
+          <div class="sizes" role="group" aria-label="Maat">
+            <button class="size" id="szG" aria-pressed="true"><span class="fav">Favoriet</span><img src="../img/f52.jpg" alt=""><span><b>Grand · 183 cm</b><small>Vaste plek bij de lounge</small><span class="pr">€239<s>€400</s></span></span></button>
+            <button class="size" id="szK" aria-pressed="false"><img src="../img/f25.jpg" alt=""><span><b>Mini · 122 cm</b><small>Met wieltjes, rol hem mee</small><span class="pr">€199<s>€350</s></span></span></button>
+          </div>
+        </div>
+
+        <div class="bfdeal"><span class="t">Black Friday-deal</span><b id="bfPct">−40%</b></div>
+        <div class="price rel"><span class="now" id="pNow">€239</span><s id="pWas">€400</s><span class="save" id="pSave">Je bespaart €161</span>
+          
+        </div>
+
+        <div class="why"><b>Waarom de Flametower</b><ul>
+            <li><span><b>Makkelijk</b> in elkaar te zetten, te gebruiken en te onderhouden</span></li>
+            <li><span><b>Veel warmte, 360° rondom</b> de haard</span></li>
+            <li><span><b>Uniek design:</b> een echte eyecatcher in je tuin</span></li>
+            <li><span>Echte vlammen in glas, met hoed tegen vonken</span></li>
+            <li id="whySize">183 cm hoog: het middelpunt van je terras</li>
+          </ul></div>
+        <div hidden><div id="packOpts"></div></div>
+        <div><div class="q">Handig erbij <span>past op je Flametower</span></div><div class="opts" id="extraOpts"></div></div>
+        <div class="yn" id="yn">
+          <img src="../img/t_tafel1.jpg" alt="Flametower Tafelhaard" style="background:#fff;object-fit:contain">
+          <div><b>Maak je terras compleet: tafelhaard erbij?</b><small>Klein vuurtje voor midden op tafel. <s>€59</s> <span class="gold">€39 met je haard</span></small>
+            <div class="ynbtns" role="group" aria-label="Tafelhaard erbij"><button type="button" id="ynJa" aria-pressed="false">Ja, erbij</button><button type="button" id="ynNee" aria-pressed="false">Nee, bedankt</button></div></div>
+        </div>
+
+        <div class="sum"><span class="l">Totaal <span id="sumSave"></span></span><span class="v" id="sumTot">€239</span></div>
+        <button class="cta full" id="addCart">In winkelmand</button>
+        <div class="trust2">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4"/></svg><span><b>14 dagen</b>bedenktijd</span></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span><b>Veilig betalen</b>iDEAL en meer</span></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16L12 4z"/><path d="M12 9v11"/></svg><span><b>Hoed tegen vonken</b>zit er standaard op</span></div>
+        </div>
+        <div class="pay" aria-label="Betaalmethodes">
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="iDEAL | Wero"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><rect x="4" y="5" width="14" height="14" rx="3" fill="#CC0066"/><text x="11" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#fff">iD</text><text x="27" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#1D1D1B">wero</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Bancontact"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M6 15h11l4-6H10z" fill="#1E3764"/><path d="M17 9h15l-4 6H13z" fill="#FFD800"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Klarna"><rect width="38" height="24" rx="3" fill="#FFB3C7"/><text x="19" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="8" fill="#17120F">Klarna</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="PayPal"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M15 6h5.2c2.3 0 3.6 1.2 3.2 3.2-.4 2.3-2 3.4-4.3 3.4h-1.5l-.8 4.4H14z" fill="#003087"/><path d="M17.5 8.2h4c2 0 3 1.1 2.6 3-.4 2.1-1.9 3.1-4 3.1h-1.3l-.7 3.7h-2.6z" fill="#009CDE"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Apple Pay"><rect width="38" height="24" rx="3" fill="#000"/><path d="M11.3 8.1c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7 0 1.3-.3 1.7-.8zm.6 1c-.9-.1-1.7.5-2.1.5-.5 0-1.1-.5-1.8-.5-.9 0-1.8.6-2.3 1.4-1 1.7-.3 4.3.7 5.7.5.7 1 1.4 1.8 1.4.7 0 1-.5 1.8-.5s1.1.5 1.8.5 1.2-.7 1.6-1.4c.5-.8.7-1.5.7-1.6 0 0-1.4-.6-1.4-2.2 0-1.4 1.1-2 1.2-2.1-.7-1-1.7-1.1-2-1.2z" fill="#fff"/><text x="25" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#fff">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Google Pay"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><text x="6" y="15.5" font-family="Arial,sans-serif" font-weight="700" font-size="9"><tspan fill="#4285F4">G</tspan></text><text x="14" y="15.5" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#5F6368">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Visa"><rect width="38" height="24" rx="3" fill="#1434CB"/><text x="19" y="15.8" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-style="italic" font-size="9.5" fill="#fff">VISA</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Mastercard"><rect width="38" height="24" rx="3" fill="#252525"/><circle cx="15.5" cy="12" r="6" fill="#EB001B"/><circle cx="22.5" cy="12" r="6" fill="#F79E1B"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#FF5F00"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Maestro"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><circle cx="15.5" cy="12" r="6" fill="#0099DF"/><circle cx="22.5" cy="12" r="6" fill="#ED0006"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#6C6BBD"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="American Express"><rect width="38" height="24" rx="3" fill="#016FD0"/><text x="19" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="7.5" fill="#fff">AMEX</text></svg>
+        </div>
+        <div class="acc">
+          <details><summary>Productbeschrijving</summary><div class="body"><p>Je vult de bak met houtpellets, steekt ze onderin aan en na een paar minuten draait er een hoge vlam door de glazen buis. Je voelt de warmte in een kring om de haard. Overdag een strak zwart object in de tuin, 's avonds het middelpunt van je terras.</p><p>Voor buiten: op je terras, in de loungehoek, in de tuin of onder een open veranda of overkapping.</p></div></details>
+          <details><summary>Specificaties</summary><div class="body"><dl><dt>Grand</dt><dd>183 cm, vierkante stalen voetplaat</dd><dt>Mini</dt><dd>122 cm, kruispoot met 2 wieltjes en handgreep</dd><dt>Brandstof</dt><dd>Houtpellets 6 mm</dd><dt>Stroom of gas</dt><dd>Niet nodig</dd><dt>Erbij</dt><dd>Hoed tegen vonken</dd><dt>Gebruik</dt><dd>Alleen buiten</dd></dl></div></details>
+          <details><summary>Bezorgen en retour</summary><div class="body"><ul><li>Je ziet de verzendkosten en levertijd bij het afrekenen.</li><li>14 dagen bedenktijd na ontvangst.</li><li>Veilig betalen met iDEAL en andere bekende methodes.</li></ul></div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="chips" aria-label="Op deze pagina"><div class="in"><a class="k" href="#koop">Kopen</a><a href="#verhaal">De vlam</a><a href="#maten">Grand of Mini</a><a href="#zowerkt">Zo werkt het</a><a href="#vergelijk">Vergelijk</a><a href="#tafel">Tafelhaard</a><a href="#faq">Vragen</a></div></nav>
+
+<!-- HERO -->
+
+
+
+
+<!-- VERHAAL -->
+<section id="verhaal" aria-label="Het verhaal">
+  <div class="ch">
+    <div class="txt rel">
+      <h2>Vuur dat je van alle kanten ziet</h2>
+      <p>Je schept houtpellets in de vulbak en steekt ze onderin aan. Na een paar minuten draait de vlam omhoog door de glazen buis. <b>Geen lamp, geen nep.</b> Echt vuur, hoog en rond, midden op je terras.</p>
+      <p>Bovenop zit een hoed die vonken opvangt. Die zit er standaard op.</p>
+      
+    </div>
+    <div class="pic fix45"><img src="../img/f46.jpg" alt="Close-up van de vlam die door de glazen buis van de Flametower omhoog draait" loading="lazy"><span class="pin r" style="--x:52%;--y:55%"><i></i><span>Echte vlammen in glas</span></span><span class="pin r" style="--x:52%;--y:85%"><i></i><span>Brandt op houtpellets</span></span>
+    </div>
+  </div>
+
+  <div class="ch"><div class="pic fix45"><img src="../img/f01.jpg" alt="Flametower brandt naast de loungebank" loading="lazy"><span class="pin l" style="--x:51%;--y:35%"><i></i><span>Hier blijft iedereen hangen</span></span></div><div class="txt rel">
+        <h2>Het terras waar iedereen blijft hangen</h2>
+        <p>Loungeset staat, lampjes hangen. Wat nog mist is een plek om omheen te zitten. Met de Flametower aan schuift iedereen een stukje dichterbij en gaat er nog een fles open.</p>
+      </div></div>
+
+  <div class="ch flip">
+    <div class="pic fix45" style="--fx:55%;--fy:25%"><img src="../img/f51.jpg" alt="Vrouw bij de brandende Flametower op een terras" loading="lazy"><span class="pin r" style="--x:55%;--y:25%"><i></i><span>Warm in een kring om de haard</span></span>
+    </div>
+    <div class="txt rel">
+      <p class="big">December.</p>
+      <h2>Nog steeds buiten</h2>
+      <p>Dikke trui, dekentje, thee. De warmte voel je in een kring om de haard, dus zet hem vlak bij je stoel. Zo wordt een koude avond gewoon een buitenavond.</p>
+      <p>Zoek je een groot cadeau voor je ouders of je partner? <b>Dit is er een die de hele winter buiten staat te branden.</b></p>
+      
+    </div>
+  </div>
+</section>
+
+<!-- GROOT OF KLEIN -->
+<section class="sec" id="maten">
+  <div class="in gvk">
+    <div class="pic rel"><img src="../img/f26.jpg" alt="Flametower Grand en Flametower Mini naast elkaar, allebei brandend" loading="lazy"><span class="pin r" style="--x:35%;--y:5%"><i></i><span>Grand · 183 cm</span></span><span class="pin r" style="--x:62%;--y:25%"><i></i><span>Mini · 122 cm</span></span><span class="pin l" style="--x:72%;--y:88%"><i></i><span>Wieltjes + handgreep</span></span>
+    </div>
+    <div style="display:grid;gap:26px" class="rel">
+      <div class="head" style="margin:0"><h2>Grand of Mini?</h2><p class="lead">Allebei met echte vlammen in glas en een hoed tegen vonken. Het verschil zit in hoogte en hoe vaak je hem verplaatst.</p></div>
+      <div class="cols">
+        <div class="col fav">
+          <h3>Grand · 183 cm</h3>
+          <p>Vaste plek bij de lounge of eettafel. De hoogste vlam.</p>
+          <dl class="spec"><div><dt>Hoogte</dt><dd>183 cm</dd></div><div><dt>Voet</dt><dd>Stalen voetplaat</dd></div><div><dt>Verplaatsen</dt><dd>Optillen</dd></div><div><dt>Hoed</dt><dd>Inbegrepen</dd></div></dl>
+          <div class="pp">€239<s>€400</s></div>
+          <button class="cta" data-pick="groot">Kies Grand</button>
+        </div>
+        <div class="col">
+          <h3>Mini · 122 cm</h3>
+          <p>Met wieltjes en handgreep. Rol hem naar waar je zit.</p>
+          <dl class="spec"><div><dt>Hoogte</dt><dd>122 cm</dd></div><div><dt>Voet</dt><dd>Kruispoot</dd></div><div><dt>Verplaatsen</dt><dd>Op wieltjes</dd></div><div><dt>Hoed</dt><dd>Inbegrepen</dd></div></dl>
+          <div class="pp">€199<s>€350</s></div>
+          <button class="ghost" data-pick="klein">Kies Mini</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ZO WERKT HET -->
+<section class="sec alt" id="zowerkt">
+  <div class="in">
+    <div class="head"><h2>Vullen, aansteken, buiten blijven</h2><p class="lead">Geen ingewikkelde handleiding. In een paar minuten heb je een hoge vlam.</p></div>
+    <ol class="steps">
+      <li><div class="pic"><img src="../img/f142.jpg" alt="Houtpellets met een schep in de vulbak doen" loading="lazy"></div><h3>Vul de bak</h3><p>Schep houtpellets van 6 mm in de vulbak aan de zijkant. Die koop je bij elke bouwmarkt.</p></li>
+      <li><div class="pic"><img src="../img/f07.jpg" alt="Pellets onderin aansteken met een gasbrander" loading="lazy"></div><h3>Steek onderin aan</h3><p>Met een gasbrander steek je de pellets onderin aan. Bij het aansteken komt wat rook vrij, daarna trekt het vuur omhoog.</p></li>
+      <li><div class="pic"><img src="../img/f04.jpg" alt="Hoge vlam in de glazen buis" loading="lazy"></div><h3>Blijf zitten</h3><p>De vlam draait door de glazen buis. Bijvullen kan terwijl hij brandt.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- VERGELIJK -->
+<section class="sec" id="vergelijk">
+  <div class="in cmp">
+    <div>
+      <div class="head"><h2>Waarom een pellethaard?</h2><p class="lead">Naast de vuurkorf en de gas-terrasheater die je al kent.</p></div>
+      <div class="tbl rel">
+        <table>
+          <thead><tr><th scope="col"><span class="sr">Onderwerp</span></th><th scope="col" class="us">Flametower</th><th scope="col">Vuurkorf</th><th scope="col">Gasheater</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Echte vlammen</th><td class="us"><span class="y">✓</span> hoge vlam in glas</td><td><span class="y">✓</span> open vuur</td><td><span class="n">✕</span> alleen gloed</td></tr>
+            <tr><th scope="row">Rook</th><td class="us">Weinig, vooral bij aansteken en bijvullen</td><td>Veel, in je kleren en bij de buren</td><td>Geen</td></tr>
+            <tr><th scope="row">Vonken</th><td class="us"><span class="y">✓</span> hoed vangt ze op</td><td><span class="n">✕</span> vliegen alle kanten op</td><td>Geen</td></tr>
+            <tr><th scope="row">Brandstof</th><td class="us">Houtpellets uit de bouwmarkt</td><td>Hout sjouwen en droog houden</td><td>Gasfles wisselen</td></tr>
+            <tr><th scope="row">Uiterlijk</th><td class="us">Strakke zuil, 122 of 183 cm</td><td>Bak op de grond</td><td>Paddenstoel</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pic rel fix45"><img src="../img/f108.jpg" alt="Flametower pellethaard brandend" loading="lazy" style="background:#fff"><span class="pin r" style="--x:53%;--y:6%"><i></i><span>Vonken onder de hoed</span></span><span class="pin l" style="--x:42%;--y:52%"><i></i><span>Pellets, geen gasfles</span></span>
+      
+    </div>
+  </div>
+</section>
+
+<!-- PAKKETTEN -->
+<div hidden><div id="packCards"></div></div>
+
+<!-- TAFELHAARD -->
+
+
+<!-- SFEER -->
+<section class="sec" id="tafel">
+  <div class="in tafel">
+    <div class="pics one"><div class="fix45"><img src="../img/t_tafel4.jpg" alt="Flametower Tafelhaard brandt midden op de tuintafel, met de Flametower Grand op de achtergrond" loading="lazy"></div></div>
+    <div class="txt rel">
+      <h2>Flametower Tafelhaard</h2>
+      <p class="lead">Een klein vuurtje midden op de tuintafel, op dezelfde pellets. Mooi naast de grote haard, of als los cadeau.</p>
+      <div class="price"><span class="now" style="font-size:52px">€39</span><s>€59</s><span class="save">Je bespaart €20</span></div>
+      <div><button class="cta" id="addTable">Tafelhaard erbij</button></div>
+    </div>
+  </div>
+</section>
+<section class="sec alt" id="sfeer" aria-labelledby="sfeerT">
+  <div class="in sfeer2">
+    <div class="pic fix45"><img id="sfeerImg" src="../img/f41.jpg" alt="Flametower Grand brandt op een terras naast de loungestoel" loading="lazy"></div>
+    <div class="txt">
+      <h2 id="sfeerT">Van loungehoek tot stadstuin</h2>
+      <p class="lead">Of je nu een groot terras hebt, een loungehoek in de tuin of een open veranda: de Flametower staat er goed. Overdag een strak zwart designobject, 's avonds een zuil van vuur waar iedereen omheen komt zitten.</p>
+      <ul class="sfeerlist">
+        <li><b>Terras en loungehoek</b><span>Zet hem naast de bank en blijf tot laat buiten zitten.</span></li>
+        <li><b>Tuin en open veranda</b><span>360° warmte rondom, ook als het fris wordt.</span></li>
+        <li><b>Kleine stadstuin</b><span>Kies de Mini: compact en op wieltjes.</span></li>
+      </ul>
+      <div><a class="cta" href="#koop">Kies je Flametower</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="in faqw">
+    <div class="head" style="margin:0"><h2>Wat mensen vragen</h2><p class="lead">Staat je vraag er niet bij? Mail of bel de klantenservice.</p></div>
+    <div class="faq">
+      <details><summary>Mag hij onder mijn overkapping?</summary><p>Alleen onder een open overkapping, waar het grootste deel open is en er ruimte boven en rondom de haard is. Onder een dicht dak, in een veranda of op een balkon raden we hem af: rook en warmte moeten weg kunnen.</p></details>
+      <details><summary>Rookt hij?</summary><p>Bij het aansteken en bijvullen komt er wat rook vrij. Brandt hij eenmaal goed, dan is het veel minder dan bij een open vuurkorf. Gebruik droge houtpellets van 6 mm.</p></details>
+      <details><summary>Hoe warm wordt het?</summary><p>De Flametower geeft veel warmte, 360 graden rondom. Hoe dichter je erbij zit, hoe warmer. Zet hem midden in je zithoek, dan heeft iedereen er wat aan.</p></details>
+      <details><summary>Welke pellets gebruik ik?</summary><p>Gewone houtpellets van 6 mm, zoals je ze bij elke bouwmarkt koopt. In het Startpakket zit een zak van 15 kg.</p></details>
+      <details><summary>Wat doet de hoed bovenop?</summary><p>De hoed vangt vonken op die met de vlam meekomen. Fijn als er hout, kussens of planten in de buurt staan. Hij zit bij beide maten standaard erbij.</p></details>
+      <details><summary>Grand of Mini, wat past bij mij?</summary><p>Grand (183 cm) voor een vaste plek bij de lounge of eettafel. Mini (122 cm) heeft wieltjes en een handgreep, handig als je hem vaker verplaatst of een kleinere tuin hebt.</p></details>
+      <details><summary>Kan ik hem terugsturen?</summary><p>Ja. Je hebt 14 dagen bedenktijd na ontvangst.</p></details>
+      <details><summary>Kan ik hem binnen gebruiken?</summary><p>Nee. De Flametower is alleen voor buiten.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- SLOT -->
+<section class="final" aria-labelledby="finalT"><div class="in slot2">
+  <div class="pic"><img src="../img/f68b.jpg" alt="Flametower Grand en Mini naast elkaar" loading="lazy"></div>
+  <div style="display:grid;gap:18px">
+    <h2 id="finalT">Blijf nog even zitten</h2>
+    <p class="lead" style="color:oklch(0.82 0.025 70)">Black Friday-prijs op beide modellen. Hoed tegen vonken altijd inbegrepen.</p>
+    <div class="rows">
+      <div class="row"><b>Flametower Grand</b><span class="p">€239<s>€400</s></span><button class="cta" data-pick="groot">Kies Grand</button></div>
+      <div class="row"><b>Flametower Mini</b><span class="p">€199<s>€350</s></span><button class="cta" data-pick="klein">Kies Mini</button></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="ft"><div class="in">
+  <div class="brand"><a class="logo" href="index.html" aria-label="Flametower home"><img src="../img/logo-icon.png" alt="" width="40" height="42" style="height:42px;width:auto;display:block"><span class="wm"><b>FLAME</b>TOWER</span></a>
+    <p>Pellethaarden met echte vlammen in glas. Voor je terras, loungehoek, tuin of open veranda.</p></div>
+  <div><h3>Shop</h3><ul><li><a href="collectie.html">Collectie</a></li><li><a href="flametower.html">Flametower Grand</a></li><li><a href="flametower.html?model=mini">Flametower Mini</a></li><li><a href="tafelhaard.html">Flametower Tafelhaard</a></li></ul></div>
+  <div><h3>Klantenservice</h3><ul><li><a href="klantenservice.html">Veelgestelde vragen</a></li><li><a href="contact.html">Contact</a></li><li><a href="retourneren.html">Retourneren</a></li><li><a href="garantie.html">Garantie</a></li></ul></div>
+  <div><h3>Contact</h3><ul><li><a href="tel:+31570448955">0570 448955</a></li><li><a href="https://wa.me/31570448955">WhatsApp</a></li><li><a href="mailto:info@flametower.nl">info@flametower.nl</a></li></ul></div>
+  <div class="bottom"><span>© 2026 Flametower · <a href="algemene-voorwaarden.html">Algemene voorwaarden</a> · <a href="privacybeleid.html">Privacybeleid</a></span><div class="pay" aria-label="Betaalmethodes">
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="iDEAL | Wero"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><rect x="4" y="5" width="14" height="14" rx="3" fill="#CC0066"/><text x="11" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#fff">iD</text><text x="27" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#1D1D1B">wero</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Bancontact"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M6 15h11l4-6H10z" fill="#1E3764"/><path d="M17 9h15l-4 6H13z" fill="#FFD800"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Klarna"><rect width="38" height="24" rx="3" fill="#FFB3C7"/><text x="19" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="8" fill="#17120F">Klarna</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="PayPal"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M15 6h5.2c2.3 0 3.6 1.2 3.2 3.2-.4 2.3-2 3.4-4.3 3.4h-1.5l-.8 4.4H14z" fill="#003087"/><path d="M17.5 8.2h4c2 0 3 1.1 2.6 3-.4 2.1-1.9 3.1-4 3.1h-1.3l-.7 3.7h-2.6z" fill="#009CDE"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Apple Pay"><rect width="38" height="24" rx="3" fill="#000"/><path d="M11.3 8.1c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7 0 1.3-.3 1.7-.8zm.6 1c-.9-.1-1.7.5-2.1.5-.5 0-1.1-.5-1.8-.5-.9 0-1.8.6-2.3 1.4-1 1.7-.3 4.3.7 5.7.5.7 1 1.4 1.8 1.4.7 0 1-.5 1.8-.5s1.1.5 1.8.5 1.2-.7 1.6-1.4c.5-.8.7-1.5.7-1.6 0 0-1.4-.6-1.4-2.2 0-1.4 1.1-2 1.2-2.1-.7-1-1.7-1.1-2-1.2z" fill="#fff"/><text x="25" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#fff">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Google Pay"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><text x="6" y="15.5" font-family="Arial,sans-serif" font-weight="700" font-size="9"><tspan fill="#4285F4">G</tspan></text><text x="14" y="15.5" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#5F6368">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Visa"><rect width="38" height="24" rx="3" fill="#1434CB"/><text x="19" y="15.8" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-style="italic" font-size="9.5" fill="#fff">VISA</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Mastercard"><rect width="38" height="24" rx="3" fill="#252525"/><circle cx="15.5" cy="12" r="6" fill="#EB001B"/><circle cx="22.5" cy="12" r="6" fill="#F79E1B"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#FF5F00"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Maestro"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><circle cx="15.5" cy="12" r="6" fill="#0099DF"/><circle cx="22.5" cy="12" r="6" fill="#ED0006"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#6C6BBD"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="American Express"><rect width="38" height="24" rx="3" fill="#016FD0"/><text x="19" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="7.5" fill="#fff">AMEX</text></svg>
+        </div></div>
+</div></footer>
+
+<div class="mbar rel" id="mbar"><div class="p">Black Friday<b id="mbPrice">€239</b></div><a class="cta" href="#koop">Kies je Flametower</a>
+  
+</div>
+
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Winkelmand" aria-hidden="true">
+  <div class="dh"><h2>Je mandje</h2><button id="closeD" aria-label="Sluiten">×</button></div>
+  <div class="db" id="dBody"></div>
+  <div class="df">
+    <div class="tot"><span>Totaal <span class="sv" id="dSave"></span></span><b id="dTot">€0</b></div>
+    <button class="cta full" id="checkout">Afrekenen</button>
+    <div class="note">14 dagen bedenktijd · veilig betalen</div>
+  </div>
+</aside>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+  /* ===== instellingen (voorstellen, ter goedkeuring) ===== */
+  function fixPins(box){if(!box)return;const b=box.getBoundingClientRect();box.querySelectorAll(".pin").forEach(p=>{const t=p.querySelector("span");const r=t.getBoundingClientRect();if(p.classList.contains("t")){const sp=p.querySelector("span");if(r.right>b.right-6)sp.style.transform=`translateX(calc(-50% - ${r.right-b.right+10}px))`;else if(r.left<b.left+6)sp.style.transform=`translateX(calc(-50% + ${b.left-r.left+10}px))`}else{const pr=p.getBoundingClientRect();const roomR=b.right-pr.left,roomL=pr.left-b.left;if(r.right>b.right-6&&p.classList.contains("r")&&roomL>roomR)p.classList.replace("r","l");else if(r.left<b.left+6&&p.classList.contains("l")&&roomR>roomL)p.classList.replace("l","r")}});}
+  window.addEventListener("load",()=>document.querySelectorAll(".pic,.main,.giftpic").forEach(fixPins));
+  window.addEventListener("resize",()=>document.querySelectorAll(".pic,.main,.giftpic").forEach(fixPins));
+  const DEADLINE = null; // bv. "2026-11-30T23:59:00" zet de aftelklok aan (pas na goedkeuring)
+  const L=(t,x,y,side)=>({t,x,y,side:side||"r"});
+  const SIZES={
+    groot:{key:"groot",name:"Flametower Grand",full:"Flametower Grand · 183 cm",price:239,was:400,img:"f52",pics:[
+      ["f51","Vrouw naast de Flametower Grand op een terras in de avond",[L("Hoed tegen vonken",53,4),L("360° warmte rondom",55,25),L("Makkelijk bij te vullen",42,45,"l"),L("Uniek design · 183 cm",53,92)]],
+      ["s_g1","Echt vuur, 360° warmte: de voordelen van de Flametower",[]],
+      ["s_g2","Specificaties van de Flametower Grand",[]],
+      ["s_g7","Uniek design: een eyecatcher in je tuin",[]],
+      ["f05","De hoed bovenop de Flametower",[L("Vonken blijven onder de kap",46,25)]],
+      ["s_g5","Flametower Grand op het terras: nog niet naar binnen",[]],
+      ["s_g4","Vergelijking Flametower, vuurkorf en gasheater",[]],
+      ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l"),L("Grand · staand model",31,93,"t")]]
+    ]},
+    klein:{key:"klein",name:"Flametower Mini",full:"Flametower Mini · 122 cm",price:199,was:350,img:"f25",pics:[
+      ["f61","Flametower Mini brandt in een stadstuin",[L("Hoed tegen vonken",58,4,"l"),L("360° warmte rondom",60,45,"l"),L("Rol hem mee op wieltjes",70,92,"l")]],
+      ["s_m2","Rol hem waar je zit: wieltjes, handgreep, echte vlammen",[]],
+      ["s_m1","Specificaties van de Flametower Mini",[]],
+      ["f31","Wieltjes van de Flametower Mini",[L("Verplaatsen zonder tillen",58,82,"l")]],
+      ["s_g3","Zo werkt het: vullen, aansteken, genieten",[]],
+      ["f27","Flametower Mini brandt op een terras",[]],
+      ["f68b","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",31,14),L("Mini · 122 cm",70,28,"l"),L("Mini op wieltjes",82,92,"l"),L("Grand · staand model",31,93,"t")]]
+    ]}
+  };
+
+  const PACKS=[{id:0,name:"De haard",short:"",items:[],add:0,val:0,img:"f52"}];
+  const EXTRAS=[
+    {id:"pellets",name:"Houtpellets 15 kg",desc:"Zak voor zo'n 5 avonden stoken",price:9.95,img:"u_pellets"},
+    {id:"schep",name:"Vulschep",desc:"Pellets netjes in de vulbak",price:9.95,img:"u_schep"},
+    {id:"brander",name:"Gasbrander",desc:"Pellets in een keer aangestoken",price:12.95,img:"u_brander"},
+    {id:"borstel",name:"Schoonmaakborstel",desc:"Glazen buis weer helder",price:14.95,img:"u_borstel"},
+    {id:"hoes",name:"Beschermhoes",desc:"Tegen regen en vuil",price:29.95,img:"u_hoes"},
+    {id:"glas",name:"Reserve glazen buis",desc:"Voor als het glas breekt",price:49.95,img:"u_glas"},
+    {id:"kamer",name:"Reserve brandkamer",desc:"Vervangt de brandpot onderin",price:24.95,img:"u_brandkamer"}
+  ];
+  EXTRAS.push({id:"tafel",name:"Flametower Tafelhaard",desc:"Klein vuur voor op tafel",price:39,was:59,img:"t_tafel1"});
+  const DUO={price:210,was:400}; // 2x Grand €449 in plaats van €478 (voorstel)
+  const state={size:"groot",pic:0,pack:0,extras:new Set(),haard:false,duo:false};
+  const $=s=>document.querySelector(s);
+  const eur=n=>"€"+(Math.round(n*100)/100).toLocaleString("nl-NL",{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+
+  /* ===== galerij ===== */
+  function showPic(i){
+    const s=SIZES[state.size],p=s.pics[i];state.pic=i;const pn=$("#picNr");if(pn)pn.textContent=(state.size==="groot"?"G":"M")+(i+1);
+    const img=$("#mainImg");img.src=`../img/${p[0]}.jpg`;img.alt=p[1];
+    $("#labels").innerHTML=p[2].map(l=>`<span class="pin ${l.side}" style="--x:${l.x}%;--y:${l.y}%"><i></i><span>${l.t}</span></span>`).join("");requestAnimationFrame(()=>fixPins($("#mainPic")));
+    $("#thumbs").querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-current",j===i));
+  }
+  function renderThumbs(){
+    const s=SIZES[state.size];
+    $("#thumbs").innerHTML=s.pics.map((p,i)=>`<button type="button" aria-label="Foto ${i+1}: ${p[1]}" data-i="${i}" style="position:relative"><img src="../img/${p[0]}.jpg" alt=""></button>`).join("");
+    $("#thumbs").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>showPic(+b.dataset.i)));
+    showPic(0);
+  }
+
+  /* ===== koopblok ===== */
+  function totals(){
+    const s=SIZES[state.size],p=PACKS[state.pack];
+    let t=s.price+p.add,was=s.was+p.val;
+    if(state.duo&&state.size==="groot"){t+=DUO.price;was+=DUO.was}
+    EXTRAS.forEach(e=>{if(state.extras.has(e.id)){t+=e.price;was+=(e.was||e.price)}});
+    return {t,was};
+  }
+  function renderPacks(){
+    const s=SIZES[state.size];
+    $("#packOpts").innerHTML=PACKS.map(p=>`<label class="opt"><input type="radio" name="pack" value="${p.id}" ${state.pack===p.id?"checked":""}><img src="../img/${p.img}.jpg" alt=""><span><b>${p.name}${p.best?"<em>Meest gekozen</em>":""}</b><small>${p.short}</small></span><span class="r">${p.add?"+"+eur(p.add):"+€0"}${p.val?`<s>waarde ${eur(p.val)}</s>`:""}</span></label>`).join("");
+    $("#packOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{state.pack=+i.value;update()}));
+    $("#packCards").innerHTML=PACKS.map(p=>{const sv=(s.was+p.val)-(s.price+p.add);return `<article class="pack${p.best?" best":""}">${p.best?'<span class="rib">Meest gekozen</span>':""}<img src="../img/${p.img}.jpg" alt="${p.name}" loading="lazy"><div class="t"><h3>${p.name}</h3><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pp">${eur(s.price+p.add)}<small>${p.add?`+${eur(p.add)} op de haard · losse waarde ${eur(p.val)}`:`je bespaart ${eur(sv)}`}</small></div><button type="button" class="${p.best?"cta":"ghost"}" data-pack="${p.id}">Kies ${p.name.toLowerCase()}</button></div></article>`}).join("")+``;
+    $("#packCards").querySelectorAll("[data-pack]").forEach(b=>b.addEventListener("click",()=>{state.pack=+b.dataset.pack;update();toast(PACKS[state.pack].name+" gekozen");$("#koop").scrollIntoView({behavior:"smooth"})}));
+  }
+  function renderExtras(){
+    $("#extraOpts").innerHTML=EXTRAS.filter(e=>e.id!=="tafel"&&e.id!=="cadeau").map(e=>`<label class="opt sm"><input type="checkbox" value="${e.id}" ${state.extras.has(e.id)?"checked":""}><img src="../img/${e.img}.jpg" alt=""><span><b>${e.name}</b><small>${e.desc}</small></span><span class="r">+${eur(e.price)}${e.was?`<s>${eur(e.was)}</s>`:""}</span></label>`).join("");
+    $("#extraOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{i.checked?state.extras.add(i.value):state.extras.delete(i.value);update(false)}));
+  }
+  function update(rerenderExtras=true){
+    const s=SIZES[state.size],{t,was}=totals();
+    $("#pName").textContent=s.full;
+    $("#pNow").textContent=eur(s.price);$("#pWas").textContent=eur(s.was);$("#pSave").textContent="Je bespaart "+eur(s.was-s.price);
+    $("#mainBadge").innerHTML="Black Friday<small>−"+eur(s.was-s.price)+"</small>";
+    $("#mbPrice").textContent=eur(s.price);
+    $("#szG").setAttribute("aria-pressed",state.size==="groot");$("#szK").setAttribute("aria-pressed",state.size==="klein");
+    $("#sumTot").textContent=eur(t);$("#sumSave").innerHTML=was>t?"· je bespaart <b>"+eur(was-t)+"</b>":"";
+    $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";}const si=$("#sfeerImg");if(si){const g=state.size==="groot";si.src=g?"../img/f41.jpg":"../img/f61.jpg";si.alt=g?"Flametower Grand brandt op een terras naast de loungestoel":"Flametower Mini brandt in een kleine stadstuin"}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
+    renderPacks(); if(rerenderExtras) renderExtras();
+    renderDrawer();
+  }
+  function setSize(sz){
+    if(state.size===sz) return;
+    state.size=sz; if(sz!=="groot") state.duo=false;
+    renderThumbs(); update();
+  }
+  $("#szG").addEventListener("click",()=>setSize("groot"));
+  $("#szK").addEventListener("click",()=>setSize("klein"));
+  document.querySelectorAll("[data-pick]").forEach(b=>b.addEventListener("click",()=>{setSize(b.dataset.pick);$("#koop").scrollIntoView({behavior:"smooth"})}));
+
+  /* ===== mandje-lade ===== */
+  function count(){return (state.haard?1:0)+(state.haard&&state.duo?1:0)+state.extras.size}
+  function renderDrawer(){
+    const s=SIZES[state.size],p=PACKS[state.pack];
+    let h="";
+    if(state.haard){
+      h+=`<div class="line"><img src="../img/${s.img}.jpg" alt=""><div><b>${s.full}</b><small>${p.name}${p.add?" · "+p.short.toLowerCase():""}</small><button type="button" class="x" data-rm="haard">Verwijderen</button></div><div class="r">${eur(s.price+p.add)}<s>${eur(s.was+p.val)}</s></div></div>`;
+      if(state.duo) h+=`<div class="line"><img src="../img/f52.jpg" alt=""><div><b>Tweede Flametower Grand</b><small>Duo-prijs: 2× Grand voor €449</small><button type="button" class="x" data-rm="duo">Verwijderen</button></div><div class="r">${eur(DUO.price)}<s>${eur(DUO.was)}</s></div></div>`;
+    }
+    EXTRAS.forEach(e=>{if(state.extras.has(e.id)) h+=`<div class="line"><img src="../img/${e.img}.jpg" alt=""><div><b>${e.name}</b><small>${e.desc}</small><button type="button" class="x" data-rm="${e.id}">Verwijderen</button></div><div class="r">${eur(e.price)}${e.was?`<s>${eur(e.was)}</s>`:""}</div></div>`});
+    if(!h) h=`<div class="empty"><p>Je mandje is nog leeg.</p><button type="button" class="cta" data-goto="koop">Kies je Flametower</button></div>`;
+    else if(!state.haard) h=`<div class="add"><img src="../img/${s.img}.jpg" alt=""><div><b>${s.full}</b><small>${eur(s.price)}<s>${eur(s.was)}</s></small></div><button type="button" data-addh="1">+ Erbij</button></div>`+h;
+    const sug=[];
+    if(state.haard&&state.size==="groot"&&!state.duo) sug.push(`<div class="add"><img src="../img/f52.jpg" alt=""><div><b>Maak er een duo van</b><small>2× Grand voor €449 i.p.v. €478</small></div><button type="button" data-duo="1">+ ${eur(DUO.price)}</button></div>`);
+    EXTRAS.forEach(e=>{if(!state.extras.has(e.id)) sug.push(`<div class="add"><img src="../img/${e.img}.jpg" alt=""><div><b>${e.name}</b><small>${eur(e.price)}${e.was?`<s>${eur(e.was)}</s>`:""}</small></div><button type="button" data-ex="${e.id}">+ Erbij</button></div>`)});
+    if(sug.length&&count()) h+=`<div class="dsub">Handig erbij</div>`+sug.join("");
+    $("#dBody").innerHTML=h;
+    const {t,was}=totals();
+    let tt=0,ww=0;
+    if(state.haard){tt=t;ww=was}else{EXTRAS.forEach(e=>{if(state.extras.has(e.id)){tt+=e.price;ww+=(e.was||e.price)}})}
+    $("#dTot").textContent=eur(tt);$("#dSave").textContent=ww>tt?"· je bespaart "+eur(ww-tt):"";
+    $("#checkout").disabled=!count();$("#checkout").style.opacity=count()?1:.5;
+    $("#cartCount").textContent=count();
+    $("#dBody").querySelectorAll("[data-rm]").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.rm;if(k==="haard"){state.haard=false;state.duo=false}else if(k==="duo"){state.duo=false}else state.extras.delete(k);update()}));
+    $("#dBody").querySelectorAll("[data-ex]").forEach(b=>b.addEventListener("click",()=>{state.extras.add(b.dataset.ex);update()}));
+    $("#dBody").querySelectorAll("[data-duo]").forEach(b=>b.addEventListener("click",()=>{state.duo=true;update()}));
+    $("#dBody").querySelectorAll("[data-addh]").forEach(b=>b.addEventListener("click",()=>{state.haard=true;update()}));
+    $("#dBody").querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>{closeDrawer();$("#koop").scrollIntoView({behavior:"smooth"})}));
+  }
+  let lastFocus=null;
+  function openDrawer(){lastFocus=document.activeElement;renderDrawer();$("#drawer").classList.add("open");$("#scrim").classList.add("open");$("#drawer").setAttribute("aria-hidden","false");setTimeout(()=>$("#closeD").focus(),50)}
+  function closeDrawer(){$("#drawer").classList.remove("open");$("#scrim").classList.remove("open");$("#drawer").setAttribute("aria-hidden","true");if(lastFocus)lastFocus.focus({preventScroll:true})}
+  state.yn=null;
+  const setYN=v=>{state.yn=v;$("#ynJa").setAttribute("aria-pressed",v===true);$("#ynNee").setAttribute("aria-pressed",v===false);if(v)state.extras.add("tafel");else state.extras.delete("tafel");update()};
+  $("#ynJa").addEventListener("click",()=>setYN(true));$("#ynNee").addEventListener("click",()=>setYN(false));
+  $("#addCart").addEventListener("click",()=>{if(state.yn===null){const y=$("#yn");y.classList.remove("need");void y.offsetWidth;y.classList.add("need");y.scrollIntoView({block:"center",behavior:"smooth"});return}state.haard=true;update();openDrawer()});
+    $("#addTable").addEventListener("click",()=>{setYN(true);state.haard=state.haard||false;update();openDrawer()});
+  $("#cartBtn").addEventListener("click",e=>{e.preventDefault();openDrawer()});
+  $("#closeD").addEventListener("click",closeDrawer);
+  $("#scrim").addEventListener("click",closeDrawer);
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#drawer").classList.contains("open"))closeDrawer()});
+  $("#checkout").addEventListener("click",()=>{toast("In de live winkel ga je nu naar afrekenen.");closeDrawer()});
+  function toast(t){const el=$("#toast");el.textContent=t;el.style.display="block";clearTimeout(el._t);el._t=setTimeout(()=>el.style.display="none",2600)}
+
+  /* ===== aftelklok (alleen als DEADLINE is gezet) ===== */
+  if(DEADLINE){const cd=$("#countdown");cd.style.display="inline";const end=new Date(DEADLINE).getTime();const tick=()=>{const d=Math.max(0,end-Date.now());const h=Math.floor(d/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);cd.textContent=` · nog ${h}u ${String(m).padStart(2,"0")}m ${String(s).padStart(2,"0")}s`};tick();setInterval(tick,1000)}
+
+  /* ===== uitleg ===== */
+
+  renderThumbs(); update();
+  if(new URLSearchParams(location.search).get("model")==="mini"||location.hash==="#mini"){setSize("klein");document.querySelectorAll('.menu a').forEach(a=>a.classList.toggle("on",a.textContent==="Mini"))}
+  $("#mainImg").classList.add("first");
+  $("#mainImg").addEventListener("animationend",function(){this.classList.remove("first")},{once:true});
+  /* campagnefoto ontsteekt als hij in beeld komt (alleen als hij nog niet zichtbaar is) */
+  const hero=$(".hero");
+  if("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches && hero && hero.getBoundingClientRect().top>innerHeight){
+    const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){hero.classList.add("play");hero.classList.remove("armed");io.disconnect()}})},{threshold:.25});
+    hero.classList.add("armed");
+    io.observe(hero);
+  }
+})();
+</script>
+</body>
+</html>
