@@ -569,6 +569,20 @@ footer{background:var(--night-2)}
 .picnr{position:absolute;right:12px;bottom:12px;z-index:4;background:rgba(20,14,10,.85);color:#fff;font-weight:800;font-size:14px;border-radius:8px;padding:3px 9px}
 .thumbs{grid-template-columns:repeat(8,minmax(0,1fr))!important}
 @media (max-width:560px){.thumbs{grid-template-columns:repeat(6,minmax(0,1fr))!important}}
+
+.pay{display:flex;flex-wrap:nowrap;gap:6px;align-items:center}
+.pay .pm{width:38px;height:24px;flex:none;display:block;border-radius:3px;box-shadow:none}
+@media (max-width:420px){.pay{gap:4px}.pay .pm{width:31px;height:20px}}
+
+/* uitlijning Grand/Mini: rijen gelijk via subgrid */
+.gvk .cols{grid-template-rows:auto auto auto auto auto}
+.gvk .col{grid-row:span 5;grid-template-rows:subgrid;align-content:stretch}
+.gvk .col .cta,.gvk .col .ghost{width:100%;justify-content:center;padding:15px 22px;font-size:17px;border-radius:12px}
+.gvk .col .ghost{border:1.5px solid var(--fg);color:var(--fg)}
+/* rustige, effen knop */
+.cta{background:#E2600F!important;color:#fff!important;box-shadow:0 6px 16px -8px rgba(160,60,0,.55)!important;filter:none!important}
+.cta:hover{background:#C9520A!important;box-shadow:0 8px 20px -8px rgba(160,60,0,.6)!important}
+.uitlegbtn,.pi{display:none!important}
 </style>
 </head>
 <body>
@@ -600,13 +614,13 @@ footer{background:var(--night-2)}
           <div id="labels"></div><span class="picnr" id="picNr">G1</span>
         </div>
         <div class="thumbs" id="thumbs" role="group" aria-label="Foto's"></div>
-        <div class="pi" style="top:70px;right:12px"><b>Product meteen herkenbaar</b>Witte labels in de foto vertellen in twee seconden wat je krijgt. De foto's wisselen mee met je maat.</div>
+        
       </div>
 
       <div class="buy">
         <div style="display:grid;gap:8px">
           <h1 class="t" id="pName">Flametower Grand</h1>
-          <div class="rating"><span class="tp">★★★★★</span><b>4,9/5</b> Uitstekend <span class="sep">|</span> <b>10.000+</b> klanten <span class="vbt">voorbeeld</span></div>
+          <div class="rating"><span class="tp">★★★★★</span><b>4,9/5</b> Uitstekend <span class="sep">|</span> <b>10.000+</b> klanten</div>
           <p class="s">Staande pellethaard met echte vlammen in een glazen buis en een hoed tegen vonken. Voor je terras, loungehoek, tuin of open veranda: gezellig langer buiten op koele avonden.</p>
         </div>
 
@@ -620,7 +634,7 @@ footer{background:var(--night-2)}
 
         <div class="bfdeal"><span class="t">Black Friday-deal</span><b id="bfPct">−40%</b></div>
         <div class="price rel"><span class="now" id="pNow">€239</span><s id="pWas">€400</s><span class="save" id="pSave">Je bespaart €161</span>
-          <div class="pi" style="top:-64px;right:0"><b>Prijs voelt lager</b>Doorgestreepte prijs en de besparing in euro's. Zo zie je in één blik dat het nu goedkoper is.</div>
+          
         </div>
 
         <div class="why"><b>Waarom de Flametower</b><ul>
@@ -646,12 +660,16 @@ footer{background:var(--night-2)}
           <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16L12 4z"/><path d="M12 9v11"/></svg><span><b>Hoed tegen vonken</b>zit er standaard op</span></div>
         </div>
         <div class="pay" aria-label="Betaalmethodes">
-          <span class="pm ideal" title="iDEAL"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#fff"/><rect x="6" y="5" width="8" height="18" rx="1" fill="#000"/><text x="17" y="19" font-family="Arial" font-weight="700" font-size="10" fill="#CC0066">iDEAL</text></svg></span>
-          <span class="pm" title="Bancontact"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#fff"/><rect x="5" y="9" width="17" height="10" rx="2" fill="#1E3764"/><rect x="18" y="9" width="17" height="10" rx="2" fill="#FFD800"/></svg></span>
-          <span class="pm" title="Visa"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#fff"/><text x="7" y="19" font-family="Arial" font-weight="900" font-style="italic" font-size="12" fill="#1A1F71">VISA</text></svg></span>
-          <span class="pm" title="Mastercard"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#fff"/><circle cx="16" cy="14" r="7" fill="#EB001B"/><circle cx="24" cy="14" r="7" fill="#F79E1B" fill-opacity=".9"/></svg></span>
-          <span class="pm" title="PayPal"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#fff"/><text x="5" y="18" font-family="Arial" font-weight="800" font-style="italic" font-size="10" fill="#003087">Pay<tspan fill="#009CDE">Pal</tspan></text></svg></span>
-          <span class="pm" title="Klarna"><svg viewBox="0 0 40 28"><rect width="40" height="28" rx="4" fill="#FFB3C7"/><text x="6" y="18" font-family="Arial" font-weight="800" font-size="10" fill="#0B051D">Klarna.</text></svg></span>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="iDEAL | Wero"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><rect x="4" y="5" width="14" height="14" rx="3" fill="#CC0066"/><text x="11" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="7.5" fill="#fff">iD</text><text x="27" y="15" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="7" fill="#1D1D1B">wero</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Bancontact"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M6 15h11l4-6H10z" fill="#1E3764"/><path d="M17 9h15l-4 6H13z" fill="#FFD800"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Klarna"><rect width="38" height="24" rx="3" fill="#FFB3C7"/><text x="19" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="8" fill="#17120F">Klarna</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="PayPal"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><path d="M15 6h5.2c2.3 0 3.6 1.2 3.2 3.2-.4 2.3-2 3.4-4.3 3.4h-1.5l-.8 4.4H14z" fill="#003087"/><path d="M17.5 8.2h4c2 0 3 1.1 2.6 3-.4 2.1-1.9 3.1-4 3.1h-1.3l-.7 3.7h-2.6z" fill="#009CDE"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Apple Pay"><rect width="38" height="24" rx="3" fill="#000"/><path d="M11.3 8.1c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7 0 1.3-.3 1.7-.8zm.6 1c-.9-.1-1.7.5-2.1.5-.5 0-1.1-.5-1.8-.5-.9 0-1.8.6-2.3 1.4-1 1.7-.3 4.3.7 5.7.5.7 1 1.4 1.8 1.4.7 0 1-.5 1.8-.5s1.1.5 1.8.5 1.2-.7 1.6-1.4c.5-.8.7-1.5.7-1.6 0 0-1.4-.6-1.4-2.2 0-1.4 1.1-2 1.2-2.1-.7-1-1.7-1.1-2-1.2z" fill="#fff"/><text x="25" y="15.5" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#fff">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Google Pay"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><text x="6" y="15.5" font-family="Arial,sans-serif" font-weight="700" font-size="9"><tspan fill="#4285F4">G</tspan></text><text x="14" y="15.5" font-family="Arial,sans-serif" font-weight="600" font-size="8" fill="#5F6368">Pay</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Visa"><rect width="38" height="24" rx="3" fill="#1434CB"/><text x="19" y="15.8" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-style="italic" font-size="9.5" fill="#fff">VISA</text></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Mastercard"><rect width="38" height="24" rx="3" fill="#252525"/><circle cx="15.5" cy="12" r="6" fill="#EB001B"/><circle cx="22.5" cy="12" r="6" fill="#F79E1B"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#FF5F00"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="Maestro"><rect x=".5" y=".5" width="37" height="23" rx="3" fill="#fff" stroke="#d9d9d9"/><circle cx="15.5" cy="12" r="6" fill="#0099DF"/><circle cx="22.5" cy="12" r="6" fill="#ED0006"/><path d="M19 7.1a6 6 0 0 1 0 9.8 6 6 0 0 1 0-9.8z" fill="#6C6BBD"/></svg>
+          <svg class="pm" viewBox="0 0 38 24" role="img" aria-label="American Express"><rect width="38" height="24" rx="3" fill="#016FD0"/><text x="19" y="15.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" font-size="7.5" fill="#fff">AMEX</text></svg>
         </div>
         <div class="acc">
           <details><summary>Productbeschrijving</summary><div class="body"><p>Je vult de bak met houtpellets, steekt ze onderin aan en na een paar minuten draait er een hoge vlam door de glazen buis. Je voelt de warmte in een kring om de haard. Overdag een strak zwart object in de tuin, 's avonds het middelpunt van je terras.</p><p>Voor buiten: op je terras, in de loungehoek, in de tuin of onder een open veranda of overkapping.</p></div></details>
@@ -677,7 +695,7 @@ footer{background:var(--night-2)}
       <h2>Vuur dat je van alle kanten ziet</h2>
       <p>Je schept houtpellets in de vulbak en steekt ze onderin aan. Na een paar minuten draait de vlam omhoog door de glazen buis. <b>Geen lamp, geen nep.</b> Echt vuur, hoog en rond, midden op je terras.</p>
       <p>Bovenop zit een hoed die vonken opvangt. Die zit er standaard op.</p>
-      <div class="pi" style="bottom:30px;right:20px"><b>Zien wat je koopt</b>Eerst de close-up van de vlam: het product zelf, niet een sfeerplaatje met een klein haardje erin.</div>
+      
     </div>
     <div class="pic fix45"><img src="img/f46.jpg" alt="Close-up van de vlam die door de glazen buis van de Flametower omhoog draait" loading="lazy"><span class="pin r" style="--x:52%;--y:55%"><i></i><span>Echte vlammen in glas</span></span><span class="pin r" style="--x:52%;--y:85%"><i></i><span>Brandt op houtpellets</span></span>
     </div>
@@ -696,7 +714,7 @@ footer{background:var(--night-2)}
       <h2>Nog steeds buiten</h2>
       <p>Dikke trui, dekentje, thee. De warmte voel je in een kring om de haard, dus zet hem vlak bij je stoel. Zo wordt een koude avond gewoon een buitenavond.</p>
       <p>Zoek je een groot cadeau voor je ouders of je partner? <b>Dit is er een die de hele winter buiten staat te branden.</b></p>
-      <div class="pi" style="top:20px;right:20px"><b>Jezelf erin zien</b>Drie avonden die de bezoeker herkent. Wie zichzelf er al ziet zitten, vindt de prijs kleiner.</div>
+      
     </div>
   </div>
 </section>
@@ -710,21 +728,21 @@ footer{background:var(--night-2)}
       <div class="head" style="margin:0"><h2>Grand of Mini?</h2><p class="lead">Allebei met echte vlammen in glas en een hoed tegen vonken. Het verschil zit in hoogte en hoe vaak je hem verplaatst.</p></div>
       <div class="cols">
         <div class="col fav">
-          <h3>Groot</h3>
-          <p>Een vaste plek naast de lounge of de eettafel. De hoogste vlam.</p>
+          <h3>Grand · 183 cm</h3>
+          <p>Vaste plek bij de lounge of eettafel. De hoogste vlam.</p>
           <dl class="spec"><div><dt>Hoogte</dt><dd>183 cm</dd></div><div><dt>Voet</dt><dd>Stalen voetplaat</dd></div><div><dt>Verplaatsen</dt><dd>Optillen</dd></div><div><dt>Hoed</dt><dd>Inbegrepen</dd></div></dl>
           <div class="pp">€239<s>€400</s></div>
-          <button class="cta" data-pick="groot">Kies Groot</button>
+          <button class="cta" data-pick="groot">Kies Grand</button>
         </div>
         <div class="col">
-          <h3>Klein</h3>
-          <p>Kruispoot met twee wieltjes en een handgreep. Rol hem naar waar je zit.</p>
+          <h3>Mini · 122 cm</h3>
+          <p>Met wieltjes en handgreep. Rol hem naar waar je zit.</p>
           <dl class="spec"><div><dt>Hoogte</dt><dd>122 cm</dd></div><div><dt>Voet</dt><dd>Kruispoot</dd></div><div><dt>Verplaatsen</dt><dd>Op wieltjes</dd></div><div><dt>Hoed</dt><dd>Inbegrepen</dd></div></dl>
           <div class="pp">€199<s>€350</s></div>
-          <button class="ghost" data-pick="klein">Kies Klein</button>
+          <button class="ghost" data-pick="klein">Kies Mini</button>
         </div>
       </div>
-      <div class="pi" style="top:-14px;right:0"><b>Keuze makkelijk gemaakt</b>Twee maten naast elkaar met alleen de verschillen die ertoe doen. Grand heeft de highlight als favoriet.</div>
+      
     </div>
   </div>
 </section>
@@ -760,7 +778,7 @@ footer{background:var(--night-2)}
       </div>
     </div>
     <div class="pic rel fix45"><img src="img/f108.jpg" alt="Flametower pellethaard brandend" loading="lazy" style="background:#fff"><span class="pin r" style="--x:53%;--y:6%"><i></i><span>Vonken onder de hoed</span></span><span class="pin l" style="--x:42%;--y:52%"><i></i><span>Pellets, geen gasfles</span></span>
-      <div class="pi" style="top:44%;left:12px"><b>Vergelijk met wat ze kennen</b>Iedereen kent de vuurkorf en de gasheater. Daar zetten we hem eerlijk naast, rook ook.</div>
+      
     </div>
   </div>
 </section>
@@ -842,7 +860,7 @@ footer{background:var(--night-2)}
         <div><span>Flametower Mini</span><b>€199</b><s>€350</s><span class="sv">−€151</span></div>
       </div>
       <div><a class="cta" href="#koop">Kies je Flametower</a></div>
-      <div class="pi" style="top:0;right:0"><b>Laatste duwtje</b>Wie tot onderaan scrollt, twijfelt nog. Beide prijzen en één knop, zonder nieuwe informatie.</div>
+      
     </div>
   </div>
 </section>
@@ -851,9 +869,9 @@ footer{background:var(--night-2)}
 <footer><div class="in"><span>Flametower · preview Black Friday-salespagina (werknaam, versie 3 licht)</span><span>14 dagen bedenktijd · veilig betalen · alleen voor buiten</span></div></footer>
 
 <div class="mbar rel" id="mbar"><div class="p">Black Friday<b id="mbPrice">€239</b></div><a class="cta" href="#koop">Kies je Flametower</a>
-  <div class="pi" style="bottom:76px;right:16px"><b>Knop altijd in de buurt</b>Op de telefoon staat de prijs en één knop steeds onderin beeld.</div>
+  
 </div>
-<button class="uitlegbtn" id="uitleg" aria-pressed="false">Uitleg</button>
+
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Winkelmand" aria-hidden="true">
@@ -948,7 +966,7 @@ footer{background:var(--night-2)}
     const s=SIZES[state.size];
     $("#packOpts").innerHTML=PACKS.map(p=>`<label class="opt"><input type="radio" name="pack" value="${p.id}" ${state.pack===p.id?"checked":""}><img src="img/${p.img}.jpg" alt=""><span><b>${p.name}${p.best?"<em>Meest gekozen</em>":""}</b><small>${p.short}</small></span><span class="r">${p.add?"+"+eur(p.add):"+€0"}${p.val?`<s>waarde ${eur(p.val)}</s>`:""}</span></label>`).join("");
     $("#packOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{state.pack=+i.value;update()}));
-    $("#packCards").innerHTML=PACKS.map(p=>{const sv=(s.was+p.val)-(s.price+p.add);return `<article class="pack${p.best?" best":""}">${p.best?'<span class="rib">Meest gekozen</span>':""}<img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy"><div class="t"><h3>${p.name}</h3><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pp">${eur(s.price+p.add)}<small>${p.add?`+${eur(p.add)} op de haard · losse waarde ${eur(p.val)}`:`je bespaart ${eur(sv)}`}</small></div><button type="button" class="${p.best?"cta":"ghost"}" data-pack="${p.id}">Kies ${p.name.toLowerCase()}</button></div></article>`}).join("")+`<div class="pi" style="top:-24px;left:36%"><b>Middelste optie valt op</b>Het midden is groter en heeft een gouden label. Daar kiezen de meeste mensen.</div>`;
+    $("#packCards").innerHTML=PACKS.map(p=>{const sv=(s.was+p.val)-(s.price+p.add);return `<article class="pack${p.best?" best":""}">${p.best?'<span class="rib">Meest gekozen</span>':""}<img src="img/${p.img}.jpg" alt="${p.name}" loading="lazy"><div class="t"><h3>${p.name}</h3><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pp">${eur(s.price+p.add)}<small>${p.add?`+${eur(p.add)} op de haard · losse waarde ${eur(p.val)}`:`je bespaart ${eur(sv)}`}</small></div><button type="button" class="${p.best?"cta":"ghost"}" data-pack="${p.id}">Kies ${p.name.toLowerCase()}</button></div></article>`}).join("")+``;
     $("#packCards").querySelectorAll("[data-pack]").forEach(b=>b.addEventListener("click",()=>{state.pack=+b.dataset.pack;update();toast(PACKS[state.pack].name+" gekozen");$("#koop").scrollIntoView({behavior:"smooth"})}));
   }
   function renderExtras(){
@@ -1025,7 +1043,6 @@ footer{background:var(--night-2)}
   if(DEADLINE){const cd=$("#countdown");cd.style.display="inline";const end=new Date(DEADLINE).getTime();const tick=()=>{const d=Math.max(0,end-Date.now());const h=Math.floor(d/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);cd.textContent=` · nog ${h}u ${String(m).padStart(2,"0")}m ${String(s).padStart(2,"0")}s`};tick();setInterval(tick,1000)}
 
   /* ===== uitleg ===== */
-  $("#uitleg").addEventListener("click",function(){const on=document.body.classList.toggle("uitleg");this.setAttribute("aria-pressed",on);this.textContent=on?"Uitleg uit":"Uitleg"});
 
   renderThumbs(); update();
   $("#mainImg").classList.add("first");
