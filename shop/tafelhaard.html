@@ -18,10 +18,13 @@
     <a class="logo" href="index.html" aria-label="Flametower home"><img src="../img/logo-icon.png" alt="" width="40" height="42" style="height:42px;width:auto;display:block"><span class="wm"><b>FLAME</b>TOWER</span></a>
     <nav class="menu" aria-label="Hoofdmenu"><a href="collectie.html">Collectie</a><a href="flametower.html">Grand</a><a href="flametower.html?model=mini">Mini</a><a href="tafelhaard.html" class="on">Tafelhaard</a><a href="klantenservice.html">Klantenservice</a><a href="contact.html">Contact</a></nav>
     <div class="tools">
+      <button class="burger" id="burger" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mmenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <a class="cartbtn" id="cartBtn" href="flametower.html" aria-label="Winkelmand"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="t">Winkelmand</span><span class="n" id="cartCount">0</span></a>
     </div>
   </div>
+  <nav class="mmenu" id="mmenu" aria-label="Menu" hidden><a href="collectie.html">Collectie</a><a href="flametower.html">Grand</a><a href="flametower.html?model=mini">Mini</a><a href="tafelhaard.html" class="on">Tafelhaard</a><a href="klantenservice.html">Klantenservice</a><a href="contact.html">Contact</a></nav>
 </header>
+<script>(function(){var b=document.getElementById("burger"),m=document.getElementById("mmenu");if(!b||!m)return;b.addEventListener("click",function(){var o=m.hidden;m.hidden=!o;b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"Menu sluiten":"Menu openen")});m.addEventListener("click",function(e){if(e.target.tagName==="A"){m.hidden=true;b.setAttribute("aria-expanded","false")}})})();</script>
 <main>
 <section class="in pagehead"><div class="crumb2"><a href="index.html">Home</a> / <a href="collectie.html">Collectie</a> / Tafelhaard</div></section>
 <section class="in slot2" style="padding-block:20px 72px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
