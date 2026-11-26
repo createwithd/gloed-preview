@@ -1152,7 +1152,7 @@ footer{background:var(--night-2)}
   /* ===== uitleg ===== */
 
   renderThumbs(); update();
-  if(new URLSearchParams(location.search).get("model")==="mini"||location.hash==="#mini"){setSize("klein");document.querySelectorAll('.menu a').forEach(a=>a.classList.toggle("on",a.textContent==="Mini"))}
+  if(new URLSearchParams(location.search).get("model")==="mini"||location.hash==="#mini"){setSize("klein");document.querySelectorAll('.menu a,.mmenu a').forEach(a=>a.classList.toggle("on",a.textContent==="Mini"))}
   $("#mainImg").classList.add("first");
   $("#mainImg").addEventListener("animationend",function(){this.classList.remove("first")},{once:true});
   /* campagnefoto ontsteekt als hij in beeld komt (alleen als hij nog niet zichtbaar is) */
