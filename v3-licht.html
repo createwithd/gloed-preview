@@ -553,6 +553,17 @@ footer{background:var(--night-2)}
 @media (max-width:900px){.ch{grid-template-columns:minmax(0,1fr);gap:24px}.ch .txt{padding:0}}
 
 @media (max-width:560px){.pin>span{white-space:normal;width:max-content;max-width:42vw;line-height:1.25}}
+
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .wm{font-family:"Big Shoulders Display","Arial Narrow",sans-serif;font-weight:900;font-size:34px;line-height:1;letter-spacing:.01em;color:#1d1611}
+.logo .wm b{color:#e8600f;font-weight:900}
+@media (max-width:560px){.logo .wm{font-size:28px}.logo img{height:36px!important}}
+
+.rating{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:15px}
+.rating .tp{background:#00b67a;color:#fff;letter-spacing:3px;padding:1px 6px;border-radius:3px;font-size:14px}
+.rating .sep{color:var(--mut)}
+.rating .vbt{background:var(--note);color:var(--note-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
+.bfdeal{padding:10px 16px}
 </style>
 </head>
 <body>
@@ -561,7 +572,7 @@ footer{background:var(--night-2)}
 
 <header>
   <div class="in hd">
-    <a class="logo" href="#top" aria-label="Flametower home"><img src="img/logo-flametower.png" alt="Flametower" height="38" style="height:38px;width:auto;display:block"></a>
+    <a class="logo" href="#top" aria-label="Flametower home"><img src="img/logo-icon.png" alt="" width="40" height="42" style="height:42px;width:auto;display:block"><span class="wm"><b>FLAME</b>TOWER</span></a>
     <nav class="menu" aria-label="Hoofdmenu"><a href="#maten">Pellethaarden</a><a href="#faq">Klantenservice</a><a class="bfl" href="#koop">Black Friday</a></nav>
     <div class="tools">
       <label class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="sr">Zoeken</span><input type="search" placeholder="Zoek in de winkel"></label>
@@ -590,6 +601,7 @@ footer{background:var(--night-2)}
       <div class="buy">
         <div style="display:grid;gap:8px">
           <h1 class="t" id="pName">Flametower Grand</h1>
+          <div class="rating"><span class="tp">★★★★★</span><b>4,9/5</b> Uitstekend <span class="sep">|</span> <b>50.000+</b> klanten <span class="vbt">voorbeeld</span></div>
           <p class="s">Staande pellethaard met echte vlammen in een glazen buis en een hoed tegen vonken. Voor een open terras of een open overkapping.</p>
         </div>
 
@@ -601,7 +613,7 @@ footer{background:var(--night-2)}
           </div>
         </div>
 
-        <div class="bfdeal"><span class="t">Black Friday-deal</span><b id="bfPct">−40%</b><span class="d">Je betaalt <b id="bfNow">€239</b> in plaats van <s id="bfWas">€400</s></span></div>
+        <div class="bfdeal"><span class="t">Black Friday-deal</span><b id="bfPct">−40%</b></div>
         <div class="price rel"><span class="now" id="pNow">€239</span><s id="pWas">€400</s><span class="save" id="pSave">Je bespaart €161</span>
           <div class="pi" style="top:-64px;right:0"><b>Prijs voelt lager</b>Doorgestreepte prijs en de besparing in euro's. Zo zie je in één blik dat het nu goedkoper is.</div>
         </div>
@@ -868,35 +880,36 @@ footer{background:var(--night-2)}
 (function(){
   "use strict";
   /* ===== instellingen (voorstellen, ter goedkeuring) ===== */
-  function fixPins(box){if(!box)return;const b=box.getBoundingClientRect();box.querySelectorAll(".pin").forEach(p=>{const t=p.querySelector("span");const r=t.getBoundingClientRect();if(p.classList.contains("t")){const sp=p.querySelector("span");if(r.right>b.right-6)sp.style.transform=`translateX(calc(-50% - ${r.right-b.right+10}px))`;else if(r.left<b.left+6)sp.style.transform=`translateX(calc(-50% + ${b.left-r.left+10}px))`}else const pr=p.getBoundingClientRect();const roomR=b.right-pr.left,roomL=pr.left-b.left;if(r.right>b.right-6&&p.classList.contains("r")&&roomL>roomR)p.classList.replace("r","l");else if(r.left<b.left+6&&p.classList.contains("l")&&roomR>roomL)p.classList.replace("l","r")});}
+  function fixPins(box){if(!box)return;const b=box.getBoundingClientRect();box.querySelectorAll(".pin").forEach(p=>{const t=p.querySelector("span");const r=t.getBoundingClientRect();if(p.classList.contains("t")){const sp=p.querySelector("span");if(r.right>b.right-6)sp.style.transform=`translateX(calc(-50% - ${r.right-b.right+10}px))`;else if(r.left<b.left+6)sp.style.transform=`translateX(calc(-50% + ${b.left-r.left+10}px))`}else{const pr=p.getBoundingClientRect();const roomR=b.right-pr.left,roomL=pr.left-b.left;if(r.right>b.right-6&&p.classList.contains("r")&&roomL>roomR)p.classList.replace("r","l");else if(r.left<b.left+6&&p.classList.contains("l")&&roomR>roomL)p.classList.replace("l","r")}});}
   window.addEventListener("load",()=>document.querySelectorAll(".pic,.main,.giftpic").forEach(fixPins));
   window.addEventListener("resize",()=>document.querySelectorAll(".pic,.main,.giftpic").forEach(fixPins));
   const DEADLINE = null; // bv. "2026-11-30T23:59:00" zet de aftelklok aan (pas na goedkeuring)
   const L=(t,x,y,side)=>({t,x,y,side:side||"r"});
   const SIZES={
     groot:{key:"groot",name:"Flametower Grand",full:"Flametower Grand · 183 cm",price:239,was:400,img:"f52",pics:[
-      ["f51","Vrouw naast de Flametower Grand op een terras in de avond",[L("Nog niet naar binnen: warm tot laat",55,25),L("183 cm: het middelpunt van je terras",53,92)]],
-      ["f52","Flametower Grand brandend op een witte achtergrond",[L("Hoed vangt de vonken op",55,6),L("Geen stroom, geen gasfles",44,52,"l")]],
-      ["f107","Flametower Grand zonder vuur op een witte achtergrond",[L("Overdag een strak zwart designobject",56,30),L("Stevige stalen voetplaat",53,91)]],
-      ["f41","Flametower Grand brandt op een terras",[L("Hoge vlam, van alle kanten te zien",50,30,"l"),L("Bijvullen terwijl hij brandt",54,50)]],
-      ["f01","Flametower Grand bij de lounge",[L("Het plekje waar vrienden blijven hangen",51,35)]],
-      ["f44","Flametower Grand overdag op het terras",[L("Zet hem neer waar je zit",58,55,"l")]],
+      ["f51","Vrouw naast de Flametower Grand op een terras in de avond",[]],
+      ["s_g1","Echt vuur, geen lamp: de vier voordelen van de Flametower",[]],
+      ["f52","Flametower Grand brandend op een witte achtergrond",[L("Hoed vangt de vonken op",55,6),L("Vulbak voor houtpellets",44,52,"l")]],
+      ["s_g2","Specificaties van de Flametower Grand",[]],
+      ["s_g3","Zo werkt het: vullen, aansteken, genieten",[]],
       ["f05","De hoed bovenop de Flametower",[L("Vonken blijven onder de kap",46,25)]],
-      ["f46","Vlam in de glazen buis van dichtbij",[L("Echt vuur, geen lamp of nepvlam",52,55),L("Op gewone pellets uit de bouwmarkt",52,85)]],
-      ["f04","Vlam draait omhoog in de glazen buis",[L("Vlam draait als een tornado omhoog",52,40)]],
-      ["f07","Pellets onderin aansteken met een gasbrander",[L("In een paar minuten een hoge vlam",55,55,"t")]]
+      ["s_g4","Vergelijking Flametower, vuurkorf en gasheater",[]],
+      ["s_g5","Flametower Grand bij de lounge: nog niet naar binnen",[]],
+      ["f107","Flametower Grand zonder vuur",[]],
+      ["s_g6","Grand of Mini",[]]
     ]},
     klein:{key:"klein",name:"Flametower Mini",full:"Flametower Mini · 122 cm",price:199,was:350,img:"f25",pics:[
-      ["f61","Flametower Mini brandt in een stadstuin",[L("Past in elke stadstuin",60,45,"l"),L("Rol hem mee op 2 wieltjes",70,92,"l")]],
-      ["f25","Flametower Mini op een witte achtergrond",[L("Ook hier: hoed tegen vonken",52,4),L("Handgreep om hem te verrijden",63,43)]],
-      ["f27","Flametower Mini brandt op een terras",[L("Echte vlammen, kleiner formaat",64,35,"l"),L("Rol hem naast je loungestoel",80,86,"l")]],
-      ["f31","Wieltjes van de Flametower Mini van dichtbij",[L("Stevige kruispoot",45,55),L("Verplaatsen zonder tillen",58,82,"l")]],
-      ["f142","Pellets bijvullen in de Flametower Mini",[L("Bijvullen terwijl hij brandt",52,22)]],
-      ["f131","Flametower Grand en Mini naast elkaar",[L("Grand · 183 cm",22,4),L("Mini · 122 cm",72,25,"l")]],
-      ["f26","Flametower Grand en Mini brandend naast elkaar",[L("Grand voor bij de lounge",35,5),L("Mini om mee te rollen",62,25)]],
-      ["f68","Flametower Grand en Mini in de studio",[L("Allebei? Kies de Duo",70,26,"l")]]
+      ["f61","Flametower Mini brandt in een stadstuin",[]],
+      ["s_m2","Rol hem waar je zit: wieltjes, handgreep, echte vlammen",[]],
+      ["f25","Flametower Mini op een witte achtergrond",[L("Hoed tegen vonken",52,4),L("Handgreep om te verrijden",63,43)]],
+      ["s_m1","Specificaties van de Flametower Mini",[]],
+      ["s_g3","Zo werkt het: vullen, aansteken, genieten",[]],
+      ["f31","Wieltjes van de Flametower Mini",[L("Verplaatsen zonder tillen",58,82,"l")]],
+      ["s_g6","Grand of Mini",[]],
+      ["f142","Pellets bijvullen in de Flametower Mini",[]]
     ]}
   };
+
   const PACKS=[{id:0,name:"De haard",short:"",items:[],add:0,val:0,img:"f52"}];
   const EXTRAS=[
     {id:"pellets",name:"Houtpellets 15 kg",desc:"Zak voor zo'n 5 avonden stoken",price:9.95,img:"u_pellets"},
@@ -955,7 +968,7 @@ footer{background:var(--night-2)}
     $("#mbPrice").textContent=eur(s.price);
     $("#szG").setAttribute("aria-pressed",state.size==="groot");$("#szK").setAttribute("aria-pressed",state.size==="klein");
     $("#sumTot").textContent=eur(t);$("#sumSave").innerHTML=was>t?"· je bespaart <b>"+eur(was-t)+"</b>":"";
-    $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";$("#bfNow").textContent=eur(sz.price);$("#bfWas").textContent=eur(sz.was)}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
+    $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
     renderPacks(); if(rerenderExtras) renderExtras();
     renderDrawer();
   }
