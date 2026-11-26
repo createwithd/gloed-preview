@@ -583,6 +583,15 @@ footer{background:var(--night-2)}
 .cta{background:#E2600F!important;color:#fff!important;box-shadow:0 6px 16px -8px rgba(160,60,0,.55)!important;filter:none!important}
 .cta:hover{background:#C9520A!important;box-shadow:0 8px 20px -8px rgba(160,60,0,.6)!important}
 .uitlegbtn,.pi{display:none!important}
+
+.sfeer2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.sfeer2 .pic{border-radius:18px;overflow:hidden;max-width:520px;width:100%;justify-self:center}
+.sfeer2 .txt{display:grid;gap:20px}
+.sfeerlist{list-style:none;margin:0;padding:0;border-top:1px solid oklch(0.35 0.03 50)}
+.sfeerlist li{display:grid;gap:2px;padding:14px 0 14px 30px;border-bottom:1px solid oklch(0.35 0.03 50);position:relative}
+.sfeerlist li::before{content:"";position:absolute;left:2px;top:20px;width:12px;height:12px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px oklch(0.72 0.185 48 / .25)}
+.sfeerlist span{opacity:.8;font-size:15.5px}
+@media (max-width:900px){.sfeer2{grid-template-columns:minmax(0,1fr);gap:24px}}
 </style>
 </head>
 <body>
@@ -802,14 +811,17 @@ footer{background:var(--night-2)}
   </div>
 </section>
 <section class="sec alt" id="sfeer" aria-labelledby="sfeerT">
-  <div class="in">
-    <div class="head"><h2 id="sfeerT">Van loungehoek tot stadstuin</h2></div>
-    <div class="strip">
-      <div class="a"><img src="img/f41.jpg" alt="Flametower Grand op een terras aan het water bij een loungebank" loading="lazy"></div>
-      <div class="b"><img src="img/f61.jpg" alt="Flametower Mini in een kleine stadstuin" loading="lazy"></div>
-      <div class="c"><img src="img/f27.jpg" alt="Flametower onder een open pergola" loading="lazy"></div>
-      <div class="d"><img src="img/f51.jpg" alt="Man met koffie naast de Flametower in de avond" loading="lazy"></div>
-      <div class="e"><img src="img/f68.jpg" alt="Twee vrienden lachen naast de Flametower Mini" loading="lazy"></div>
+  <div class="in sfeer2">
+    <div class="pic fix45"><img id="sfeerImg" src="img/f41.jpg" alt="Flametower Grand brandt op een terras naast de loungestoel" loading="lazy"></div>
+    <div class="txt">
+      <h2 id="sfeerT">Van loungehoek tot stadstuin</h2>
+      <p class="lead">Of je nu een groot terras hebt, een loungehoek in de tuin of een open veranda: de Flametower staat er goed. Overdag een strak zwart designobject, 's avonds een zuil van vuur waar iedereen omheen komt zitten.</p>
+      <ul class="sfeerlist">
+        <li><b>Terras en loungehoek</b><span>Zet hem naast de bank en blijf tot laat buiten zitten.</span></li>
+        <li><b>Tuin en open veranda</b><span>360° warmte rondom, ook als het fris wordt.</span></li>
+        <li><b>Kleine stadstuin</b><span>Kies de Mini: compact en op wieltjes.</span></li>
+      </ul>
+      <div><a class="cta" href="#koop">Kies je Flametower</a></div>
     </div>
   </div>
 </section>
@@ -954,7 +966,7 @@ footer{background:var(--night-2)}
     $("#mbPrice").textContent=eur(s.price);
     $("#szG").setAttribute("aria-pressed",state.size==="groot");$("#szK").setAttribute("aria-pressed",state.size==="klein");
     $("#sumTot").textContent=eur(t);$("#sumSave").innerHTML=was>t?"· je bespaart <b>"+eur(was-t)+"</b>":"";
-    $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
+    $("#addCart").textContent="In winkelmand · "+eur(t);const sz=SIZES[state.size];if($("#bfPct")){$("#bfPct").textContent="−"+Math.round((1-sz.price/sz.was)*100)+"%";}const si=$("#sfeerImg");if(si){const g=state.size==="groot";si.src=g?"img/f41.jpg":"img/f61.jpg";si.alt=g?"Flametower Grand brandt op een terras naast de loungestoel":"Flametower Mini brandt in een kleine stadstuin"}const ws=$("#whySize");if(ws)ws.textContent=state.size==="groot"?"183 cm hoog: het middelpunt van je terras":"122 cm met wieltjes: rol hem waar je zit";
     renderPacks(); if(rerenderExtras) renderExtras();
     renderDrawer();
   }
