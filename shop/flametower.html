@@ -982,7 +982,7 @@ footer{background:var(--night-2)}
         </div></div>
 </div></footer>
 
-<div class="mbar rel" id="mbar"><div class="p">Black Friday<b id="mbPrice">€239</b></div><a class="cta" href="#koop">Kies je Flametower</a>
+<div class="mbar rel" id="mbar"><div class="p">Black Friday<b id="mbPrice">€239</b></div><button class="cta" type="button" id="mbAdd">In winkelmand</button>
   
 </div>
 
@@ -1137,7 +1137,8 @@ footer{background:var(--night-2)}
   state.yn=null;
   const setYN=v=>{state.yn=v;$("#ynJa").setAttribute("aria-pressed",v===true);$("#ynNee").setAttribute("aria-pressed",v===false);if(v)state.extras.add("tafel");else state.extras.delete("tafel");update()};
   $("#ynJa").addEventListener("click",()=>setYN(true));$("#ynNee").addEventListener("click",()=>setYN(false));
-  $("#addCart").addEventListener("click",()=>{if(state.yn===null){const y=$("#yn");y.classList.remove("need");void y.offsetWidth;y.classList.add("need");y.scrollIntoView({block:"center",behavior:"smooth"});return}state.haard=true;update();openDrawer()});
+  $("#addCart").addEventListener("click",()=>{state.haard=true;update();openDrawer()});
+  $("#mbAdd").addEventListener("click",()=>$("#addCart").click());
     $("#addTable").addEventListener("click",()=>{setYN(true);state.haard=state.haard||false;update();openDrawer()});
   $("#cartBtn").addEventListener("click",e=>{e.preventDefault();openDrawer()});
   $("#closeD").addEventListener("click",closeDrawer);
