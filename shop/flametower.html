@@ -762,7 +762,7 @@ footer{background:var(--night-2)}
             <li><span>Echte vlammen in glas, met hoed tegen vonken</span></li>
             <li id="whySize">183 cm hoog: het middelpunt van je terras</li>
           </ul></div>
-        <div hidden><div id="packOpts"></div></div>
+        <div id="packBox"><div class="q">Kies je pakket <span>meer haarden, meer korting</span></div><div class="opts" id="packOpts"></div></div>
         <div><div class="q">Handig erbij <span>past op je Flametower</span></div><div class="opts" id="extraOpts"></div></div>
         <div class="yn" id="yn">
           <img src="../img/t_tafel1.jpg" alt="Flametower Tafelhaard" style="background:#fff;object-fit:contain">
@@ -1040,7 +1040,7 @@ footer{background:var(--night-2)}
     ]}
   };
 
-  const PACKS=[{id:0,name:"De haard",short:"",items:[],add:0,val:0,img:"f52"}];
+  const PACKS=[{id:0,name:"1 Flametower",short:"Losse Flametower Grand",items:[],add:0,val:0,img:"f52",n:1},{id:1,name:"Duo",short:"2× Flametower Grand",items:[],add:180,val:400,img:"f52",n:2,best:true},{id:2,name:"Trio",short:"3× Flametower Grand",items:[],add:330,val:800,img:"f52",n:3}];
   const EXTRAS=[
     {id:"pellets",name:"Houtpellets 25 kg",desc:"Zak houtpellets van 6 mm",price:19.95,img:"u_pellets"},
     {id:"schep",name:"Vulschep",desc:"Pellets netjes in de vulbak",price:9.95,img:"u_schep"},
@@ -1078,16 +1078,18 @@ footer{background:var(--night-2)}
   }
   function renderPacks(){
     const s=SIZES[state.size];
-    $("#packOpts").innerHTML=PACKS.map(p=>`<label class="opt"><input type="radio" name="pack" value="${p.id}" ${state.pack===p.id?"checked":""}><img src="../img/${p.img}.jpg" alt=""><span><b>${p.name}${p.best?"<em>Meest gekozen</em>":""}</b><small>${p.short}</small></span><span class="r">${p.add?"+"+eur(p.add):"+€0"}${p.val?`<s>waarde ${eur(p.val)}</s>`:""}</span></label>`).join("");
+    $("#packOpts").innerHTML=PACKS.map(p=>`<label class="opt"><input type="radio" name="pack" value="${p.id}" ${state.pack===p.id?"checked":""}><img src="../img/${p.img}.jpg" alt=""><span><b>${p.name}${p.best?"<em>Populair</em>":""}</b><small>${p.short}${p.n>1?" · bespaar "+eur(s.price*p.n-(s.price+p.add)):""}</small></span><span class="r">${eur(s.price+p.add)}<s>${eur(s.was+p.val)}</s></span></label>`).join("");
     $("#packOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{state.pack=+i.value;update()}));
     $("#packCards").innerHTML=PACKS.map(p=>{const sv=(s.was+p.val)-(s.price+p.add);return `<article class="pack${p.best?" best":""}">${p.best?'<span class="rib">Meest gekozen</span>':""}<img src="../img/${p.img}.jpg" alt="${p.name}" loading="lazy"><div class="t"><h3>${p.name}</h3><ul>${p.items.map(x=>`<li>${x}</li>`).join("")}</ul><div class="pp">${eur(s.price+p.add)}<small>${p.add?`+${eur(p.add)} op de haard · losse waarde ${eur(p.val)}`:`je bespaart ${eur(sv)}`}</small></div><button type="button" class="${p.best?"cta":"ghost"}" data-pack="${p.id}">Kies ${p.name.toLowerCase()}</button></div></article>`}).join("")+``;
     $("#packCards").querySelectorAll("[data-pack]").forEach(b=>b.addEventListener("click",()=>{state.pack=+b.dataset.pack;update();toast(PACKS[state.pack].name+" gekozen");$("#koop").scrollIntoView({behavior:"smooth"})}));
   }
   function renderExtras(){
-    $("#extraOpts").innerHTML=EXTRAS.filter(e=>e.id!=="tafel"&&e.id!=="cadeau").map(e=>`<label class="opt sm"><input type="checkbox" value="${e.id}" ${state.extras.has(e.id)?"checked":""}><img src="../img/${e.img}.jpg" alt=""><span><b>${e.name}</b><small>${e.desc}</small></span><span class="r">+${eur(e.price)}${e.was?`<s>${eur(e.was)}</s>`:""}</span></label>`).join("");
-    $("#extraOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{i.checked?state.extras.add(i.value):state.extras.delete(i.value);update(false)}));
+    $("#extraOpts").innerHTML=EXTRAS.filter(e=>e.id!=="tafel"&&e.id!=="cadeau").map(e=>`<label class="opt sm"><input type="checkbox" value="${e.id}" ${state.extras.has(e.id)?"checked":""}><img src="../img/${e.img}.jpg" alt=""><span><b>${e.name}</b><small>${e.desc}</small>${state.extras.has(e.id)?`<span class="dq"><button type="button" data-xq="${e.id}" data-d="-1" aria-label="Minder">−</button><b>${qOf(e.id)}</b><button type="button" data-xq="${e.id}" data-d="1" aria-label="Meer">+</button></span>`:""}</span><span class="r">+${eur(e.price*(state.extras.has(e.id)?qOf(e.id):1))}${e.was?`<s>${eur(e.was)}</s>`:""}</span></label>`).join("");
+    $("#extraOpts").querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{i.checked?state.extras.add(i.value):(state.extras.delete(i.value),delete state.eq[i.value]);update()}));
+    $("#extraOpts").querySelectorAll("[data-xq]").forEach(b=>b.addEventListener("click",ev=>{ev.preventDefault();ev.stopPropagation();const k=b.dataset.xq,n=qOf(k)+(+b.dataset.d);if(n<1){state.extras.delete(k);delete state.eq[k]}else state.eq[k]=Math.min(10,n);update()}));
   }
   function update(rerenderExtras=true){
+    if(state.size!=="groot")state.pack=0;if($("#packBox"))$("#packBox").hidden=state.size!=="groot";
     if($("#qVal"))$("#qVal").textContent=state.qty;
     const s=SIZES[state.size],{t,was}=totals();
     $("#pName").textContent=s.full;
@@ -1116,7 +1118,7 @@ footer{background:var(--night-2)}
     const s=SIZES[state.size],p=PACKS[state.pack];
     let h="";
     if(state.haard){
-      h+=`<div class="line"><img src="../img/${s.img}.jpg" alt=""><div><b>${s.full}</b><span class="dq"><button type="button" data-q="haard" data-d="-1" aria-label="Minder">−</button><b>${state.qty}</b><button type="button" data-q="haard" data-d="1" aria-label="Meer">+</button></span><button type="button" class="x" data-rm="haard">Verwijderen</button></div><div class="r">${eur((s.price+p.add)*state.qty)}<s>${eur((s.was+p.val)*state.qty)}</s></div></div>`;
+      h+=`<div class="line"><img src="../img/${s.img}.jpg" alt=""><div><b>${PACKS[state.pack].n>1?"Flametower "+PACKS[state.pack].name+" · "+PACKS[state.pack].short:s.full}</b><span class="dq"><button type="button" data-q="haard" data-d="-1" aria-label="Minder">−</button><b>${state.qty}</b><button type="button" data-q="haard" data-d="1" aria-label="Meer">+</button></span><button type="button" class="x" data-rm="haard">Verwijderen</button></div><div class="r">${eur((s.price+p.add)*state.qty)}<s>${eur((s.was+p.val)*state.qty)}</s></div></div>`;
       if(state.duo) h+=`<div class="line"><img src="../img/f52.jpg" alt=""><div><b>Tweede Flametower Grand</b><small>Duo-prijs: 2× Grand voor €449</small><button type="button" class="x" data-rm="duo">Verwijderen</button></div><div class="r">${eur(DUO.price)}<s>${eur(DUO.was)}</s></div></div>`;
     }
     EXTRAS.forEach(e=>{if(state.extras.has(e.id)) h+=`<div class="line"><img src="../img/${e.img}.jpg" alt=""><div><b>${e.name}</b><span class="dq"><button type="button" data-q="${e.id}" data-d="-1" aria-label="Minder">−</button><b>${qOf(e.id)}</b><button type="button" data-q="${e.id}" data-d="1" aria-label="Meer">+</button></span><button type="button" class="x" data-rm="${e.id}">Verwijderen</button></div><div class="r">${eur(e.price*qOf(e.id))}${e.was?`<s>${eur(e.was*qOf(e.id))}</s>`:""}</div></div>`});
